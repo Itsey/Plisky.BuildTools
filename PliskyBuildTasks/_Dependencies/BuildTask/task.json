@@ -1,0 +1,74 @@
+﻿{
+    "id": "7d637600-b7d8-4f01-852d-04b532ea29eb",
+    "name": "PliskyVersioner",
+    "friendlyName": "Plisky Versioner",
+    "description": "Build Step to perform versioning and update project files with updated verison inforamtion.",
+    "helpMarkDown": "[link](http://go.microsoft.com/fwlink/?LinkID=613733)",
+    "category": "Utility",
+    "visibility": [
+                  "Build",
+                  "Release"
+                  ],    
+    "author": "Jim",
+    "version": {
+        "Major": 0,
+        "Minor": 0,
+        "Patch": 4
+    },
+    "demands": [
+        "Cmd"
+    ],
+    "minimumAgentVersion": "1.83.0",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": false
+    }
+  ],
+  "instanceNameFormat": "versioner $(VersionNumber) $(AssemblyVersionFiles) $(FileVersionFiles) $(WixVersionFiles)",
+    "inputs": [
+      {
+        "name": "VersionNumber",
+        "type": "string",
+        "label": "VersionNumber",
+        "defaultValue": "1.0.0.0",
+        "required": true,
+        "helpMarkDown": "The version number to apply to the build."
+      },
+      {
+        "name": "AssemblyVersionFiles",
+        "type": "string",
+        "label": "Assembly Files",
+        "defaultValue": "**\\properties\\assemblyinfo.cs",
+        "helpMarkDown": "A list of all assembly info files to update.",
+        "required": false,
+        "groupName": "advanced"
+      },
+      {
+        "name": "FileVersionFiles",
+        "type": "string",
+        "label": "File Version Files",
+        "defaultValue": "**\\properties\\assemblyinfo.cs",
+        "helpMarkDown": "A list of all file info files to update.",
+        "required": false,
+        "groupName": "advanced"
+      },
+      {
+            "name": "WixVersionFiles",
+            "type": "string",
+            "label": "Wix Files",
+            "defaultValue":"**\\properties\\product.wxs",
+            "helpMarkDown": "A list of all assembly info files to update.",
+            "required":false,
+            "groupName":"advanced"
+        }
+    ],
+     "execution": {       
+        "PowerShell": {
+            "target": "$(currentDirectory)\\versioner.ps1",
+            "argumentFormat": "",
+            "workingDirectory": "$(currentDirectory)"
+        }
+    }
+}

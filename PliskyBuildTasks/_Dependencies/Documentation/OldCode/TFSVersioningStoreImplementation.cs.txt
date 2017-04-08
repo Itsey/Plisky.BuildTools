@@ -1,0 +1,458 @@
+﻿namespace LBG.Insurance.Toolset.Build {
+
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using LBG.Insurance.Developer.Diagnostics;
+
+    /// <summary>
+    /// Implementation to store fragment files in TFS so that they are versioned and secured.
+    /// </summary>
+    internal class TFSVersioningStoreImplementation : VersioningStorageBase {
+
+        private string fullTFSPath;
+        private string tfsSystemPath;
+
+        /// <summary>
+        /// Default vault is the live tfs server.
+        /// </summary>
+        private const string defaultTfsServer = "http://teamsystem.local:8080";
+        private const string defaultVersioningRoot = "$/Central/Shared/VersioningData/";
+        private string versioningDataRootTFSPath; 
+
+        private TFSSourceControlSupport tfsss;
+
+        private string localRootWorking;
+        private string supplyCentrePathMapping;
+
+        private bool isInitialised;  // Frig.
+    
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tagName"></param>
+        private void SetIdentifierName(string tagName) {
+            if ((systemName == null) || (systemName.Length == 0)) { throw new InvalidOperationException("The system name must be set before specifying the identifier name"); }
+
+            if (tagName.IndexOfAny(Path.GetInvalidPathChars()) >= 0) {
+                throw new ArgumentException("The filename can not contain invalid characters", tagName);
+            }
+
+            this.identifierName = tagName;
+
+            this.fullTFSPath = versioningDataRootTFSPath + this.supplyCentre.ToString() + "/" + this.systemName + "/" + tagName;
+            Tex.VerboseLog("FullPath:" + this.fullTFSPath);
+
+            try {
+                InitialiseFileMapping();
+            } catch (FileNotFoundException fnf) {
+                string errorIdent = "(" + this.supplyCentre + ")(" + this.systemName + ")(" + tagName + ")";
+                Tex.Warning("File was not found for the supply centre " + errorIdent);
+                throw new InvalidOperationException("The VersioningInformation has not been created for this system. You should run build tools helper first. (" + errorIdent + ")", fnf);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ksc"></param>
+        private void SetSupplyCentre(KnownSupplyCentre ksc) {
+            if (!Enum.IsDefined(typeof(KnownSupplyCentre), ksc)) {
+                throw new InvalidOperationException("The supply centre is invalid.");
+            }
+            this.supplyCentre = ksc;
+
+            
+            InitialiseSupplyCentreLevelMapping();
+            ClearDownWorkspaceMapping();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="sysName"></param>
+        private void SetSystemName(string sysName) {
+            if (!Enum.IsDefined(typeof(KnownSupplyCentre), this.supplyCentre)) {
+                throw new InvalidOperationException("The supply centre has not been defined yet, you must specify a supply centre before setting a system name.");
+            }
+            // This lot is specific to our implementation so we check that properly
+            if (sysName.IndexOfAny(Path.GetInvalidPathChars()) >= 0) {
+                throw new ArgumentException("The filename can not contain invalid characters", sysName);
+            }
+
+            this.systemName = sysName;
+            this.tfsSystemPath = versioningDataRootTFSPath + this.supplyCentre.ToString() + "/" + systemName + "/";
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string SystemName {
+            get {
+                return this.systemName;
+            }
+            set {
+                SetSystemName(value);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public string IdentifierName {
+            get { return this.identifierName; }
+            set { SetIdentifierName(value); }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        public void VerifyInitialisation() {
+            if (!isInitialised) { throw new InvalidOperationException("The Class Has Not Been Initialised, Call InitialiseCorrectly"); }
+
+            if (!Enum.IsDefined(typeof(KnownSupplyCentre), this.supplyCentre)) {
+                throw new InvalidOperationException("The supply centre is not defined.");
+            }
+            if ((systemName == null) || (systemName.Length == 0)) {
+                throw new InvalidOperationException("The system name is not defined.");
+            }
+            if ((identifierName == null) || (identifierName.Length == 0)) {
+                throw new InvalidOperationException("The identifier name is not defined");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        internal TFSVersioningStoreImplementation() : this(defaultTfsServer,defaultVersioningRoot) {                       
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tfsServer"></param>
+        internal TFSVersioningStoreImplementation(string tfsServer) : this(tfsServer,defaultVersioningRoot) {
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tfsServer"></param>
+        /// <param name="versioningRoot"></param>
+        internal TFSVersioningStoreImplementation(string tfsServer, string versioningRoot) {
+            Tex.Log("Connecting to TFS:", tfsServer);         
+            Tex.VerboseLog("VersioningRoot:", versioningRoot);
+
+            InitialiseTFS(tfsServer, versioningRoot);            
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ksc"></param>
+        internal void InitialiseKsc(KnownSupplyCentre ksc) {
+            SetSupplyCentre(ksc);
+            isInitialised = true;
+        }
+        
+        /// <summary>
+        /// Creates a TFSStore implementation.
+        /// </summary>
+        /// <param name="ksc">The KSC.</param>
+        /// <param name="sysName">Name of the sys.</param>
+        /// <param name="tagName">Name of the tag.</param>
+        internal void InitialiseCorrectly(KnownSupplyCentre ksc, string sysName, string tagName) {
+            
+            #region entry code
+            // Internal method so ths should be sorted out by other internal code.
+            Tex.Assert(sysName != null, "Systemname cant be null");
+            Tex.Assert(sysName.Length > 0, "Systemname cant be empty");
+            Tex.Assert(tagName != null, "Tagname cant be null");
+            Tex.Assert(tagName.Length > 0, "tagname cant be zero");
+
+            SetSupplyCentre(ksc);
+            SetSystemName(sysName);
+
+            if (!Enum.IsDefined(typeof(KnownSupplyCentre), ksc)) {
+                throw new ArgumentException("The supply centre specified must be valid", "ksc");
+            }
+            #endregion
+            Tex.Log("TFS versioning store implementation online, for SS:" + ksc.ToString(), "SN:" + sysName + " TN:" + tagName);
+
+            SetSupplyCentre(ksc);
+            SetSystemName(sysName);
+            SetIdentifierName(tagName);
+
+            isInitialised = true;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void ClearDownWorkspaceMapping() {
+            try {
+                Tex.VerboseLog("Clearing down local copy of the path - " + supplyCentrePathMapping);
+                if (Directory.Exists(supplyCentrePathMapping)) {
+
+                    foreach (var filename in Directory.GetFiles(supplyCentrePathMapping, "*.*", SearchOption.AllDirectories)) {
+                        FileInfo fi = new FileInfo(filename);
+                        fi.IsReadOnly = false;
+                    }
+
+                    Directory.Delete(supplyCentrePathMapping, true);
+                }
+                // Swallow exceptions we arent interested in.
+            } catch (IOException) {
+                Tex.Warning("IOException in ClearDownWorkspaceMapping");
+            } catch (UnauthorizedAccessException) {
+                Tex.Warning("UnauthorizedAccessException in ClearDownWorkspaceMapping");
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void InitialiseSupplyCentreLevelMapping() {
+
+            this.supplyCentrePathMapping = Path.Combine(localRootWorking, this.supplyCentre.ToString()); ;
+
+            if (!Directory.Exists(this.supplyCentrePathMapping)) {
+                Directory.CreateDirectory(this.supplyCentrePathMapping);
+            }
+        }
+
+        /// <summary>
+        /// Make sure that the local file has been mapped correctly to TFS such that it can be checked out and worked on.
+        /// </summary>
+        private void InitialiseFileMapping() {
+            Tex.Log("Initialising file mapping for the TFS data store.");
+
+            string tempPath = this.supplyCentrePathMapping;
+
+            tempPath = Path.Combine(tempPath, this.systemName);
+            if (!Directory.Exists(tempPath)) {
+                Directory.CreateDirectory(tempPath);
+
+            }
+            this.tfsSystemPath = tempPath;
+
+
+            tfsss.VerifyWorkspaceForLocalPathWithGet(tempPath);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal string[] ListSystemNames() {
+            Tex.Log("ListSystemNames called for supply centre " + this.supplyCentre.ToString());
+
+            List<string> result = new List<string>();
+            foreach (string s in this.tfsss.ListFoldersUnderPath(this.supplyCentrePathMapping)) {
+                string[] splits = s.Split(Path.DirectorySeparatorChar);
+                result.Add(splits[splits.Length - 1]);
+                Tex.VerboseLog("Identified System " + s + " returning as " + splits[splits.Length - 1]);
+            }
+            return result.ToArray();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="system"></param>
+        /// <returns></returns>
+        internal string[] ListIdentifierNames(string system) {
+            #region entry code
+            if ((system == null) || (system.Length == 0)) { throw new ArgumentException("system can not be null or zero length when retrieving identifiers for that system.", "system"); }
+            #endregion
+            Tex.Log("ListIdentifierNames called for supply centre " + this.supplyCentre.ToString(), "Sys:" + system);
+
+            string path = Path.Combine(this.supplyCentrePathMapping, system);
+            List<string> result = new List<string>();
+
+            foreach (string s in this.tfsss.ListFilenamesUnderPath(path)) {
+                if (s.EndsWith(".vfrag")) {
+                    result.Add(Path.GetFileNameWithoutExtension(s));
+                }
+            }
+            return result.ToArray();
+
+        }
+        
+        /// <summary>
+        /// Ensure that the component is hooked up to TFS correctly such that the TFS commands can work.  After this method has been
+        /// called then the memebers activeWorkspace and tfsVersionControl should be valid.
+        /// </summary>
+        private void InitialiseTFS(string tfsServerName, string versioningRootPath) {
+            Tex.Log("Initialising connection to TFS");
+            string workspaceName = "VerForBuild_" + Environment.MachineName;
+
+            if (string.IsNullOrEmpty(versioningRootPath)) {
+                versioningDataRootTFSPath = defaultVersioningRoot;
+            } else {
+                versioningDataRootTFSPath = versioningRootPath;
+            }
+
+            this.tfsss = new TFSSourceControlSupport(tfsServerName);
+
+            Tex.Assert(this.tfsss != null, "It should not be possible that the tfsss is null now, it should either be valid or have thrown an exception");
+
+            string userIdent = TFSSourceControlSupport.currentRunningUserName;
+            // Have put user identity into the path name for when there is a hard coded temp directory used across multiple user ID's
+            if (userIdent.IndexOfAny(Path.GetInvalidPathChars()) > 0) {
+                foreach (char c in Path.GetInvalidPathChars()) {
+                    userIdent = userIdent.Replace(c, '_');
+                }
+            }
+
+            this.localRootWorking = Path.Combine(Path.GetTempPath(), userIdent + "\\BuildVerWkspc\\");
+
+
+            Tex.VerboseLog("Attempting to createlocalpathworkspacemapping", workspaceName);
+            tfsss.CreateLocalPathWorkspaceMapping(versioningDataRootTFSPath, localRootWorking, workspaceName);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private FileVersioningStoreImplementation activeVersioningStore;
+
+        /// <summary>
+        /// Creates a new instance of the data store, so that the versioning information can be stored and loaded.  This 
+        /// new instance defaults to default versioning values.
+        /// </summary>
+        internal override void CreateNewDataStorage() {
+            VerifyInitialisation();
+            Tex.Log("CreateNewDataStorage, attempting to create a versioning fragment file");
+            VerifyFileStoreExists(true);
+
+            if (!File.Exists(activeVersioningStore.fullFilename)) {
+                throw new InvalidOperationException("The versioning store could not be created");
+            }
+            tfsss.AddLocalFiletoSourceControl(activeVersioningStore.fullFilename, "***NO_CI ***");
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal override int GetHighestSupportedDigit() {
+            return this.activeVersioningStore.GetHighestSupportedDigit();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal override int[] GetKnownSupportedDigits() {
+            return this.activeVersioningStore.GetKnownSupportedDigits();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="digitName"></param>
+        /// <returns></returns>
+        internal override DigitIncremementBehaviour GetDigitBehaviour(DigitName digitName) {
+            VerifyInitialisation();
+            try {
+                VerifyFileStoreExists(false);
+
+                Tex.Assert(activeVersioningStore != null, "The filestore must have been initialised before data can be loaded");
+                return this.activeVersioningStore.GetDigitBehaviour(digitName);
+            } catch (Exception ex) {
+                Tex.Error("There was an error during the GetDigitBehaviour method.", ex);
+                throw;
+            }
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="allowCreate"></param>
+        private void VerifyFileStoreExists(bool allowCreate) {
+            if (activeVersioningStore == null) {
+                string expectedLocalFile = Path.Combine(tfsSystemPath, this.identifierName + ".vfrag");
+
+                Tex.VerboseLog("Attempting to download latest workspace, as active versioning store is null, hoping to get fresh copy.");
+                tfsss.GetExistingWorkspaceForLocalPath(expectedLocalFile);
+
+                activeVersioningStore = new FileVersioningStoreImplementation(expectedLocalFile);
+
+                Tex.Log("FileVersioningStore used in TFSVersioning store set to path:" + expectedLocalFile);
+
+                if (!File.Exists(expectedLocalFile)) {
+                    if (allowCreate) {
+                        activeVersioningStore.CreateNewDataStorage();
+                    } else {
+                        throw new FileNotFoundException("The VersioningStoreFile was not found", expectedLocalFile);
+                    }
+                }
+            } else {
+                Tex.VerboseLog("FileStore already exists, downloading latest copy.");
+                tfsss.GetExistingWorkspaceForLocalPath(activeVersioningStore.fullFilename);
+            }
+        }
+
+        /// <summary>
+        /// Removes an instance of the data store, ensuring that the verisoning storage is cleared up.
+        /// </summary>
+        internal override void DeleteDataStorage() {
+            VerifyInitialisation();
+            VerifyFileStoreExists(false);
+            tfsss.DeleteLocalFile(activeVersioningStore.fullFilename, "Versioning Removing Store");
+
+        }
+
+        /// <summary>
+        /// Load versioning data from the versioning store and create a VersioningData structure.
+        /// </summary>
+        /// <param name="majorDigitToUse">Major digit to use when behaviour in MajorDeterminesVersionNumber</param>
+        /// <returns></returns>
+        internal override VersioningData LoadVersioningData(int majorDigitToUse) {
+            VerifyInitialisation();
+            try {
+                VerifyFileStoreExists(false);
+
+                Tex.Assert(activeVersioningStore != null, "The filestore must have been initialised before data can be loaded");
+                return activeVersioningStore.LoadVersioningData(majorDigitToUse);
+            } catch (Exception ex) {
+                Tex.Warning("VersionSupport, There was an error during the LoadVersioningInformation method.");
+                Tex.Dump(ex, "Error loading XML Fragment file into versioning support class");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Writes the supplied versioning data out to the filename using XML formatting.
+        /// </summary>
+        /// <param name="vd">The versioning data to save</param>
+        /// <param name="allowNewSection">Determines whether the save operation should create a new section for the major value if its not already in the file.</param>
+        /// <remarks>If allowNewSection is false and the vd.Major.Behaviour is set to MajorDeterminesVersionNumber then an error will occur if the
+        /// version number has not already been saved to the file at least once.</remarks>
+        internal override void SaveVersioningData(VersioningData vd, bool allowNewSection) {
+            VerifyInitialisation();
+            Tex.Log("TFSVersioningStore saving its data into a file managed by TFS");
+            //Debugger.Break();
+            VerifyFileStoreExists(true);
+
+            Tex.Assert(activeVersioningStore != null, "The active versioning store must have been initialised before saving");
+
+            if (tfsss.FileInSourceControl(activeVersioningStore.fullFilename)) {
+                Tex.VerboseLog("File located in source control, attempting to lock and checkin.", activeVersioningStore.fullFilename);
+                tfsss.LockFileForEdit(activeVersioningStore.fullFilename);
+                activeVersioningStore.SaveVersioningData(vd, true);
+                Tex.VerboseLog("AVS:", activeVersioningStore.fullFilename);
+
+                tfsss.CheckinLocalFileChanges(activeVersioningStore.fullFilename, "***NO_CI***");
+            } else {
+                Tex.VerboseLog("File not located in source control, attempting to add", activeVersioningStore.fullFilename);
+                activeVersioningStore.SaveVersioningData(vd, true);
+                tfsss.AddLocalFiletoSourceControl(activeVersioningStore.fullFilename, "***NO_CI***");
+            }
+
+        }
+    }
+}

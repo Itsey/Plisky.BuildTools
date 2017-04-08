@@ -1,0 +1,221 @@
+﻿using System.Collections.Generic;
+
+namespace LBG.Insurance.Toolset.Build {
+    /// <summary>
+    /// dummy
+    /// </summary>
+    public abstract class TFSSourceSupportBase {
+        /// <summary>
+        /// Returns the list of folders that are underneat a specified local folder.  The local folder parameter must refer
+        /// to a folder that exists locally on the disk.
+        /// </summary>
+        /// <param name="localFolder">The local folder to work with</param>
+        /// <returns>A List of folder names that are under the specified folder</returns>
+        public abstract string[] ListFoldersUnderPath(string localFolder);
+
+        /// <summary>
+        /// Ensures that the local path is mapped correctly to source control.
+        /// </summary>
+        /// <param name="pathName">The name of the local path</param>
+        /// <returns>true if the operation has succeeded</returns>
+        public abstract bool VerifyWorkspaceForLocalPathWithGet(string pathName);
+
+        /// <summary>
+        /// Checks the in change to file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="comment">The comment.</param>
+        /// <returns></returns>
+        public abstract bool CheckInChangeToFile (string filename, string comment);
+        /// <summary>
+        /// Gets the existing workspace for local path.
+        /// </summary>
+        /// <param name="localpath">The localpath.</param>
+        /// <returns></returns>
+        public abstract bool GetExistingWorkspaceForLocalPath(string localpath);
+        /// <summary>
+        /// Creates the local path workspace mapping.
+        /// </summary>
+        /// <param name="serverPath">The server path.</param>
+        /// <param name="localPath">The local path.</param>
+        /// <param name="workspaceName">Name of the workspace.</param>
+        public abstract void CreateLocalPathWorkspaceMapping(string serverPath, string localPath, string workspaceName);
+        /// <summary>
+        /// Adds the local fileto source control.
+        /// </summary>
+        /// <param name="localFilename">The local filename.</param>
+        /// <param name="comment">The comment.</param>
+        public abstract void AddLocalFiletoSourceControl(string localFilename, string comment);
+        /// <summary>
+        /// Checkins the local file changes.
+        /// </summary>
+        /// <param name="localFilename">The local filename.</param>
+        /// <param name="comment">The comment.</param>
+        internal abstract void CheckinLocalFileChanges(string localFilename, string comment);
+        /// <summary>
+        /// Deletes the local file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="comment">The comment.</param>
+        public abstract void DeleteLocalFile(string filename, string comment);
+        /// <summary>
+        /// Files the in source control.
+        /// </summary>
+        /// <param name="fname">The fname.</param>
+        /// <returns></returns>
+        internal abstract bool FileInSourceControl(string fname);
+        /// <summary>
+        /// Lists the filenames under path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        internal abstract string[] ListFilenamesUnderPath(string path);
+        /// <summary>
+        /// Pends the edit for filename.
+        /// </summary>
+        /// <param name="fname">The fname.</param>
+        internal abstract void PendEditForFilename(string fname);
+
+        /// <summary>
+        /// Gets the TFS source support.
+        /// </summary>
+        /// <param name="mock">if set to <c>true</c> [mock].</param>
+        /// <param name="serverName">The TFS Server</param>
+        /// <returns></returns>
+        public static TFSSourceSupportBase GetTFSSourceSupport(bool mock,string serverName) {
+            if (mock) {
+                return new TFSSourceSupportMock();
+            } else {
+                return new TFSSourceControlSupport(serverName);
+            }
+        }
+
+        internal abstract void CheckinLocalFileChanges(List<string> filenamesAdded, string comment);
+
+
+    }
+
+
+    /// <summary>
+    /// dummy
+    /// </summary>
+    public class TFSSourceSupportMock : TFSSourceSupportBase {
+        /// <summary>
+        /// Returns the list of folders that are underneat a specified local folder.  The local folder parameter must refer
+        /// to a folder that exists locally on the disk.
+        /// </summary>
+        /// <param name="localFolder">The local folder to work with</param>
+        /// <returns>
+        /// A List of folder names that are under the specified folder
+        /// </returns>
+        public override string[] ListFoldersUnderPath(string localFolder) {
+            List<string> result = new List<string>();
+            result.Add("ASDF");
+            result.Add("ASDF2");
+            return result.ToArray();
+
+        }
+
+        /// <summary>
+        /// Pends the edit for filename.
+        /// </summary>
+        /// <param name="fname">The fname.</param>
+        internal override void PendEditForFilename(string fname) {
+        
+        }
+        /// <summary>
+        /// Checkins the local file changes.
+        /// </summary>
+        /// <param name="filenamesAdded">The filenames added.</param>
+        /// <param name="comment">The comment.</param>
+        internal override void CheckinLocalFileChanges(List<string> filenamesAdded, string comment) {
+            
+        }
+
+
+        /// <summary>
+        /// Gets the existing workspace for local path.
+        /// </summary>
+        /// <param name="localpath">The localpath.</param>
+        /// <returns></returns>
+        public override bool GetExistingWorkspaceForLocalPath(string localpath) {
+            return true;
+        }
+
+
+        /// <summary>
+        /// Ensures that the local path is mapped correctly to source control.
+        /// </summary>
+        /// <param name="pathName">The name of the local path</param>
+        /// <returns>true if the operation has succeeded</returns>
+        public override bool VerifyWorkspaceForLocalPathWithGet(string pathName) {
+            return true;
+        }
+
+        /// <summary>
+        /// Creates the local path workspace mapping.
+        /// </summary>
+        /// <param name="serverPath">The server path.</param>
+        /// <param name="localPath">The local path.</param>
+        /// <param name="workspaceName">Name of the workspace.</param>
+        public override void CreateLocalPathWorkspaceMapping(string serverPath, string localPath, string workspaceName) {
+           
+        }
+
+        /// <summary>
+        /// Adds the local fileto source control.
+        /// </summary>
+        /// <param name="localFilename">The local filename.</param>
+        /// <param name="comment">The comment.</param>
+        public override void AddLocalFiletoSourceControl(string localFilename, string comment) {
+           
+        }
+
+        /// <summary>
+        /// Checkins the local file changes.
+        /// </summary>
+        /// <param name="localFilename">The local filename.</param>
+        /// <param name="comment">The comment.</param>
+        internal override void CheckinLocalFileChanges(string localFilename, string comment) {
+        
+        }
+
+
+        /// <summary>
+        /// Deletes the local file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="comment">The comment.</param>
+        public override void DeleteLocalFile(string filename, string comment) {
+           
+        }
+
+        /// <summary>
+        /// Files the in source control.
+        /// </summary>
+        /// <param name="fname">The fname.</param>
+        /// <returns></returns>
+        internal override bool FileInSourceControl(string fname) {
+            return true;
+        }
+
+        /// <summary>
+        /// Checks the in change to file.
+        /// </summary>
+        /// <param name="filename">The filename.</param>
+        /// <param name="comment">The comment.</param>
+        /// <returns></returns>
+        public override bool CheckInChangeToFile(string filename, string comment) {
+            return true;
+        }
+
+        /// <summary>
+        /// Lists the filenames under path.
+        /// </summary>
+        /// <param name="path">The path.</param>
+        /// <returns></returns>
+        internal override string[] ListFilenamesUnderPath(string path) {
+            return new string[0];
+        }
+    }
+}

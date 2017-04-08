@@ -1,0 +1,99 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{DB121786-9FDC-4DA8-AA41-937F014C6BE5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>_Dependencies</RootNamespace>
+    <AssemblyName>_Dependencies</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Properties\" />
+    <Folder Include="TestData\TestScripts\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="BuildTask\RunTestVersioner.ps1" />
+    <None Include="BuildTask\task.json" />
+    <None Include="BuildTask\versioner.ps1" />
+    <None Include="Documentation\OfflineGrunt.md" />
+    <None Include="SupportingFiles\releaseversioner.cmd" />
+    <None Include="TestData\Generated\gen_FileTests.csv" />
+    <None Include="TestData\Generated\gen_VersioningParseTests.csv" />
+    <None Include="TestData\Generated\gen_VerToStringTests.csv" />
+    <None Include="TestData\VersioningTestDAta.xlsm" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BuildTask\icon.png" />
+    <Content Include="FileReferences\Minimatch.dll" />
+    <Content Include="FileReferences\Minimatch.pdb" />
+    <Content Include="FileReferences\Minimatch.XML" />
+    <Content Include="FileReferences\PliskyLib.dll" />
+    <Content Include="FileReferences\PliskyLib.pdb" />
+    <Content Include="FileReferences\PliskySupport.dll" />
+    <Content Include="FileReferences\PliskySupport.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Documentation\OldCode\FileVersioningStoreImplementation.cs.txt" />
+    <Content Include="Documentation\OldCode\frmPromptUser.cs.txt" />
+    <Compile Include="Documentation\OldCode\frmPromptUser.designer.cs">
+      <DependentUpon>frmPromptUser.cs.txt</DependentUpon>
+    </Compile>
+    <Content Include="Documentation\OldCode\TFSSourceControlSupport.cs.txt" />
+    <Content Include="Documentation\OldCode\TFSSourceSupportBase.cs.txt" />
+    <Content Include="Documentation\OldCode\TFSVersioningStoreImplementation.cs.txt" />
+    <Content Include="Documentation\OldCode\VersionableDigit.cs.txt" />
+    <Content Include="Documentation\OldCode\VersioningData.cs.txt" />
+    <Content Include="Documentation\OldCode\VersioningStorageBase.cs.txt" />
+    <Content Include="Documentation\OldCode\VersionSupport.cs.txt" />
+    <Content Include="TestData\TestFileStructure\JustAssemblyVersion.txt" />
+    <Content Include="TestData\TestFileStructure\JustInformationalVersion.txt" />
+    <Content Include="TestData\TestFileStructure\JustFileVersion.txt" />
+    <Content Include="TestData\TestFileStructure\DoesNotChange\AssemblyInfo.txt" />
+    <Content Include="TestData\TestFileStructure\Properties\AssemblyInfo.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Documentation\OldCode\frmPromptUser.resx">
+      <DependentUpon>frmPromptUser.cs.txt</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

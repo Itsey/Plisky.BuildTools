@@ -1,0 +1,550 @@
+﻿namespace LBG.Insurance.Toolset.Build {
+
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Linq;
+    using System.Threading;
+    using System.Xml;
+    using System.Xml.Linq;
+    using LBG.Insurance.Developer.Diagnostics;
+
+    /// <summary>
+    /// Implements versioning storage for files.  This recreates the existing versioning storage mechanism.
+    /// </summary>
+    internal class FileVersioningStoreImplementation : VersioningStorageBase {
+        internal string fullFilename;
+
+        /// <summary>
+        /// Creates a FileVersioningStoreImplementation, using the filename supplied.  The filename is validated for correctness
+        /// but not validated to exist.
+        /// </summary>
+        /// <param name="filePath">The file path or name to supply.</param>
+        internal FileVersioningStoreImplementation(string filePath) {
+
+            string fileName = Path.GetFileName(filePath);
+            if (0 != fileName.CompareTo(filePath)) {
+                // We look like we were passed a file path
+                if (filePath.IndexOfAny(Path.GetInvalidPathChars()) >= 0) {
+                    throw new ArgumentException("The file path cannot contain invalid characters", filePath);
+                }
+            }
+
+            if (fileName.IndexOfAny(Path.GetInvalidFileNameChars()) >= 0) {
+                throw new ArgumentException("The file name cannot contain invalid characters", filePath);
+            }
+
+            // Bug 1233, If you save with one culture and load with another it errors.  Have therefore chosen to force all cultures
+            // to en-GB as this is the target audience.  A more correct fix would be to persist the culture but we should have no
+            // other cultures supported.
+            if (Thread.CurrentThread.CurrentCulture.LCID != 0x0809) {
+                throw new NotSupportedException("The culture that is currently loaded is not supported.  Please ensure that the process runs with the en-GB culture.");
+            }
+
+            fullFilename = filePath;
+        }
+
+        /// <summary>
+        /// Creates a new instance of the data store, so that the versioning information can be stored and loaded.  This 
+        /// new instance defaults to default versioning values.
+        /// </summary>
+        internal override void CreateNewDataStorage() {
+            this.SaveVersioningData(new VersioningData(), true);
+        }
+
+        /// <summary>
+        /// Removes an instance of the data store, ensuring that the verisoning storage is cleared up.
+        /// </summary>
+        internal override void DeleteDataStorage() {
+
+            if (File.Exists(fullFilename)) {
+
+                // TODO : Remove readonly
+                File.Delete(fullFilename);
+            }
+        }
+
+        /// <summary>
+        /// Load versioning data from a versioning fragment files and create a VersioningData structure.
+        /// </summary>
+        /// <param name="majorDigitToUse">Major digit to use when behaviour in MajorDeterminesVersionNumber</param>
+        /// <returns></returns>
+        internal override VersioningData LoadVersioningData(int majorDigitToUse) {
+
+            if (!File.Exists(this.fullFilename)) {
+                // Typically this has been fully validated before we reach this point in the code but the unit tests come in at a lower
+                // level requiring the validation again.
+                throw new FileNotFoundException("The versioning data file could not be found", this.fullFilename);
+            }
+
+            if (Thread.CurrentThread.CurrentCulture.LCID != 0x0809) {
+                throw new NotSupportedException("The culture that is currently loaded is not supported.  Please ensure that the process runs with the en-GB culture.");
+            }
+
+            XDocument versioningData;
+
+            try {
+                versioningData = XDocument.Load(this.fullFilename);
+            } catch (XmlException xmlx) {
+                Tex.Dump(xmlx, "XMLException when trying to load the versioning fragment");
+                throw new InvalidDataException("The VersioningFragment was not able to be loaded", xmlx);
+            }
+
+            VersioningData result;
+            try {
+                try {
+                    Tex.VerboseLog("Performing default load on version number");
+                    var digits = from c in versioningData.Element("versioningfragment").Elements("default").Elements("digit")
+                                 select new VersionableDigit {
+                                     DigitPosition = (DigitName)Enum.Parse(typeof(DigitName), c.Attribute("name").Value),
+                                     DigitValue = int.Parse(c.Value),
+                                     Behaviour = (DigitIncremementBehaviour)Enum.Parse(typeof(DigitIncremementBehaviour), c.Attribute("style").Value),
+                                     OverrideValueDuringIncrement = c.Attribute("pendingupdate") != null ? int.Parse(c.Attribute("pendingupdate").Value) : -1
+                                 };
+
+                    Tex.Assert(digits.Count() == VersioningData.NUM_DIGITS_MANAGED, "There was not enough digit data returned from the fragment file");
+                    if (digits.Count() < VersioningData.NUM_DIGITS_MANAGED) {
+                        throw new InvalidDataException("The digits part of the versioning file is invalid, This is most likely caused by an old version of the fragment from pre toolset release");
+                    }
+
+                    // now we have a set of valid digits create the VersioningData to be returned
+                    result = new VersioningData(digits);
+
+                    // set the relevant dates on the versioning data structure
+                    SetVersioningDataDates(result, versioningData.Element("versioningfragment").Elements("default").First());
+
+                    // if MajorDeterminesVersionNumber behaviour then majorDigitToUse must be supplied
+                    if (result.Major.Behaviour == DigitIncremementBehaviour.MajorDeterminesVersionNumber && majorDigitToUse < 0) {
+                        Tex.Log("Major digit to use must be specified when using MajorDeterminesVersionNumber behaviour", majorDigitToUse.ToString());
+                        throw new InvalidOperationException("Major digit to use must be specified when using MajorDeterminesVersionNumber behaviour");
+                    }
+
+                    // If majorDigitToUse has been specifed then overwrite the digit and date values
+                    if (majorDigitToUse >= 0) {
+                        Tex.VerboseLog("MajorDigit is specified, loading based on digit", majorDigitToUse.ToString());
+
+                        // major digit to use not valid when behaviour not MajorDeterminesVersionNumber
+                        if (result.Major.Behaviour != DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                            Tex.Log("Major digit can only be specifed when using MajorDeterminesVersionNumber", majorDigitToUse.ToString());
+                            throw new InvalidOperationException("Major digit can only be specifed when using MajorDeterminesVersionNumber");
+                        }
+
+                        try {
+                            var majorOwn = (from c in versioningData.Element("versioningfragment").Elements("majorown")
+                                            where c.Attribute("value").Value == majorDigitToUse.ToString()
+                                            select c);
+
+                            if (majorOwn.Count() == 0) {
+                                Tex.Log("Invalid MajorDigit has been specified, Throwing InvalidOperationException", majorDigitToUse.ToString());
+                                throw new InvalidOperationException(string.Format("Invalid Major digit specified: {0}", majorDigitToUse));
+                            }
+
+                            var majorValues = from d in majorOwn.First().Elements("digit")
+                                              select new {
+                                                  Value = int.Parse(d.Value),
+                                                  PendingUpdate = int.Parse(d.Attribute("pendingupdate").Value)
+                                              };
+
+                            Tex.Assert(majorValues.Count() == VersioningData.NUM_DIGITS_MANAGED, string.Format("The file has a strange number of digits in it for major {0} and therefore is corrupt", majorDigitToUse));
+                            if (majorValues.Count() != VersioningData.NUM_DIGITS_MANAGED) {
+                                Tex.Warning("Updating digits in versioning data there were not the expected number of digits");
+                                throw new InvalidDataException(string.Format("The digits part of the versioning file is invalid for major {0}, This is most likely caused by an old version of the fragment from pre toolset release", majorDigitToUse));
+                            }
+
+                            // update the digit and pending update values with the values for the specific major digit
+                            Tex.Log(string.Format("Updating VersioningData with values for Major {0}", majorDigitToUse));
+
+                            int vCount = 0;
+                            foreach (var dv in majorValues) {
+                                VersionableDigit vDigit = result[vCount];
+
+                                Tex.FurtherInfo(string.Format("Value: {0} replaced by {1}", vDigit.DigitValue, dv.Value));
+                                Tex.FurtherInfo(string.Format("OverrideValueDuringIncrement: {0} replaced by {1}", vDigit.OverrideValueDuringIncrement, dv.PendingUpdate));
+                                vDigit.DigitValue = dv.Value;
+                                vDigit.OverrideValueDuringIncrement = dv.PendingUpdate;
+                                vCount++;
+                            }
+
+                            // update the dates within the versioning data
+                            SetVersioningDataDates(result, majorOwn.First());
+
+                        } catch (NullReferenceException nrx) {
+                            Tex.Log("XML File likely corrupt / wrong type " + this.fullFilename);
+                            Tex.Dump(nrx, "Null reference trying to retrieve updated digits from the file for load by major version");
+                            throw;
+                        }
+                    }
+                } catch (FormatException fx) {
+                    Tex.Dump(fx, "Invalid data loading versioning digits");
+                    throw new InvalidDataException("The versioning digit could not be loaded, the file is corrupt. (" + this.fullFilename + ")", fx);
+                }
+            } catch (NullReferenceException nrx) {
+                Tex.Dump(nrx, "Exception trying to load versioning data");
+                throw new InvalidDataException("The VersioningFragment file to be loaded was corrupt", nrx);
+            }
+
+            return result;
+        }
+
+        /// <summary>
+        /// Sets LastBuildDate and BaseDate on VersioningData from the XElement passed
+        /// </summary>
+        /// <param name="vData">VersioningData to be updated</param>
+        /// <param name="parent">XElement containing data</param>
+        private static void SetVersioningDataDates(VersioningData vData, XElement parent) {
+            try {
+                var dates = from d in parent.Elements("date")
+                            select new {
+                                Name = d.Attribute("name").Value.ToLower(),
+                                Date = DateTime.Parse(d.Value)
+                            };
+
+                foreach (var x in dates) {
+                    switch (x.Name) {
+                        case "lastbuilddate":
+                            vData.LastBuildRunDate = x.Date;
+                            break;
+                        case "basedate":
+                            vData.BaseDate = x.Date;
+                            break;
+                        default:
+                            Tex.Warning("A date was found in the file which is neither of the expected dates.");
+                            break;
+                    }
+                }
+            } catch (FormatException fx) {
+                Tex.Dump(fx, "Format exception trying to read dates from versioning fragment file");
+                throw new InvalidDataException("The versioning date information could not be loaded, the file is corrupt", fx);
+            }
+        }
+
+        /// <summary>
+        /// Writes the supplied versioning data out to the filename using XML formatting.
+        /// </summary>
+        /// <param name="vd">The versioning data to save</param>
+        /// <param name="allowNewSection">If the major is used to determine version number decides whether an error occurs if this is not in the file</param>
+        internal override void SaveVersioningData(VersioningData vd, bool allowNewSection) {
+            string fileName = fullFilename;
+
+            Tex.Log("VersionSupport saving its state to filename:" + fileName);
+
+            try {
+                // Used a couple of times therefore cached here.
+                bool fileExists = File.Exists(fileName);
+
+                XDocument savedFile;
+
+                if (fileExists) {
+                    if ((File.GetAttributes(fileName) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly) {
+                        Tex.Log("VersionSupport, when trying to save data found that the file was readonly.  Attempting to remove readonly status.");
+                        File.SetAttributes(fileName, (File.GetAttributes(fileName) ^ FileAttributes.ReadOnly));
+                    }
+                    try {
+                        savedFile = XDocument.Load(fileName);
+
+                        FileVersioningStoreImplementation.UpdateExistingDefaultSection(savedFile, vd);
+                    } catch (IOException iox) {
+                        Tex.Dump(iox, "Trying to load XML before saving it gave IO Exception");
+                        throw new InvalidDataException("The XML File to be loaded was not valid.", iox);
+                    } catch (XmlException xmx) {
+                        Tex.Dump(xmx, "Trying to load XML before saving it gave XML Exception");
+                        throw new InvalidDataException("The XML File to be loaded was not valid.", xmx);
+                    }
+                } else {
+                    Tex.VerboseLog("File does not exist, saving default version information");
+                    savedFile = FileVersioningStoreImplementation.SaveDefaultVersionInformation(vd);
+                    savedFile.Save(fileName);
+                }
+
+                if (vd.Major.Behaviour == DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                    Tex.VerboseLog("MajorDeterminesVersionNumber is utilised, updating file.");
+
+                    bool matchMade = false;
+
+                    // Find whether this section even exists.
+                    foreach (XElement x in savedFile.Element("versioningfragment").Descendants("majorown")) {
+                        if (x.Attribute("value").Value == vd.Major.DigitValue.ToString()) {
+                            matchMade = true;
+                            break;
+                        }
+                    }
+
+                    if (matchMade) {
+                        FileVersioningStoreImplementation.UpdateExistingVersionSection(savedFile, vd);
+                    } else {
+                        if (allowNewSection) {
+                            FileVersioningStoreImplementation.InsertNewVersionSection(savedFile, vd);
+                        } else {                            
+                            throw new InvalidOperationException("The file does not contain the correct section.  This version file is not compatible with the version number "+vd.Major.DigitValue.ToString());
+                        }
+                    }
+                }
+                Tex.Log("VersionSupport, writing data out to the file", fileName);
+                savedFile.Save(this.fullFilename);
+
+            } catch (IOException iox) {
+                Tex.Dump(iox, "VersionSupport, File Error.  The Fragment file could not be read or written to the disk.");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal override int[] GetKnownSupportedDigits() {
+            if (!File.Exists(this.fullFilename)) {
+                // Typically this has been fully validated before we reach this point in the code but the unit tests come in at a lower
+                // level requiring the validation again.
+                throw new FileNotFoundException("The versioning data file could not be found", this.fullFilename);
+            }
+
+            XDocument versioningData;
+
+            try {
+                versioningData = XDocument.Load(this.fullFilename);
+            } catch (XmlException xmlx) {
+                Tex.Dump(xmlx, "XMLException when trying to load the versioning fragment");
+                throw new InvalidDataException("The VersioningFragment was not able to be loaded", xmlx);
+            }
+
+
+            // TODO : refactor
+            List<string> digitValues = (from c in versioningData.Element("versioningfragment").Elements("majorown")
+                                        select c.Attribute("value").Value).ToList<string>();
+
+            if (digitValues.Count == 0) {
+                throw new InvalidOperationException("The file does not support any major digits");
+            }
+
+            List<int> vals = new List<int>();
+            foreach (string s in digitValues) {
+                vals.Add(int.Parse(s));
+            }
+            return vals.ToArray();
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal override int GetHighestSupportedDigit() {
+
+            if (!File.Exists(this.fullFilename)) {
+                // Typically this has been fully validated before we reach this point in the code but the unit tests come in at a lower
+                // level requiring the validation again.
+                throw new FileNotFoundException("The versioning data file could not be found", this.fullFilename);
+            }
+
+            XDocument versioningData;
+
+            try {
+                versioningData = XDocument.Load(this.fullFilename);
+            } catch (XmlException xmlx) {
+                Tex.Dump(xmlx, "XMLException when trying to load the versioning fragment");
+                throw new InvalidDataException("The VersioningFragment was not able to be loaded", xmlx);
+            }
+
+
+            // TODO : refactor
+            List<string> digitValues = (from c in versioningData.Element("versioningfragment").Elements("majorown")
+                                        select c.Attribute("value").Value).ToList<string>();
+
+            if (digitValues.Count == 0) {
+                throw new InvalidOperationException("The file does not support any major digits");
+            }
+
+            List<int> vals = new List<int>();
+            foreach (string s in digitValues) {
+                vals.Add(int.Parse(s));
+            }
+            vals.Sort();
+            return vals[vals.Count - 1];
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="digitName"></param>
+        /// <returns></returns>
+        internal override DigitIncremementBehaviour GetDigitBehaviour(DigitName digitName) {
+
+            if (!File.Exists(this.fullFilename)) {
+                // Typically this has been fully validated before we reach this point in the code but the unit tests come in at a lower
+                // level requiring the validation again.
+                throw new FileNotFoundException("The versioning data file could not be found", this.fullFilename);
+            }
+
+            XDocument versioningData;
+
+            try {
+                versioningData = XDocument.Load(this.fullFilename);
+            } catch (XmlException xmlx) {
+                Tex.Dump(xmlx, "XMLException when trying to load the versioning fragment");
+                throw new InvalidDataException("The VersioningFragment was not able to be loaded", xmlx);
+            }
+
+            string requiredDigit = digitName.ToString();
+
+            var digitBehaviour = from d in versioningData.Element("versioningfragment").Elements("default").Elements("digit")
+                                 where d.Attribute("name").Value == requiredDigit
+                                 select d.Attribute("style").Value;
+
+            if (digitBehaviour.Count() != 1) {
+                throw new InvalidOperationException(string.Format("The file does not contain the expected amount of {0} digits", requiredDigit));
+            }
+            try {
+                return (DigitIncremementBehaviour)Enum.Parse(typeof(DigitIncremementBehaviour), digitBehaviour.First());
+            } catch (ArgumentException) {
+                throw new InvalidDataException("Exception trying to determine digit behaviour");
+            }
+        }
+
+        /// <summary>
+        /// Update the Default section of the versioning fragment with values from the 
+        /// VersioningData supplied
+        /// </summary>
+        /// <param name="savedFile"></param>
+        /// <param name="vd"></param>
+        private static void UpdateExistingDefaultSection(XDocument savedFile, VersioningData vd) { 
+            Tex.Assert(vd.Major.DigitValue > 0, "Invalid value for major");
+
+            var elementMatch = from c in savedFile.Element("versioningfragment").Elements("default")                               
+                               select c;
+
+
+            Tex.Assert(elementMatch != null, "Cant match the correct major digit");
+
+            foreach (XElement xe in elementMatch.Elements()) {
+                if (xe.Name == "date") {
+                    if (xe.Attribute("name").Value == "lastbuilddate") {
+                        xe.Value = vd.LastBuildRunDate.ToShortDateString();
+                    }
+                    if (xe.Attribute("name").Value == "basedate") {
+                        xe.Value = vd.BaseDate.ToShortDateString();
+                    }
+                } else {
+                    try {
+                        DigitName dn = (DigitName)Enum.Parse(typeof(DigitName), xe.Attribute("name").Value, true);
+                        xe.Attribute("style").Value = vd[dn].Behaviour.ToString();
+                        xe.Attribute("pendingupdate").Value = vd[dn].OverrideValueDuringIncrement.ToString();
+                        xe.Value = vd[dn].DigitValue.ToString();
+                    } catch (ArgumentException aox) {
+                        Tex.Dump(aox, "Exception trying to update the XML, invalid xml");
+                        throw;
+                    }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Updates the relevant MajorOwn section of the versioning fragment with values from the 
+        /// VersioningData supplied. Only applicable when behaviour is MajorDeterminesVersionNumber
+        /// </summary>
+        /// <param name="savedFile"></param>
+        /// <param name="vd"></param>
+        private static void UpdateExistingVersionSection(XDocument savedFile, VersioningData vd) {
+            Tex.Assert(vd.Major.Behaviour == DigitIncremementBehaviour.MajorDeterminesVersionNumber, "Invalid behaviour for major");
+            Tex.Assert(vd.Major.DigitValue > 0, "Invalid value for major");
+
+
+            var elementMatch = from c in savedFile.Element("versioningfragment").Elements("majorown")
+                               where c.Attribute("value").Value == vd.Major.DigitValue.ToString()
+                               select c;
+
+
+            Tex.Assert(elementMatch != null, "Cant match the correct major digit");
+
+            foreach (XElement xe in elementMatch.Elements()) {
+                if (xe.Name == "date") {
+                    if (xe.Attribute("name").Value == "lastbuilddate") {
+                        xe.Value = vd.LastBuildRunDate.ToShortDateString();
+                    }
+                    if (xe.Attribute("name").Value == "basedate") {
+                        xe.Value = vd.BaseDate.ToShortDateString();
+                    }
+                } else {
+                    try {
+                        DigitName dn = (DigitName)Enum.Parse(typeof(DigitName), xe.Attribute("name").Value, true);
+                        xe.Attribute("pendingupdate").Value = vd[dn].OverrideValueDuringIncrement.ToString();
+                        xe.Value = vd[dn].DigitValue.ToString();
+                    } catch (ArgumentException aox) {
+                        Tex.Dump(aox, "Exception trying to update the XML, invalid xml");
+                        throw;
+                    }
+                }
+            }
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="savedFile"></param>
+        /// <param name="vd"></param>
+        private static void InsertNewVersionSection(XDocument savedFile, VersioningData vd) {
+            #region entry code
+            Tex.Assert(vd.Major.DigitValue >= 0, "No digit should be less than zero");
+            Tex.Assert(vd.Major.OverrideValueDuringIncrement < 0, "The major should not be set to pending update");
+            Tex.Assert(vd.Minor.DigitValue >= 0, "No digit should be less than zero");
+            Tex.Assert(vd.Build.DigitValue >= 0, "No digit should be less than zero");
+            Tex.Assert(vd.Revision.DigitValue >= 0, "No digit should be less than zero");
+            #endregion
+
+            XElement newSection = new XElement("majorown", new XAttribute("value", vd.Major.DigitValue));
+
+            // For each fo the digits in the verisoning data write it out to the file.
+            foreach (DigitName dn in Enum.GetValues(typeof(DigitName))) {
+
+                XElement next = new XElement("digit",
+                new XAttribute("name", vd[dn].DigitPosition.ToString()),
+                    new XAttribute("pendingupdate", vd[dn].OverrideValueDuringIncrement),
+                    vd[dn].DigitValue);
+
+                newSection.Add(next);
+            }
+
+            XElement firstDate = new XElement("date", new XAttribute("name", "lastbuilddate"), vd.LastBuildRunDate.ToShortDateString());
+            XElement seconDate = new XElement("date", new XAttribute("name", "basedate"), vd.BaseDate.ToShortDateString());
+
+            newSection.Add(firstDate);
+            newSection.Add(seconDate);
+
+
+            savedFile.Element("versioningfragment").Add(newSection);
+
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="vd"></param>
+        /// <returns></returns>
+        private static XDocument SaveDefaultVersionInformation(VersioningData vd) {
+
+
+            // Now save out the versioning fragment.
+            XDocument result = new XDocument(new XElement("versioningfragment", new XElement("default")));
+
+            // For each fo the digits in the verisoning data write it out to the file.
+            foreach (DigitName dn in Enum.GetValues(typeof(DigitName))) {
+
+                XElement next = new XElement("digit",
+                new XAttribute("name", vd[dn].DigitPosition.ToString()),
+                    new XAttribute("style", vd[dn].Behaviour),
+                    new XAttribute("pendingupdate", vd[dn].OverrideValueDuringIncrement),
+                    vd[dn].DigitValue);
+
+                result.Element("versioningfragment").Element("default").Add(next);
+            }
+
+            XElement firstDate = new XElement("date", new XAttribute("name", "lastbuilddate"), new XAttribute("style", "automatic"), vd.LastBuildRunDate.ToShortDateString());
+            XElement seconDate = new XElement("date", new XAttribute("name", "basedate"), new XAttribute("style", "automatic"), vd.BaseDate.ToShortDateString());
+
+            result.Element("versioningfragment").Element("default").Add(firstDate);
+            result.Element("versioningfragment").Element("default").Add(seconDate);
+
+            return result;
+        }
+    }
+}

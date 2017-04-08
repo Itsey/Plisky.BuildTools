@@ -1,0 +1,16 @@
+parseTxtWithFix,major,minor,build ,revision,note,unique,error
+A1.0.0.0,1,0,0,0,Basic parse of version 1,v1,n
+A1.1.1.1,1,1,1,1,Basic parse 1.1.1.1,v2,n
+A100.0.0.0,100,0,0,0,Three digit major,v3,n
+A9999.1.9999.1,9999,1,9999,1,Four digit major and build,v4,n
+AA.1.1.1,-1,-1,-1,-1,Error condition alpha in major,v5,y
+A1.A.1.1,-1,-1,-1,-1,Error condition alpha in minor,v6,y
+A1.1.A.1,-1,-1,-1,-1,Error condition alpha in build,v7,y
+A1.1.1.A,-1,-1,-1,-1,Error condition alpha in revision,v8,y
+A'1.-10.1.1,-1,-1,-1,-1,"Error condition, negative digit",v9,y
+[1.1.1.1],1,1,1,1,Wix format plain parse,v10,n
+[45.24.89.90],45,24,89,90,Wix formate double digits,v11,n
+[ 10.2.34.5 ],10,2,34,5,"Wix Format, added whitespace",v12,n
+(1.1.1.1),1,1,1,1,CS format default,v13,n
+( 1.1.1.1 ),1,1,1,1,CS format with whitespace,v14,n
+( 10.11.12.13 ),10,11,12,13,CS format double digits with whitespace,v15,n

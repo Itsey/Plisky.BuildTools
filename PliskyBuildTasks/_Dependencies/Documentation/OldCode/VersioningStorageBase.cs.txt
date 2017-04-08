@@ -1,0 +1,66 @@
+﻿namespace LBG.Insurance.Toolset.Build {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Text;
+
+    /// <summary>
+    /// The base clase which owns storage of the verison number.  This is being added as a major change to the storage of versioning to allow
+    /// the abstraction out into a web service for those versions which are updated cross branches.
+    /// </summary>
+    internal abstract class VersioningStorageBase {
+        /// <summary>
+        /// Used by the storage mechanism as either the whole or part identifier for storage.  It is expected that some storages
+        /// will need more information but that will be implemnted in the storage specifics.
+        /// </summary>
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        protected KnownSupplyCentre supplyCentre;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        protected string systemName = string.Empty;
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Performance", "CA1823:AvoidUnusedPrivateFields")]
+        protected string identifierName = string.Empty;
+
+        /// <summary>
+        /// Creates a new storage slot, either a file or a database record or whatever.
+        /// </summary>
+        internal abstract void CreateNewDataStorage();
+
+        /// <summary>
+        /// Removes an existing one, this is principally used to support unit tests but could theoretically be used in live too.
+        /// </summary>
+        internal abstract void DeleteDataStorage();
+
+        /// <summary>
+        /// Retrieve the versioning persistance data from the store and populate the class which is returned.
+        /// </summary>
+        /// <param name="majorDigitToUse">The major digit to use to load the data or -1 if none is to be used</param>
+        /// <returns>The loaded versioning data.</returns>        
+        internal abstract VersioningData LoadVersioningData(int majorDigitToUse);
+
+        /// <summary>
+        /// Save the versioning data passed as the parameter out to the storage location
+        /// </summary>
+        /// <param name="vd">The data to be persisted</param>
+        /// <param name="allowNewSection">Determines whether a new section in the file can be created if the major value is determining the version number</param>
+        internal abstract void SaveVersioningData(VersioningData vd, bool allowNewSection);
+
+        /// <summary>
+        /// Returns the highest value major digit currently supported in the versioning store.
+        /// </summary>
+        /// <returns>Highest value loaded major digit</returns>
+        internal abstract int GetHighestSupportedDigit();
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        internal abstract int[] GetKnownSupportedDigits();
+
+        /// <summary>
+        /// Returns the behaviour of the digit currently specified
+        /// </summary>
+        /// <param name="digitName">Digit for which to retrieve behaviour</param>
+        /// <returns>behaviour of digit</returns>
+        internal abstract DigitIncremementBehaviour GetDigitBehaviour(DigitName digitName);
+    }
+}

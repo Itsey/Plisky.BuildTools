@@ -1,0 +1,417 @@
+﻿namespace LBG.Insurance.Toolset.Build {
+
+    using System;
+    using System.Collections.Generic;
+    using System.IO;
+    using System.Security.Principal;
+    using LBG.Insurance.Developer.Diagnostics;
+    using Microsoft.TeamFoundation.Client;
+    using Microsoft.TeamFoundation.VersionControl.Client;
+
+    /// <summary>
+    /// Implements a source control support wrapper for TFS to wrap up common actions for the TFS API, this is not designed to be
+    /// a proper wrapper but a way of maintaining the source control support for the build tasks.
+    /// </summary>
+    public class TFSSourceControlSupport : TFSSourceSupportBase {
+           
+        private string serverName = null;
+        private TeamFoundationServer tfs;
+        private VersionControlServer tfsVersionControl;
+
+        /// <summary>
+        /// Creates a new object which talks to the team foundation server source control.
+        /// </summary>
+        /// <param name="server">The URL of the server to connect to</param>
+        public TFSSourceControlSupport(string server) {
+            Tex.Log("Creating TFSSourceControlSupport for server " + server);
+            
+            try {
+                this.serverName = server;
+                this.tfs = TeamFoundationServerFactory.GetServer(this.serverName);
+                this.tfsVersionControl = (VersionControlServer)tfs.GetService(typeof(VersionControlServer));
+                Tex.FurtherInfo("VersionControlServer returned " + tfsVersionControl ?? null);
+            } catch (Exception ex) {
+                Tex.Dump(ex, "Failed to connect to server");
+                throw;
+            }
+
+            tfsVersionControl.NonFatalError += new ExceptionEventHandler(tfsVersionControl_NonFatalError);
+
+        }
+
+        /// <summary>
+        /// Event handler for TFS non fatal errors, the TFS API will spew messages out here as entries when something goes 
+        /// wrong.
+        /// </summary>
+        /// <param name="sender">Sender specified by TFS</param>
+        /// <param name="e">The Non Fatal Error information</param>
+        private void tfsVersionControl_NonFatalError(object sender, ExceptionEventArgs e) {
+            Tex.Warning("TFSNonfatalerror occured - " + e.Failure.ToString());
+            Tex.Dump(e.Failure);
+        }
+
+        /// <summary>
+        /// Checks in any changes that are waiting for a file or
+        /// </summary>
+        /// <param name="localFilename">The local filename.</param>
+        /// <param name="comment">The comment.</param>
+        internal override void CheckinLocalFileChanges(string localFilename, string comment) {
+            #region entry code
+            if ((localFilename == null) || (localFilename.Length == 0)) { throw new ArgumentException("LocalFilename must not be null or empty", "localFilename"); }
+            if (!File.Exists(localFilename)) { throw new ArgumentException("The path specified in localFileName must be valid", "localFilename"); }
+            if (comment == null) { comment = string.Empty; }
+            #endregion
+
+            Tex.Log("CheckinLocalFileChanges called, attempting to check in. (" + comment + ")", localFilename);
+            bool matchMade = false;
+            currentActiveWorkspace.PendEdit(localFilename);
+
+            PendingChange[] changes = currentActiveWorkspace.GetPendingChanges();
+            foreach (PendingChange pc in changes) {
+                if (pc.LocalItem.Equals(localFilename, StringComparison.OrdinalIgnoreCase)) {
+                    matchMade = true;
+                }
+            }
+
+            if (!matchMade) {
+                Tex.VerboseLog("No match could be found in existing pending changes, pending this checkin as an Add");
+                currentActiveWorkspace.PendAdd(localFilename);
+            }
+
+            CheckinPendingChanges(localFilename, comment);
+        }
+
+        internal override void PendEditForFilename(string fname) {
+            Tex.VerboseLog("About to verify workspace for pending edit");
+            //KPH - NOT WORKING FOR ALL WRKSPCS VerifyCurrentWorkspace(fname);
+            //KPH - Try GetExistingWorkspaceForLocalPath instead
+            this.GetExistingWorkspaceForLocalPath(fname);
+            Tex.VerboseLog("Pending Edit for file", fname);
+
+            int pendingEdits = currentActiveWorkspace.PendEdit(fname);
+
+            /* if we are unable to pend the edit then we should fail the build.
+             * This should only happen if an invalid filename is supplied or
+             * the file is already checked out exclusively */
+            if (pendingEdits == 0) {
+                Tex.Warning(string.Format("Unable to pend edit for {0}", fname));
+                throw new InvalidOperationException(string.Format("The Versioning task was unable to pend an edit for {0}.  Unable to continue.", fname));
+            }
+        }
+
+        internal override void CheckinLocalFileChanges(List<string> filenamesAdded, string comment) {
+            if ((filenamesAdded == null) || (filenamesAdded.Count == 0)) { return; }
+
+            List<string> fnamesToWorkWith = new List<string>();
+            foreach (string s in filenamesAdded) {
+                if (!fnamesToWorkWith.Contains(s)) { fnamesToWorkWith.Add(s); }
+            }
+
+            VerifyCurrentWorkspace(fnamesToWorkWith[0]);
+            List<PendingChange> changesToMake = new List<PendingChange>();
+            PendingChange[] changes = currentActiveWorkspace.GetPendingChanges();
+            foreach (string fname in fnamesToWorkWith) {
+                bool fnameAdded = false;
+                
+                foreach (PendingChange pc in changes) {
+                    if (pc.LocalItem.Equals(Path.GetFullPath(fname), StringComparison.OrdinalIgnoreCase)) {
+                        changesToMake.Add(pc);
+                        fnameAdded = true;
+                    }
+                }
+
+                if (!fnameAdded) {
+                    Tex.Warning("Filename was not found in pending change set.", fname);
+                }
+            }
+            if (changesToMake.Count!=changes.Length) {
+                Tex.Log("The number of changes being checked in does not match those pending changes found.");
+            }
+            if (changesToMake.Count > 0) {
+                int changeSet = currentActiveWorkspace.CheckIn(changesToMake.ToArray(), comment);
+                Tex.VerboseLog("There were " + changes.Length.ToString() + " checked in as changeset " + changeSet.ToString());
+            }
+        }
+
+
+        /// <summary>
+        /// TFSInterface file to establish a workspace and check in any changes related to the file that is passed in as a parameter.
+        /// </summary>
+        /// <param name="filename">The fully qualifiied filename to a file that exists and has changes to add to TFS</param>
+        /// <param name="comment">The comment to associated with the checkin</param>
+        /// <returns></returns>
+        public override bool CheckInChangeToFile(string filename, string comment) {
+            Tex.Log("Checking in changes to the file ", filename);
+
+            if (!File.Exists(filename)) {
+                throw new FileNotFoundException("The filename passed to CheckInChangeToFile did not exist. " + filename);
+            }
+            Tex.Warning("Code removed.");
+
+            return false;
+        }
+
+
+        private void ReallyGetLatest(string folderName) {
+            folderName = Path.GetDirectoryName(folderName);
+            Tex.VerboseLog("ReallyGetLatest for " + folderName);
+            foreach (WorkingFolder wf in currentActiveWorkspace.Folders) {
+                Tex.FurtherInfo(wf.ServerItem + " -> " + wf.LocalItem);
+            }
+            GetRequest gr = new GetRequest(folderName, RecursionType.Full, VersionSpec.Latest);
+            GetOptions go = GetOptions.GetAll | GetOptions.Overwrite;
+            currentActiveWorkspace.Get(gr, go);
+        }
+        /// <summary>
+        /// Lists all of the folders underneath a local path after contacting the TFS server to do a get latest.
+        /// </summary>
+        /// <param name="localFolder">The local path to check</param>
+        public override string[] ListFoldersUnderPath(string localFolder) {
+            #region entry code
+            if ((localFolder == null) || (localFolder.Length == 0)) {
+                throw new ArgumentException("localFolder can not be null or zero length", "localFolder");
+            }
+            #endregion
+
+            Tex.Log("Listing folders underneath a mapping", localFolder);
+            ReallyGetLatest(localFolder);
+            // If there are no folders then create the top level one such that we return an empty array.
+            if (!Directory.Exists(localFolder)) { Directory.CreateDirectory(localFolder); }
+            return Directory.GetDirectories(localFolder);
+        }
+
+        /// <summary>
+        /// Attempts to ensure that the local workspace is up to date and gets the files.
+        /// </summary>
+        /// <param name="pathName">The path to verify</param>
+        /// <returns>True if the operation was successful.</returns>
+        public override bool VerifyWorkspaceForLocalPathWithGet(string pathName) {
+            #region entry code
+            if (pathName == null) { throw new ArgumentNullException("pathName"); }
+            if (pathName.Length == 0) { throw new ArgumentOutOfRangeException("pathName"); }
+            #endregion
+
+            Tex.Log("VerifyWorkspaceForLocalPath :" + pathName);
+            ReallyGetLatest(pathName);
+           
+            string serverPathRef = currentActiveWorkspace.GetServerItemForLocalItem(pathName);
+            Tex.VerboseLog("Server Path Returned", serverPathRef);
+            if (serverPathRef == null) { return false; }
+
+
+            return true;
+        }
+        
+        private void VerifyCurrentWorkspace() {
+            if (currentActiveWorkspace == null) {
+                Tex.Warning("The workspace could not be created, this build will fail.  Most likely is that the path to the CS files is invalid");                
+                throw new InvalidOperationException("The Versioning task was unable to create a workspace to perform the edits in.  Unable to continue.");
+            }
+            Tex.VerboseLog("The workspace has been identified", currentActiveWorkspace.Name); 
+        }
+
+        private void VerifyCurrentWorkspace(string useThis) {
+            Tex.Assert(useThis!=null,"The path to test a workspaace for cant be null");
+            Tex.Assert(useThis.Length > 0, "The path to test a workspace for cant be zero length");
+            Tex.VerboseLog("Verifying Workspace for", useThis);
+
+            if (currentActiveWorkspace == null) {
+                /* note: the value of useThis does not have to be explictly mapped or even 
+                 * valid in order to identify a workspace, see TryGetWorkspace docs */
+                currentActiveWorkspace = this.tfsVersionControl.TryGetWorkspace(useThis);
+            }
+            
+            VerifyCurrentWorkspace();
+        }
+
+        private Workspace currentActiveWorkspace;
+
+        /// <summary>
+        /// Trys to get an existing workspace based on the local folder that you pass in.
+        /// </summary>
+        /// <param name="localpath">A local directory structure</param>
+        /// <returns>True if it suceeds</returns>
+        public override bool GetExistingWorkspaceForLocalPath(string localpath) {
+            if (localpath == null) { throw new ArgumentNullException("localpath"); }
+            if (localpath.Length < 3) { throw new ArgumentException("LocalPath must be at least 3 characters long", "localpath"); }
+            bool workspaceFound = false;
+
+            try {
+                localpath = Path.GetFullPath(localpath);
+                Tex.VerboseLog("Performing download based on localpath:" + localpath);
+                currentActiveWorkspace = tfsVersionControl.GetWorkspace(localpath);
+                ReallyGetLatest(localpath);
+                workspaceFound = true;
+            } catch (WorkspaceNotFoundException) {
+                Tex.Warning("Workspace not found");
+                // There is no workspace.
+            }
+            return workspaceFound;
+        }
+
+        internal static string currentRunningUserName = WindowsIdentity.GetCurrent().Name;
+
+        /// <summary>
+        /// Attempts to map a local path to a root server path, creating a workspace if necessary.
+        /// </summary>
+        /// <param name="serverPath">The qualified server path that the mapping is to be based on</param>
+        /// <param name="localPath">The local item to verify is part of the mapping</param>
+        /// <param name="workspaceName">The name ofthe workspace to rerieve / create</param>
+        public override void CreateLocalPathWorkspaceMapping(string serverPath, string localPath, string workspaceName) {
+            #region entry code
+            if (serverPath == null) { throw new ArgumentNullException("serverPath"); }
+            if (localPath == null) { throw new ArgumentNullException("localPath"); }
+            if (workspaceName == null) { throw new ArgumentNullException("workspaceName"); }
+            if (serverPath.Length < 2) { throw new ArgumentException("ServerPath must be at least 2 characters long", "serverPath"); }
+            if (localPath.Length < 3) { throw new ArgumentException("LocalPath must be at least 3 characters long", "localPath"); }
+            if (workspaceName.Length < 2) { throw new ArgumentException("workspaceName must be at least 3 characters long", "workspaceName"); }
+            #endregion
+  
+
+            Tex.Log("Establishing Local Path Workspace Mapping");            
+
+            currentActiveWorkspace = null;
+            try {
+                currentActiveWorkspace = tfsVersionControl.GetWorkspace(workspaceName, TFSSourceControlSupport.currentRunningUserName);
+            } catch (WorkspaceNotFoundException) {
+                Tex.Warning("Workspace " + workspaceName + " not found, attempting to create");
+                // There is no workspace.
+            }
+
+            // Bug1298, if the temporary folder is changed then the get returns the wrong path for the workspace so we need
+            // to delete the workspace and recreate it.
+            if (currentActiveWorkspace != null) {
+                try {
+                    Tex.VerboseLog("Checking that the mapping for the workspace is still valid...");
+                    string retrievedLocal = currentActiveWorkspace.GetLocalItemForServerItem(serverPath);
+                    if (localPath.EndsWith("\\") && (!(retrievedLocal.EndsWith("\\")))) {
+                        retrievedLocal += "\\";
+                    }
+                    if (!localPath.Equals(retrievedLocal, StringComparison.OrdinalIgnoreCase)) {
+                        Tex.Log("Workspace Mapping Has Changed - has the temporary folder changed?");
+                        if (!currentActiveWorkspace.Delete()) {
+                            Tex.Warning("Failed to delete the workspace.");
+                        }
+                        currentActiveWorkspace = null;
+                    }
+                } catch (ItemNotMappedException) {
+                    // If its not mapped we dont worry as we are going to create a mapping in a minute or two.
+                    Tex.Log("Exception: ItemNotMappedException, the working folder is not currently mapped on this server.  If you see this once thats fine.");
+                }
+            }
+
+            if (currentActiveWorkspace == null) {
+                currentActiveWorkspace = tfsVersionControl.CreateWorkspace(workspaceName);
+            }
+
+            Tex.Assert(currentActiveWorkspace != null, "Have failed to find it by path, by name and now failed to create the workspace. Unable to proceed");
+            if (currentActiveWorkspace == null) {
+                throw new WorkspaceCreationException("The activeWorkspace could not be mapped for TFS, unable to use TFS." + workspaceName);
+            }
+
+            Tex.VerboseLog("Workspace created or located, attempting to work out if local path already mapped");
+            // Map only at the root level.
+            WorkingFolder wf = new WorkingFolder(serverPath, localPath);
+            currentActiveWorkspace.CreateMapping(wf);
+
+            // Get the workspace again just to make sure its correct.
+            currentActiveWorkspace = tfsVersionControl.TryGetWorkspace(localPath);
+            if (currentActiveWorkspace == null) {
+                Tex.Log("There is no active workspace, createing a workspace and providing a mapping locally");
+                currentActiveWorkspace = tfsVersionControl.CreateWorkspace(workspaceName + Environment.MachineName);
+                currentActiveWorkspace.CreateMapping(wf);
+            }
+        }
+
+        /// <summary>
+        /// Will take a local file on the disk and add this file into the existing mapped source control solution.
+        /// </summary>
+        public override void AddLocalFiletoSourceControl(string localFilename, string comment) {
+            if (comment != "***NO_CI***") { Tex.Warning("No CI Disabled for AddLocalFileToSourceControl"); }
+            VerifyWorkspaceForLocalPathWithGet(localFilename);
+            currentActiveWorkspace.PendAdd(localFilename);
+            CheckinPendingChanges(localFilename, comment);
+        }
+
+
+
+        /// <summary>
+        /// Private methoid used by any of the other methdso to comit the changes into the source server
+        /// </summary>
+        private void CheckinPendingChanges(string fname, string comment) {
+            try {
+                if (comment != "***NO_CI***") { Tex.Warning("No CI Disabled for CheckinPendingChanges"); }
+                VerifyCurrentWorkspace(fname);
+
+                Tex.VerboseLog("Checkin pending changes looking for changes");
+                List<PendingChange> result = new List<PendingChange>();
+
+                PendingChange[] changes = currentActiveWorkspace.GetPendingChanges();
+                foreach (PendingChange pc in changes) {
+                    if (pc.LocalItem.Equals(fname, StringComparison.OrdinalIgnoreCase)) {
+                        result.Add(pc);
+                    }
+                }
+
+                if (result.Count > 0) {
+                    changes = result.ToArray();
+                    int changeSet = currentActiveWorkspace.CheckIn(changes, comment);
+                    Tex.VerboseLog("There were " + changes.Length.ToString() + " checked in as changeset " + changeSet.ToString());
+                } else {
+                    Tex.Warning("TFS Service Implementation, There were no changes pended");
+                }
+            } catch (CheckinException cix) {
+                Tex.Dump(cix, "Exception caused during checkin");
+                throw;
+            }
+        }
+
+        /// <summary>
+        /// Attempts to delete a local file, and replicate this change in the source control system.
+        /// </summary>
+        /// <param name="filename">The filename to delete</param>
+        /// <param name="comment">A comment to specify.  Use ***NO_CI*** to disable continuous integration builds</param>
+        public override void DeleteLocalFile(string filename, string comment) {
+            if (comment != "***NO_CI***") { Tex.Warning("No CI Disabled for DeleteLocalFile"); }
+
+            VerifyWorkspaceForLocalPathWithGet(filename);
+
+            if (!File.Exists(filename)) {
+                Tex.VerboseLog("The file does not exist, not deleting");
+                return;
+            }
+
+            FileAttributes fa = File.GetAttributes(filename);
+            if ((fa & FileAttributes.ReadOnly) != FileAttributes.ReadOnly) {
+                Tex.Warning("The file is not readonly, this needs to be readonly for a pending delete to succeed.", filename);
+                fa &= FileAttributes.ReadOnly;
+                File.SetAttributes(filename, fa);
+            }
+
+            currentActiveWorkspace.PendDelete(filename);
+            CheckinPendingChanges(filename, comment);
+        }
+
+        internal void LockFileForEdit(string filename) {
+
+            if (this.currentActiveWorkspace.SetLock(filename, LockLevel.Checkin) == 0) {
+                Tex.Warning("Versioning unable to set a lock, ignoring the error.  File is not locked.");
+            }
+        }
+
+
+        internal override bool FileInSourceControl(string localPath) {
+
+            ReallyGetLatest(localPath);
+            return (File.Exists(localPath));
+
+        }
+
+        internal override string[] ListFilenamesUnderPath(string path) {
+            Tex.Log("Listing all filenames for the provided path ", path);
+            ReallyGetLatest(path);
+
+            return Directory.GetFiles(path);
+        }
+    }
+}

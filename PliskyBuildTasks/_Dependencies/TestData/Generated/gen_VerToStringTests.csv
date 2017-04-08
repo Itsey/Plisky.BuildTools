@@ -1,0 +1,5 @@
+resultText,major,minor,build ,revision,note,unique,error
+A1.0.0.0,1,0,0,0,Basic parse of version 1,v1,n
+A1.1.1.1,1,1,1,1,Basic parse 1.1.1.1,v2,n
+A100.0.0.0,100,0,0,0,Three digit major,v3,n
+A9999.1.9999.1,9999,1,9999,1,Four digit major and build,v4,n

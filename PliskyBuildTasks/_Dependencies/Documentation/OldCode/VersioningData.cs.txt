@@ -1,0 +1,157 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using LBG.Insurance.Developer.Diagnostics;
+
+namespace LBG.Insurance.Toolset.Build {
+
+    /// <summary>
+    /// Stores all of the persistant data required by the versioning controls. This allows the storage to get access to
+    /// all of the data that is required to save a version number between sessions.
+    /// </summary>
+    public class VersioningData {
+
+        internal const int NUM_DIGITS_MANAGED = 4;
+
+        private VersionableDigit[] digits = new VersionableDigit[NUM_DIGITS_MANAGED]; // Will always be 4 digits.    
+        private string dbh;
+        private DateTime lbrd = DateTime.Today;
+        private DateTime bd = DateTime.Today;
+
+        /// <summary>
+        /// The DateBeahviour allows for future use of a field to determine how dats behave, currently unused.
+        /// </summary>        
+        public string DateBehaviour {
+            get { return dbh; }
+            set { dbh = value; }
+             
+        }  // This is not actually implemented but here so that the XML file supports it.
+        
+        /// <summary>
+        /// Used for versioning behaviours that have to take a specific number of days or weeks since a specific base date.
+        /// </summary>        
+        /// <remarks>Only the date portion of the DateTime is used</remarks>
+        public DateTime BaseDate {
+            get { return bd.Date; }
+            set {
+                bd = value.Date;
+            }
+
+        }
+                        
+        /// <summary>
+        /// Used for versioning behaviours that increment multiple times on a day for increments between daily builds
+        /// </summary>
+        /// <remarks>Only the date portion of the DateTime is used</remarks>
+        public DateTime LastBuildRunDate {
+            get { return lbrd.Date; }
+            set { lbrd = value.Date; }
+        }
+
+        /// <summary>
+        /// The Major digit that is stored
+        /// </summary>
+        internal VersionableDigit Major {
+            get { return this.digits[(int)DigitName.Major]; }
+        }
+
+        /// <summary>
+        /// The minor digit that is stored
+        /// </summary>
+        internal VersionableDigit Minor {
+            get { return this.digits[(int)DigitName.Minor]; }
+        }
+
+        /// <summary>
+        /// The build digit that is stored
+        /// </summary>
+        internal VersionableDigit Build {
+            get { return this.digits[(int)DigitName.Build]; }
+        }
+
+        /// <summary>
+        /// The revision digit that is stored
+        /// </summary>
+        internal VersionableDigit Revision {
+            get { return this.digits[(int)DigitName.Revision]; }
+        }
+
+        /// <summary>
+        /// Returns the versionable digit as specified by the named digit type in the enum.
+        /// </summary>
+        /// <param name="index">The named index digit</param>
+        /// <returns>The versionable digit.</returns>
+        internal VersionableDigit this[DigitName index] {
+            get {
+                return this.digits[(int)index];
+            }
+            set {
+                this.digits[(int)index] = value;
+            }
+        }
+
+        /// <summary>
+        /// Returns the versionable digit as specified by the index where 0 is the major digit.  This is mainly used for loops
+        /// </summary>
+        /// <param name="index">The offset into the managed digits</param>
+        /// <returns>The versionable digit selected</returns>
+        internal VersionableDigit this[int index] {
+            get { return this.digits[index]; }
+            set {
+                this.digits[index] = value;
+            }
+        }
+
+        /// <summary>
+        /// Create the digits with basic behaviours and a value of 0
+        /// </summary>
+        internal VersioningData() {
+            digits[0] = new VersionableDigit(DigitName.Major, DigitIncremementBehaviour.Fixed, 0);
+            digits[1] = new VersionableDigit(DigitName.Minor, DigitIncremementBehaviour.Fixed, 0);
+            digits[2] = new VersionableDigit(DigitName.Build, DigitIncremementBehaviour.AutoIncrementWithResetAny, 0);
+            digits[3] = new VersionableDigit(DigitName.Revision, DigitIncremementBehaviour.Fixed, 0);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="clone"></param>
+        internal VersioningData(VersioningData clone) {
+            //DBJS THIS DOES NOT SUPPORT PENDING UPDATE i.e. OVERRIDEVALUEDURINGINCREMENT
+            digits[0] = new VersionableDigit(DigitName.Major, clone.Major.Behaviour, clone.Major.DigitValue);
+            digits[1] = new VersionableDigit(DigitName.Minor, clone.Minor.Behaviour, clone.Minor.DigitValue);
+            digits[2] = new VersionableDigit(DigitName.Build, clone.Build.Behaviour, clone.Build.DigitValue);
+            digits[3] = new VersionableDigit(DigitName.Revision, clone.Revision.Behaviour, clone.Revision.DigitValue);
+            this.BaseDate = clone.BaseDate;
+            this.LastBuildRunDate = clone.LastBuildRunDate;
+            this.DateBehaviour = clone.DateBehaviour;
+        }
+
+        /// <summary>
+        /// Constructor accepting an enumerable list of VersionableDigits
+        /// </summary>
+        /// <param name="sourceDigits">Major, Minor, Build, and Revision digits in that order</param>
+        internal VersioningData(IEnumerable<VersionableDigit> digitsMajorMinorBuildRevision) {
+            if (digitsMajorMinorBuildRevision.Count() != 4)
+            {
+                Tex.Warning("Loading digits into versioning data there were not the expected number of digits");                
+                throw new InvalidOperationException("The supplied source digits were not enough.  You need to supply 4 valid source digits to the VersioningData constructor");
+            }
+
+            int posCount = 0;
+            foreach (VersionableDigit sd in digitsMajorMinorBuildRevision)
+            {
+                if ((int)sd.DigitPosition != posCount)
+                {
+                    Tex.Warning("Loading digits into versioning data the digits were not in the expected order");
+                    throw new ArgumentException("Loading digits into versioning data the digits were not in the expected order");
+                }
+
+                this.digits[posCount] = sd;
+                posCount++;
+            }
+            Tex.Assert(posCount == 4, "There were not enough digits supplied.  The VersioningData structure is invalid");
+        }
+
+    }
+}

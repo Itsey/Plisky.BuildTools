@@ -1,0 +1,271 @@
+
+
+namespace LBG.Insurance.Toolset.Build {
+
+    using System;
+    using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.Data;
+    using System.Drawing;
+    using System.Text;
+    using System.Windows.Forms;
+    using System.Resources;
+    using System.Globalization;
+    using System.Diagnostics.CodeAnalysis;
+
+    // Exceedingly annoying the way resource embedding works in VS.
+    using LBG.Insurance.Developer.Diagnostics;
+
+  /// <summary>
+  /// This class handles a dialog box that is presented to the user to let them input changes to the version number.  This is used
+  /// when the version type is set to Prompt.  If the user is not interactive then the dialog will not show and the version number
+  /// will not be changed.  If a timeout is specified (default 30 seconds) then the dialog will close after this period of inactivity.
+  /// </summary>
+  internal partial class frmPromptUser : Form {
+
+    // This disables the updates while were setting up the screen.  The proper way to do this is
+    // with not setting up the events but i soo prefer the designer.
+    private bool m_updateActive; 
+
+    private string m_versionChangeTemplate;   // Template format strings taken from the resources file that are used
+    private string m_autoCloseTemplate;       // to update the labels on the form control.
+    private int m_secondsRemainingToClose;   
+
+    private VersionSupport m_formatterVersion = new VersionSupport();
+    private VersionSupport m_originalVersion;
+
+
+#region Update....Message methods, used to update the three labels on the form
+
+    private void UpdateAutoCloseMessage() {
+      if (m_secondsRemainingToClose > 0) {
+        lblAutoCloseMessage.Text = string.Format(CultureInfo.CurrentUICulture, m_autoCloseTemplate, m_secondsRemainingToClose.ToString(CultureInfo.CurrentUICulture));
+      } else {
+        lblAutoCloseMessage.Text = string.Empty ;
+      }
+    }
+
+
+    private void UpdateChangeMessage() {
+      lblChangeDescription.Text = string.Format(null, m_versionChangeTemplate, m_originalVersion.ToString(), m_formatterVersion.ToString());
+    }
+#endregion
+
+#region private event support methods, key down, text changed and timer tick
+    [SuppressMessage("Microsoft.Maintainability","CA1502")] // Complexity is high but want to keep all keypress behaviour in single switch
+    [SuppressMessage("Microsoft.Globalization", "CA1303")]  // Its a hard coded zero ffs.
+    private void txtVersionPartsCommon_KeyDown(object sender, KeyEventArgs e) {
+
+      TextBox theSender = sender as TextBox;  // Moved above entry code and switched is to as for rule CA1800
+      
+      #region entry code      
+      Tex.Assert(theSender !=null, "This method is only valid when called from a textbox keydown");
+      Tex.Assert(m_updateActive, "This method should only be called once the initialisation has been completed. ");
+      #endregion                 
+    
+
+      Tex.Log("KeyDown event fired for one of the version boxes, Key was " + e.KeyCode.ToString()+" Form autoclose being aborted");
+
+      if (theSender.ReadOnly) {
+        Tex.FurtherInfo("Returning, the keydown was detected on a readonly text box thereore there was nothing to do.");
+        return;
+      }
+
+
+      tmrAutoClose.Enabled = false;   // Stop the auto close
+      m_secondsRemainingToClose = -1; // Make the auto close message display cleanly.
+      UpdateAutoCloseMessage();
+            
+      int newval;
+
+      e.SuppressKeyPress = true;
+
+      switch (e.KeyCode) {
+        case Keys.Up:   // Undocumented feature :)
+        case Keys.Add:
+          unchecked {
+            newval = int.Parse(theSender.Text, CultureInfo.CurrentUICulture);
+            if (newval < int.MaxValue) {
+              newval++;
+            } else {
+              newval = 0;
+            }
+          }
+          theSender.Text = newval.ToString(CultureInfo.CurrentUICulture);
+          
+          break;
+
+        case Keys.Down:  // Undocumented feature :)
+        case Keys.Subtract:
+          newval = int.Parse(theSender.Text, CultureInfo.CurrentUICulture);
+          if (newval > 0) {
+            newval--;
+          }
+          theSender.Text = newval.ToString(CultureInfo.CurrentUICulture);
+          
+          break;
+
+        case Keys.Z :
+          theSender.Text = "0";
+          
+          break;
+
+        // Here we let through keypresses.  Any that are not in this list are blocked to minimise the chance of errors in the
+        // versioning component.  This lets the users do some operations and also press numeric keys.
+        case Keys.Right:   // We allow through some control keys. 
+        case Keys.Left:
+        case Keys.Delete:
+        case Keys.Back:
+        case Keys.NumPad0:  // We allow them to use the number pad
+        case Keys.NumPad1:
+        case Keys.NumPad2:
+        case Keys.NumPad3:
+        case Keys.NumPad4:
+        case Keys.NumPad5:
+        case Keys.NumPad6:
+        case Keys.NumPad7:
+        case Keys.NumPad8:
+        case Keys.NumPad9:
+        case Keys.D0:      // And the nomral numbers
+        case Keys.D1:    
+        case Keys.D2:    
+        case Keys.D3:
+        case Keys.D4:
+        case Keys.D5:
+        case Keys.D6:
+        case Keys.D7:
+        case Keys.D8:
+        case Keys.D9:
+          e.SuppressKeyPress = false;
+          break;
+        
+      }
+      
+    }
+
+    private void txtVersionPartsCommon_TextChanged(object sender, EventArgs e) {
+      if (!m_updateActive) { return; }
+
+      Tex.Log("TextChanged Event Fired, checking the values of the textboxes.",string.Format("Values {0},{1},{2},{3}",txtMajorPart.Text,txtMinorPart.Text,txtBuildPart.Text,txtRevisionPart.Text));
+      int major; int minor; int build; int revision;
+
+      major = SetTextBoxDisplayBasedOnValue(txtMajorPart);
+      minor = SetTextBoxDisplayBasedOnValue(txtMinorPart);
+      build = SetTextBoxDisplayBasedOnValue(txtBuildPart);
+      revision = SetTextBoxDisplayBasedOnValue(txtRevisionPart);
+      
+      btnOk.Enabled = !((major < 0) || (minor < 0) || (build < 0) || (revision < 0));
+      
+      m_formatterVersion.SetVersion(major, minor, build, revision);
+      UpdateChangeMessage();
+    }
+
+    private int SetTextBoxDisplayBasedOnValue(TextBox thePart) {
+      int result = 0;
+
+      // If its not one they can edit theres no point in even looking further.
+      if (thePart.ReadOnly) {     
+        Tex.Assert(int.TryParse(thePart.Text, out result), "Assumption that if the field is read only it must contian valid data is false.");
+        return int.Parse(thePart.Text); 
+      }
+
+      // If it is one that they can edit then we need to check whether or not it is valid.
+
+      
+      bool itWorked = true;
+
+      try {
+        result = int.Parse(thePart.Text, CultureInfo.CurrentCulture);
+      } catch (OverflowException oex) {
+        Tex.Dump(oex, "OverflowException Occured when converting " + thePart.Name + "s value");
+        itWorked = false;  
+      } catch (FormatException fex) {
+        Tex.Dump(fex, "FormatException Occured when converting " + thePart.Name + "s value");
+        itWorked = false;
+      }
+
+      btnOk.Enabled = btnOk.Enabled & itWorked;
+
+      if (!itWorked) {
+        result = -1;
+        thePart.BackColor = Color.IndianRed;
+      } else {
+        Tex.Log("Resetting the color to Window, this should be after an invalid entry has become valid again");
+        thePart.BackColor = SystemColors.Window;
+      }
+
+      return result;
+    }
+
+    /// <summary>
+    /// fired on timer tick to updat ethe form is closing message.  Will also close the form if the timeout elapses.
+    /// </summary>
+    /// <param name="sender">The sender control</param>
+    /// <param name="e">timer arguments</param>
+    private void tmrAutoClose_Tick(object sender, EventArgs e) {
+      m_secondsRemainingToClose--;
+      UpdateAutoCloseMessage();
+
+      if (m_secondsRemainingToClose <= 0) {
+        this.DialogResult = DialogResult.OK;
+        this.Close();
+      }      
+    }
+#endregion
+
+    /// <summary>
+    /// Intialisies the form with emtpy data.  To pre initialise call InitialiseFromVersioningSupport
+    /// </summary>
+    internal frmPromptUser() {
+      InitializeComponent();
+      
+      m_autoCloseTemplate = VersionStrings.Ver003_AutoCloseLabel;
+      m_versionChangeTemplate = VersionStrings.Ver002_VersionChange;
+      lblInstructions.Text = VersionStrings.Ver001_PromptInstructions.Replace("\\n", "\n");
+      
+    }
+
+    /// <summary>
+    /// Initialises the form with a version provided in a VersionSupport class.
+    /// </summary>
+    /// <param name="vs">The version support class representing the version.</param>
+    /// <param name="autoCloseEnabled">The number of seconds after which the form autocloses or less than zero for no autoclose.</param>
+    internal void IntialiseFromVersioningSupport(VersionSupport vs, int autoCloseEnabled) {
+      m_originalVersion = m_formatterVersion = vs;
+
+      // First determine which parts are editable.
+      txtMajorPart.ReadOnly = !(vs.MajorBehaviour == DigitIncremementBehaviour.Prompt);
+      txtMinorPart.ReadOnly = !(vs.MinorBehaviour == DigitIncremementBehaviour.Prompt);
+      txtBuildPart.ReadOnly = !(vs.BuildBehaviour == DigitIncremementBehaviour.Prompt);
+      txtRevisionPart.ReadOnly = !(vs.RevisionBehaviour == DigitIncremementBehaviour.Prompt);
+
+      txtMajorPart.Text = vs.Major;
+      txtMinorPart.Text = vs.Minor;
+      txtBuildPart.Text = vs.Build;
+      txtRevisionPart.Text = vs.Revision;
+
+      if (autoCloseEnabled > 0) {
+        m_secondsRemainingToClose = autoCloseEnabled;
+        UpdateAutoCloseMessage();
+        tmrAutoClose.Enabled = true;
+      }
+
+      
+       
+      UpdateChangeMessage();
+      txtVersionPartsCommon_TextChanged(null, null);
+      m_updateActive = true;
+    }
+
+    /// <summary>
+    /// This returns a version support class from the form.  If the form has been intiialised this version support class has the same
+    /// attributes as the one that was used to initialise but has a potentially different version depending on the user actions.
+    /// </summary>
+    /// <returns>A VersionSupport class representing the users changes.</returns>
+    internal VersionSupport GetVersionSupportFromForm() {
+      return m_formatterVersion;
+    }
+
+  }  // End frmPromptUser Class
+
+}  // End Namespace

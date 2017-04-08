@@ -1,0 +1,1625 @@
+Filename,MatchesAssemblyInfo,Unique
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI,FALSE,Test01
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner,FALSE,Test02
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core,FALSE,Test03
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes,FALSE,Test04
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2_dev.sln,FALSE,Test05
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2_ui.sln,FALSE,Test06
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggle1.vsmdi,FALSE,Test07
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling,FALSE,Test08
+D:\Files\Git2015\Boondoggle\BoondoggleMain\jim.txt,FALSE,Test09
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Local.testsettings,FALSE,Test10
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages,FALSE,Test11
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile,FALSE,Test12
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot,FALSE,Test13
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test,FALSE,Test14
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test,FALSE,Test15
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport,FALSE,Test16
+D:\Files\Git2015\Boondoggle\BoondoggleMain\TraceAndTestImpact.testsettings,FALSE,Test17
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies,FALSE,Test18
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\App.config,FALSE,Test19
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\App.xaml,FALSE,Test20
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\App.xaml.cs,FALSE,Test21
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\BattleRunnerUI.csproj,FALSE,Test22
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\MainWindow.xaml,FALSE,Test23
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\MainWindow.xaml.cs,FALSE,Test24
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties,FALSE,Test25
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties\AssemblyInfo.cs,TRUE,Test26
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties\Resources.Designer.cs,FALSE,Test27
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties\Resources.resx,FALSE,Test28
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties\Settings.Designer.cs,FALSE,Test29
+D:\Files\Git2015\Boondoggle\BoondoggleMain\BattleRunnerUI\Properties\Settings.settings,FALSE,Test30
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\App.config,FALSE,Test31
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\bd2ConsoleRunner.csproj,FALSE,Test32
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\bd2XmlOutputter.cs,FALSE,Test33
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\MachineConfigurations.cs,FALSE,Test34
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\Program.cs,FALSE,Test35
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\Properties,FALSE,Test36
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2ConsoleRunner\Properties\AssemblyInfo.cs,TRUE,Test37
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleControl,FALSE,Test38
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleRequest.cs,FALSE,Test39
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\bd2Core.csproj,FALSE,Test40
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BotToLoad.cs,FALSE,Test41
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\CombatMessageType.cs,FALSE,Test42
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine,FALSE,Test43
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\GlobalSuppressions.cs,FALSE,Test44
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\KnownSubkinds.cs,FALSE,Test45
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Manager,FALSE,Test46
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging,FALSE,Test47
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model,FALSE,Test48
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Properties,FALSE,Test49
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository,FALSE,Test50
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleControl\BattleRunnerControl.cs,FALSE,Test51
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleControl\BattleStatusFile.cs,FALSE,Test52
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleControl\BattleSummary.cs,FALSE,Test53
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\BattleControl\bdBattleManager.cs,FALSE,Test54
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\ActiveTurnData.cs,FALSE,Test55
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\bd2Engine.cs,FALSE,Test56
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\bd2MessageBasedBotSupport.cs,FALSE,Test57
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\bd2Randomiser.cs,FALSE,Test58
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\BotEnterWorldContext.cs,FALSE,Test59
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\botManagementReference.cs,FALSE,Test60
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\DefaultRandomiser.cs,FALSE,Test61
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\EndGameRequestContext.cs,FALSE,Test62
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\LastTickResults.cs,FALSE,Test63
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\SpeedRating.cs,FALSE,Test64
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Engine\TemporaryKeyData.cs,FALSE,Test65
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\ActionSubMessageKind.cs,FALSE,Test66
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts,FALSE,Test67
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\GameMessageSubKind.cs,FALSE,Test68
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\MessageBase.cs,FALSE,Test69
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\MessageType.cs,FALSE,Test70
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Message_Action.cs,FALSE,Test71
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Message_Game.cs,FALSE,Test72
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Message_GameCombat.cs,FALSE,Test73
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Message_Query.cs,FALSE,Test74
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Message_Ui.cs,FALSE,Test75
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\QueryMessageSubKind.cs,FALSE,Test76
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\UICombatContext.cs,FALSE,Test77
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\UIMessageSubKind.cs,FALSE,Test78
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\BattleContextBase.cs,FALSE,Test79
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\BotDeathContext.cs,FALSE,Test80
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\BotDeathReason.cs,FALSE,Test81
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\EquipmentInstallationContext.cs,FALSE,Test82
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\EquipmentUseRequestContext.cs,FALSE,Test83
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\GameStructureNotificationContext.cs,FALSE,Test84
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\MapObjectPositionChangeContext.cs,FALSE,Test85
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\NavigationInfoContext.cs,FALSE,Test86
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Messaging\Contexts\SystemMessageContext.cs,FALSE,Test87
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\bd2BaseModel.cs,FALSE,Test88
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\BotStatusRequestContext.cs,FALSE,Test89
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Combat,FALSE,Test90
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Equipment,FALSE,Test91
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map,FALSE,Test92
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Combat\CombatAttack.cs,FALSE,Test93
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Combat\CombatManager.cs,FALSE,Test94
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Combat\CombatResult.cs,FALSE,Test95
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Equipment\EquipmentSupport.cs,FALSE,Test96
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Equipment\OffensiveWeaponEquipmentItem.cs,FALSE,Test97
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\Equipment\PowerPackEquipmentItem.cs,FALSE,Test98
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\bd2Map.cs,FALSE,Test99
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\bd2World.cs,FALSE,Test100
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MapConditionType.cs,FALSE,Test101
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MappedBot.cs,FALSE,Test102
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MappedObject.cs,FALSE,Test103
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MappedObjectPotentialMove.cs,FALSE,Test104
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MapTile.cs,FALSE,Test105
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Model\World_Map\MoveResult.cs,FALSE,Test106
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Properties\AssemblyInfo.cs,TRUE,Test107
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository\bd2MapRepository.cs,FALSE,Test108
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository\DiskXmlHistoricalRepository.cs,FALSE,Test109
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository\EquipmentRepository.cs,FALSE,Test110
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository\HardcodedEquipmentRepository.cs,FALSE,Test111
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2Core\Repository\HistoricalBattleRepository.cs,FALSE,Test112
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\bd2CoreTypes.csproj,FALSE,Test113
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\bd2TickAction.cs,FALSE,Test114
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\bd2Trace.cs,FALSE,Test115
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BdBaseException.cs,FALSE,Test116
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BdConsts.cs,FALSE,Test117
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BoonBotBase.cs,FALSE,Test118
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotLoadout.cs,FALSE,Test119
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport,FALSE,Test120
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\DamageType.cs,FALSE,Test121
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentDescription.cs,FALSE,Test122
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport,FALSE,Test123
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\GlobalSuppressions.cs,FALSE,Test124
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\Helper,FALSE,Test125
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\IProvideEquipmentDetail.cs,FALSE,Test126
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\Properties,FALSE,Test127
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport\IKnowWhatBotsDo.cs,FALSE,Test128
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport\IProvideBotInteractivity.cs,FALSE,Test129
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport\LastTickEventType.cs,FALSE,Test130
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport\LastTickRecord.cs,FALSE,Test131
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\BotSupport\MountPoint.cs,FALSE,Test132
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\ActiveEquipment.cs,FALSE,Test133
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\EquipmentInstallationResult.cs,FALSE,Test134
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\EquipmentItem.cs,FALSE,Test135
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\EquipmentUseDetails.cs,FALSE,Test136
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\EquipmentUseResult.cs,FALSE,Test137
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\InstallationResult.cs,FALSE,Test138
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\ItemClassification.cs,FALSE,Test139
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\KnownEquipmentIds.cs,FALSE,Test140
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\ScannerEquipmentItem.cs,FALSE,Test141
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\ScanResultPOI.cs,FALSE,Test142
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\ScanTileResult.cs,FALSE,Test143
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\EquipmentSupport\UsageEndState.cs,FALSE,Test144
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\Helper\CombatHelper.cs,FALSE,Test145
+D:\Files\Git2015\Boondoggle\BoondoggleMain\bd2CoreTypes\Properties\AssemblyInfo.cs,TRUE,Test146
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\App_Data,FALSE,Test147
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\App_Start,FALSE,Test148
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Boondoggling.csproj,FALSE,Test149
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content,FALSE,Test150
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Controllers,FALSE,Test151
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\favicon.ico,FALSE,Test152
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\fonts,FALSE,Test153
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Global.asax,FALSE,Test154
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Global.asax.cs,FALSE,Test155
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models,FALSE,Test156
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\packages.config,FALSE,Test157
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Project_Readme.html,FALSE,Test158
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Properties,FALSE,Test159
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts,FALSE,Test160
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Startup.cs,FALSE,Test161
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test,FALSE,Test162
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views,FALSE,Test163
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Web.config,FALSE,Test164
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Web.Debug.config,FALSE,Test165
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Web.Release.config,FALSE,Test166
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\App_Start\BundleConfig.cs,FALSE,Test167
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\App_Start\FilterConfig.cs,FALSE,Test168
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\App_Start\RouteConfig.cs,FALSE,Test169
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets,FALSE,Test170
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\bootstrap.css,FALSE,Test171
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\bootstrap.min.css,FALSE,Test172
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\Images,FALSE,Test173
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\Site.css,FALSE,Test174
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\bd2tset1.png,FALSE,Test175
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\bullets.png,FALSE,Test176
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\davidtnk.png,FALSE,Test177
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\greentank1.png,FALSE,Test178
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\newdefaultMap.json,FALSE,Test179
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\orangetank1.png,FALSE,Test180
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\redtank1.png,FALSE,Test181
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\spriteset1.png,FALSE,Test182
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\starterMap4plr.json,FALSE,Test183
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\testmap4plr.json,FALSE,Test184
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\assets\yellowtank1.png,FALSE,Test185
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Content\Images\bdtitle.png,FALSE,Test186
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Controllers\HomeController.cs,FALSE,Test187
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\fonts\glyphicons-halflings-regular.eot,FALSE,Test188
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\fonts\glyphicons-halflings-regular.svg,FALSE,Test189
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\fonts\glyphicons-halflings-regular.ttf,FALSE,Test190
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\fonts\glyphicons-halflings-regular.woff,FALSE,Test191
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\EventRepository.cs,FALSE,Test192
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\EventSupport.cs,FALSE,Test193
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\KnownEventKind.cs,FALSE,Test194
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\Mappers.cs,FALSE,Test195
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\UISupportModel.cs,FALSE,Test196
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\ViewModel,FALSE,Test197
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\XmlEventRepository.cs,FALSE,Test198
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\ViewModel\BattleEventVM.cs,FALSE,Test199
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\ViewModel\BattleSummaryVM.cs,FALSE,Test200
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\ViewModel\BotInitialisationVM.cs,FALSE,Test201
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Models\ViewModel\ViewerVM.cs,FALSE,Test202
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Properties\AssemblyInfo.cs,TRUE,Test203
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Properties\PublishProfiles,FALSE,Test204
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Properties\PublishProfiles\Jims Preview.pubxml,FALSE,Test205
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\bootstrap.js,FALSE,Test206
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\bootstrap.min.js,FALSE,Test207
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery-1.10.2.intellisense.js,FALSE,Test208
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery-1.10.2.js,FALSE,Test209
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery-1.10.2.min.js,FALSE,Test210
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery-1.10.2.min.map,FALSE,Test211
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery.validate-vsdoc.js,FALSE,Test212
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery.validate.js,FALSE,Test213
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery.validate.min.js,FALSE,Test214
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery.validate.unobtrusive.js,FALSE,Test215
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\jquery.validate.unobtrusive.min.js,FALSE,Test216
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\modernizr-2.6.2.js,FALSE,Test217
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\respond.js,FALSE,Test218
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\respond.min.js,FALSE,Test219
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Scripts\_references.js,FALSE,Test220
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\Events,FALSE,Test221
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\phaser.d.ts,FALSE,Test222
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\phaser.js,FALSE,Test223
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\phaser.map,FALSE,Test224
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\phaser.min.js,FALSE,Test225
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\testing.js,FALSE,Test226
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\testing.js.map,FALSE,Test227
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\testing.ts,FALSE,Test228
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\TestPage.html,FALSE,Test229
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\Events\evt_1.json,FALSE,Test230
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\test\Events\evt_2.json,FALSE,Test231
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Home,FALSE,Test232
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Shared,FALSE,Test233
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Web.config,FALSE,Test234
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\_ViewStart.cshtml,FALSE,Test235
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Home\About.cshtml,FALSE,Test236
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Home\Index.cshtml,FALSE,Test237
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Home\Viewer.cshtml,FALSE,Test238
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Shared\Error.cshtml,FALSE,Test239
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Shared\Lockout.cshtml,FALSE,Test240
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Shared\_Layout.cshtml,FALSE,Test241
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Boondoggling\Views\Shared\_LoginPartial.cshtml,FALSE,Test242
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Antlr.3.4.1.9004,FALSE,Test243
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0,FALSE,Test244
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1,FALSE,Test245
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2,FALSE,Test246
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1,FALSE,Test247
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0,FALSE,Test248
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0,FALSE,Test249
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0,FALSE,Test250
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0,FALSE,Test251
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0,FALSE,Test252
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3,FALSE,Test253
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0,FALSE,Test254
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0,FALSE,Test255
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0,FALSE,Test256
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0,FALSE,Test257
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0,FALSE,Test258
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0,FALSE,Test259
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0,FALSE,Test260
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0,FALSE,Test261
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0,FALSE,Test262
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0,FALSE,Test263
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0,FALSE,Test264
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Web.Infrastructure.1.0.0.0,FALSE,Test265
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2,FALSE,Test266
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5,FALSE,Test267
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Owin.1.0,FALSE,Test268
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\repositories.config,FALSE,Test269
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0,FALSE,Test270
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2,FALSE,Test271
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Antlr.3.4.1.9004\Antlr.3.4.1.9004.nupkg,FALSE,Test272
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Antlr.3.4.1.9004\lib,FALSE,Test273
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll,FALSE,Test274
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.pdb,FALSE,Test275
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\bootstrap.3.0.0.nupkg,FALSE,Test276
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content,FALSE,Test277
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Content,FALSE,Test278
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\fonts,FALSE,Test279
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Scripts,FALSE,Test280
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Content\bootstrap.css,FALSE,Test281
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Content\bootstrap.min.css,FALSE,Test282
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.eot,FALSE,Test283
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.svg,FALSE,Test284
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.ttf,FALSE,Test285
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\fonts\glyphicons-halflings-regular.woff,FALSE,Test286
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Scripts\bootstrap.js,FALSE,Test287
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\bootstrap.3.0.0\content\Scripts\bootstrap.min.js,FALSE,Test288
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\content,FALSE,Test289
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\EntityFramework.6.1.1.nupkg,FALSE,Test290
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib,FALSE,Test291
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools,FALSE,Test292
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\content\App.config.transform,FALSE,Test293
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\content\Web.config.transform,FALSE,Test294
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net40,FALSE,Test295
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net45,FALSE,Test296
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.dll,FALSE,Test297
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.dll,FALSE,Test298
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.SqlServer.xml,FALSE,Test299
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net40\EntityFramework.xml,FALSE,Test300
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll,FALSE,Test301
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll,FALSE,Test302
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.xml,FALSE,Test303
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.xml,FALSE,Test304
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\about_EntityFramework.help.txt,FALSE,Test305
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\EntityFramework.PowerShell.dll,FALSE,Test306
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\EntityFramework.PowerShell.Utility.dll,FALSE,Test307
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\EntityFramework.psd1,FALSE,Test308
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\EntityFramework.psm1,FALSE,Test309
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\init.ps1,FALSE,Test310
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\install.ps1,FALSE,Test311
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\EntityFramework.6.1.1\tools\migrate.exe,FALSE,Test312
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content,FALSE,Test313
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\jQuery.1.10.2.nupkg,FALSE,Test314
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Tools,FALSE,Test315
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content\Scripts,FALSE,Test316
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2-vsdoc.js,FALSE,Test317
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.js,FALSE,Test318
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.min.js,FALSE,Test319
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Content\Scripts\jquery-1.10.2.min.map,FALSE,Test320
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Tools\common.ps1,FALSE,Test321
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Tools\install.ps1,FALSE,Test322
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Tools\jquery-1.10.2.intellisense.js,FALSE,Test323
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.1.10.2\Tools\uninstall.ps1,FALSE,Test324
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\Content,FALSE,Test325
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\jQuery.Validation.1.11.1.nupkg,FALSE,Test326
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\Content\Scripts,FALSE,Test327
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate-vsdoc.js,FALSE,Test328
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate.js,FALSE,Test329
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\jQuery.Validation.1.11.1\Content\Scripts\jquery.validate.min.js,FALSE,Test330
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib,FALSE,Test331
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0\Microsoft.AspNet.Identity.Core.2.1.0.nupkg,FALSE,Test332
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45,FALSE,Test333
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.dll,FALSE,Test334
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Core.2.1.0\lib\net45\Microsoft.AspNet.Identity.Core.xml,FALSE,Test335
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib,FALSE,Test336
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\Microsoft.AspNet.Identity.EntityFramework.2.1.0.nupkg,FALSE,Test337
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45,FALSE,Test338
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll,FALSE,Test339
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.EntityFramework.2.1.0\lib\net45\Microsoft.AspNet.Identity.EntityFramework.xml,FALSE,Test340
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib,FALSE,Test341
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0\Microsoft.AspNet.Identity.Owin.2.1.0.nupkg,FALSE,Test342
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45,FALSE,Test343
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.dll,FALSE,Test344
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Identity.Owin.2.1.0\lib\net45\Microsoft.AspNet.Identity.Owin.xml,FALSE,Test345
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\Content,FALSE,Test346
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\lib,FALSE,Test347
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\Microsoft.AspNet.Mvc.5.2.0.nupkg,FALSE,Test348
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\Content\Web.config.install.xdt,FALSE,Test349
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\Content\Web.config.uninstall.xdt,FALSE,Test350
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45,FALSE,Test351
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.dll,FALSE,Test352
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Mvc.5.2.0\lib\net45\System.Web.Mvc.xml,FALSE,Test353
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0\lib,FALSE,Test354
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0\Microsoft.AspNet.Razor.3.2.0.nupkg,FALSE,Test355
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45,FALSE,Test356
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.dll,FALSE,Test357
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Razor.3.2.0\lib\net45\System.Web.Razor.xml,FALSE,Test358
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib,FALSE,Test359
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3\Microsoft.AspNet.Web.Optimization.1.1.3.nupkg,FALSE,Test360
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40,FALSE,Test361
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll,FALSE,Test362
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\system.web.optimization.xml,FALSE,Test363
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\Content,FALSE,Test364
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib,FALSE,Test365
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\Microsoft.AspNet.WebPages.3.2.0.nupkg,FALSE,Test366
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\Content\Web.config.install.xdt,FALSE,Test367
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\Content\Web.config.uninstall.xdt,FALSE,Test368
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45,FALSE,Test369
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.dll,FALSE,Test370
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.Helpers.xml,FALSE,Test371
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.dll,FALSE,Test372
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Deployment.xml,FALSE,Test373
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.dll,FALSE,Test374
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.dll,FALSE,Test375
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.Razor.xml,FALSE,Test376
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.AspNet.WebPages.3.2.0\lib\net45\System.Web.WebPages.xml,FALSE,Test377
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0\Content,FALSE,Test378
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0\Microsoft.jQuery.Unobtrusive.Validation.3.2.0.nupkg,FALSE,Test379
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0\Content\Scripts,FALSE,Test380
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0\Content\Scripts\jquery.validate.unobtrusive.js,FALSE,Test381
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.jQuery.Unobtrusive.Validation.3.2.0\Content\Scripts\jquery.validate.unobtrusive.min.js,FALSE,Test382
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib,FALSE,Test383
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\Microsoft.Owin.2.1.0.nupkg,FALSE,Test384
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net40,FALSE,Test385
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net45,FALSE,Test386
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net40\Microsoft.Owin.dll,FALSE,Test387
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net40\Microsoft.Owin.XML,FALSE,Test388
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.dll,FALSE,Test389
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.2.1.0\lib\net45\Microsoft.Owin.XML,FALSE,Test390
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib,FALSE,Test391
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\Microsoft.Owin.Host.SystemWeb.2.1.0.nupkg,FALSE,Test392
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net40,FALSE,Test393
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45,FALSE,Test394
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net40\Microsoft.Owin.Host.SystemWeb.dll,FALSE,Test395
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net40\Microsoft.Owin.Host.SystemWeb.xml,FALSE,Test396
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.dll,FALSE,Test397
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Host.SystemWeb.2.1.0\lib\net45\Microsoft.Owin.Host.SystemWeb.xml,FALSE,Test398
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0\lib,FALSE,Test399
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0\Microsoft.Owin.Security.2.1.0.nupkg,FALSE,Test400
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0\lib\net45,FALSE,Test401
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.dll,FALSE,Test402
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.2.1.0\lib\net45\Microsoft.Owin.Security.XML,FALSE,Test403
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib,FALSE,Test404
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0\Microsoft.Owin.Security.Cookies.2.1.0.nupkg,FALSE,Test405
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45,FALSE,Test406
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.dll,FALSE,Test407
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Cookies.2.1.0\lib\net45\Microsoft.Owin.Security.Cookies.xml,FALSE,Test408
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib,FALSE,Test409
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0\Microsoft.Owin.Security.Facebook.2.1.0.nupkg,FALSE,Test410
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45,FALSE,Test411
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.dll,FALSE,Test412
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Facebook.2.1.0\lib\net45\Microsoft.Owin.Security.Facebook.XML,FALSE,Test413
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0\lib,FALSE,Test414
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0\Microsoft.Owin.Security.Google.2.1.0.nupkg,FALSE,Test415
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45,FALSE,Test416
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.dll,FALSE,Test417
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Google.2.1.0\lib\net45\Microsoft.Owin.Security.Google.XML,FALSE,Test418
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib,FALSE,Test419
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\Microsoft.Owin.Security.MicrosoftAccount.2.1.0.nupkg,FALSE,Test420
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45,FALSE,Test421
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.dll,FALSE,Test422
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.MicrosoftAccount.2.1.0\lib\net45\Microsoft.Owin.Security.MicrosoftAccount.XML,FALSE,Test423
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib,FALSE,Test424
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0\Microsoft.Owin.Security.OAuth.2.1.0.nupkg,FALSE,Test425
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45,FALSE,Test426
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.dll,FALSE,Test427
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.OAuth.2.1.0\lib\net45\Microsoft.Owin.Security.OAuth.XML,FALSE,Test428
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib,FALSE,Test429
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0\Microsoft.Owin.Security.Twitter.2.1.0.nupkg,FALSE,Test430
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45,FALSE,Test431
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.dll,FALSE,Test432
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Owin.Security.Twitter.2.1.0\lib\net45\Microsoft.Owin.Security.Twitter.XML,FALSE,Test433
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib,FALSE,Test434
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Web.Infrastructure.1.0.0.0\Microsoft.Web.Infrastructure.1.0.0.0.nupkg,FALSE,Test435
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40,FALSE,Test436
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll,FALSE,Test437
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Content,FALSE,Test438
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Modernizr.2.6.2.nupkg,FALSE,Test439
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Tools,FALSE,Test440
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Content\Scripts,FALSE,Test441
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Content\Scripts\modernizr-2.6.2.js,FALSE,Test442
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Tools\common.ps1,FALSE,Test443
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Tools\install.ps1,FALSE,Test444
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Modernizr.2.6.2\Tools\uninstall.ps1,FALSE,Test445
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib,FALSE,Test446
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\Newtonsoft.Json.6.0.5.nupkg,FALSE,Test447
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\tools,FALSE,Test448
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net20,FALSE,Test449
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net35,FALSE,Test450
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net40,FALSE,Test451
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net45,FALSE,Test452
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\netcore45,FALSE,Test453
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net40+sl5+wp80+win8+wpa81,FALSE,Test454
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81,FALSE,Test455
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net20\Newtonsoft.Json.dll,FALSE,Test456
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net20\Newtonsoft.Json.xml,FALSE,Test457
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net35\Newtonsoft.Json.dll,FALSE,Test458
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net35\Newtonsoft.Json.xml,FALSE,Test459
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.dll,FALSE,Test460
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net40\Newtonsoft.Json.xml,FALSE,Test461
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.dll,FALSE,Test462
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\net45\Newtonsoft.Json.xml,FALSE,Test463
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\netcore45\Newtonsoft.Json.dll,FALSE,Test464
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\netcore45\Newtonsoft.Json.xml,FALSE,Test465
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.dll,FALSE,Test466
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net40+sl5+wp80+win8+wpa81\Newtonsoft.Json.xml,FALSE,Test467
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.dll,FALSE,Test468
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\lib\portable-net45+wp80+win8+wpa81\Newtonsoft.Json.xml,FALSE,Test469
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Newtonsoft.Json.6.0.5\tools\install.ps1,FALSE,Test470
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Owin.1.0\lib,FALSE,Test471
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Owin.1.0\Owin.1.0.nupkg,FALSE,Test472
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Owin.1.0\lib\net40,FALSE,Test473
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Owin.1.0\lib\net40\Owin.dll,FALSE,Test474
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0\content,FALSE,Test475
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0\Respond.1.2.0.nupkg,FALSE,Test476
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0\content\Scripts,FALSE,Test477
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0\content\Scripts\respond.js,FALSE,Test478
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\Respond.1.2.0\content\Scripts\respond.min.js,FALSE,Test479
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2\lib,FALSE,Test480
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2\tools,FALSE,Test481
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2\WebGrease.1.5.2.nupkg,FALSE,Test482
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2\lib\WebGrease.dll,FALSE,Test483
+D:\Files\Git2015\Boondoggle\BoondoggleMain\packages\WebGrease.1.5.2\tools\WG.exe,FALSE,Test484
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile\App.config,FALSE,Test485
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile\Program.cs,FALSE,Test486
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile\Properties,FALSE,Test487
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile\QuickCreateBattleFile.csproj,FALSE,Test488
+D:\Files\Git2015\Boondoggle\BoondoggleMain\QuickCreateBattleFile\Properties\AssemblyInfo.cs,TRUE,Test489
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\BorisBot.cs,FALSE,Test490
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\KevBot.cs,FALSE,Test491
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\PirateBot.cs,FALSE,Test492
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\Properties,FALSE,Test493
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\ReferenceBot.csproj,FALSE,Test494
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\Reference_RightTurnBot.cs,FALSE,Test495
+D:\Files\Git2015\Boondoggle\BoondoggleMain\ReferenceBot\Properties\AssemblyInfo.cs,TRUE,Test496
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\bd2BaseModelTests.cs,FALSE,Test497
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\bd2EngineTests.cs,FALSE,Test498
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\bd2MapTests.cs,FALSE,Test499
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\bd2MessagingTests.cs,FALSE,Test500
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\bd2WorldTests.cs,FALSE,Test501
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\EquipmentSupportTests.cs,FALSE,Test502
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\MappedObjectPotentialMoveTests.cs,FALSE,Test503
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\Properties,FALSE,Test504
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\Test_Bd2Core.Test.csproj,FALSE,Test505
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\UnitTest1.cs,FALSE,Test506
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2Core.Test\Properties\AssemblyInfo.cs,TRUE,Test507
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\bd2RandomiserTests.cs,FALSE,Test508
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\BoonBotBaseTests.cs,FALSE,Test509
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\BotEquipmentScannerTests.cs,FALSE,Test510
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\BotEquipmentTests.cs,FALSE,Test511
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\BotEquipmentWeaponryTests.cs,FALSE,Test512
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\CombatHelperTests.cs,FALSE,Test513
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\Properties,FALSE,Test514
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\ScannerEquipmentItemTests.cs,FALSE,Test515
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\Test_Bd2CoreTypes.Test.csproj,FALSE,Test516
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\UnitTest1.cs,FALSE,Test517
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2CoreTypes.Test\Properties\AssemblyInfo.cs,TRUE,Test518
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\BasicMockBot.cs,FALSE,Test519
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\EquipmentSupportFactory.cs,FALSE,Test520
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\mockBd2Engine.cs,FALSE,Test521
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\mockBd2Randomiser.cs,FALSE,Test522
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockBDBaseModel.cs,FALSE,Test523
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockBDMessage.cs,FALSE,Test524
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockBotActionProvider.cs,FALSE,Test525
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockBotFactory.cs,FALSE,Test526
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockEquipmentRepository.cs,FALSE,Test527
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\MockHistoricalBattleRepository.cs,FALSE,Test528
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\Properties,FALSE,Test529
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\TestEngineFactory.cs,FALSE,Test530
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\TestPreparedWorld.cs,FALSE,Test531
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\TestUtils.cs,FALSE,Test532
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\Test_ABd2TestSupport.csproj,FALSE,Test533
+D:\Files\Git2015\Boondoggle\BoondoggleMain\Test_Bd2TestSupport\Properties\AssemblyInfo.cs,TRUE,Test534
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets,FALSE,Test535
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\bdCustomDictionary.xml,FALSE,Test536
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\BdData,FALSE,Test537
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\BuildDocs.txt,FALSE,Test538
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs,FALSE,Test539
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\FileReferences,FALSE,Test540
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images,FALSE,Test541
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\MessageMap.xlsx,FALSE,Test542
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser,FALSE,Test543
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\PliskyDev.ruleset,FALSE,Test544
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Properties,FALSE,Test545
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Scratchpad.cs,FALSE,Test546
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData,FALSE,Test547
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\_Dependencies.csproj,FALSE,Test548
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\bd2_Tileset.psd,FALSE,Test549
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\bd2_Tileset_1.png,FALSE,Test550
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\bdtitle.png,FALSE,Test551
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\largeEmptyMap24plr.tmx,FALSE,Test552
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\maps_raw,FALSE,Test553
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\newdefaultMap.json,FALSE,Test554
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\newdefaultMap.tmx,FALSE,Test555
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\spriteset1.png,FALSE,Test556
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export,FALSE,Test557
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\starterMap4plr.json,FALSE,Test558
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\starterMap4plr.tmx,FALSE,Test559
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw,FALSE,Test560
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\TinySampleMap.tmx,FALSE,Test561
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\maps_raw\testmap4plr.tmx,FALSE,Test562
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\bd2tset1.png,FALSE,Test563
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\bullets.png,FALSE,Test564
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\davidtnk.png,FALSE,Test565
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\greentank1.png,FALSE,Test566
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\orangetank1.png,FALSE,Test567
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\redtank1.png,FALSE,Test568
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\testmap4plr.json,FALSE,Test569
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\sprites_export\yellowtank1.png,FALSE,Test570
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\bd2tset1.pickle,FALSE,Test571
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\bullets.pickle,FALSE,Test572
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\davidd.pickle,FALSE,Test573
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\greentank1.pickle,FALSE,Test574
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\orangetank1.pickle,FALSE,Test575
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\redtank1.pickle,FALSE,Test576
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\tileset.pickle,FALSE,Test577
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\Untitled.pickle,FALSE,Test578
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Assets\tilesets_raw\yellowtank1.pickle,FALSE,Test579
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\BdData\bdEquipmentData.xml,FALSE,Test580
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs\D0306851.chcfg,FALSE,Test581
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs\D0306870.chcfg,FALSE,Test582
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs\d0306871.chcfg,FALSE,Test583
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs\dauntless.chcfg,FALSE,Test584
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Configs\monkeebutt.chcfg,FALSE,Test585
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\FileReferences\PliskyLib.dll,FALSE,Test586
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\FileReferences\PliskyLib.pdb,FALSE,Test587
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\FileReferences\WriteableBitmapEx.Wpf.dll,FALSE,Test588
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\FileReferences\WriteableBitmapEx.Wpf.pdb,FALSE,Test589
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP,FALSE,Test590
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output,FALSE,Test591
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\Test,FALSE,Test592
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\tileset1,FALSE,Test593
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP\bdSprites.psd,FALSE,Test594
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP\bdtiles2.psd,FALSE,Test595
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP\Boondoggletitle.psd,FALSE,Test596
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP\boondoggle_tiles1.psd,FALSE,Test597
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\CreatedPSP\BoonTiles24x24.psd,FALSE,Test598
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\Floor124x24.png,FALSE,Test599
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\images,FALSE,Test600
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\SM124x24.png,FALSE,Test601
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\SM224x24.png,FALSE,Test602
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\tileset1.png,FALSE,Test603
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\wall24x24.png,FALSE,Test604
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\water24x24.png,FALSE,Test605
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\output\images\Boondoggletitle.png,FALSE,Test606
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\Test\testimage.png,FALSE,Test607
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\tileset1\spriteset1.png,FALSE,Test608
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\tileset1\tileset1.png,FALSE,Test609
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Images\tileset1\tileset1.xml,FALSE,Test610
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\bower.json,FALSE,Test611
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build,FALSE,Test612
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs,FALSE,Test613
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\examples,FALSE,Test614
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters,FALSE,Test615
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\Gruntfile.js,FALSE,Test616
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\license.txt,FALSE,Test617
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\package.json,FALSE,Test618
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\phaser-logo-small.png,FALSE,Test619
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources,FALSE,Test620
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src,FALSE,Test621
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks,FALSE,Test622
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\config.php,FALSE,Test623
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom,FALSE,Test624
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\phaser.d.ts,FALSE,Test625
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\phaser.js,FALSE,Test626
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\phaser.map,FALSE,Test627
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\phaser.min.js,FALSE,Test628
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\ninja.js,FALSE,Test629
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\ninja.min.js,FALSE,Test630
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\p2.js,FALSE,Test631
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\p2.min.js,FALSE,Test632
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-arcade-physics.js,FALSE,Test633
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-arcade-physics.min.js,FALSE,Test634
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-ninja-physics.js,FALSE,Test635
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-ninja-physics.min.js,FALSE,Test636
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-no-libs.js,FALSE,Test637
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-no-libs.min.js,FALSE,Test638
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-no-physics.js,FALSE,Test639
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\phaser-no-physics.min.js,FALSE,Test640
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\pixi.js,FALSE,Test641
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\build\custom\pixi.min.js,FALSE,Test642
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\AABB.js.html,FALSE,Test643
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Animation.js.html,FALSE,Test644
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\AnimationManager.js.html,FALSE,Test645
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\AnimationParser.js.html,FALSE,Test646
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\ArrayList.js.html,FALSE,Test647
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\BitmapData.js.html,FALSE,Test648
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\BitmapText.js.html,FALSE,Test649
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Body.js.html,FALSE,Test650
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Body.js_.html,FALSE,Test651
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Body.js__.html,FALSE,Test652
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\BodyDebug.js.html,FALSE,Test653
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build,FALSE,Test654
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Button.js.html,FALSE,Test655
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Cache.js.html,FALSE,Test656
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Camera.js.html,FALSE,Test657
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Canvas.js.html,FALSE,Test658
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Circle.js.html,FALSE,Test659
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Circle.js_.html,FALSE,Test660
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\classes.list.html,FALSE,Test661
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\CollisionGroup.js.html,FALSE,Test662
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Color.js.html,FALSE,Test663
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\ContactMaterial.js.html,FALSE,Test664
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Debug.js.html,FALSE,Test665
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Device.js.html,FALSE,Test666
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\DistanceConstraint.js.html,FALSE,Test667
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Easing.js.html,FALSE,Test668
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Ellipse.js.html,FALSE,Test669
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Emitter.js.html,FALSE,Test670
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Events.js.html,FALSE,Test671
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Filter.js.html,FALSE,Test672
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\FixtureList.js.html,FALSE,Test673
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\FlexGrid.js.html,FALSE,Test674
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\FlexLayer.js.html,FALSE,Test675
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Frame.js.html,FALSE,Test676
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\FrameData.js.html,FALSE,Test677
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Game.js.html,FALSE,Test678
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\GameObjectCreator.js.html,FALSE,Test679
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\GameObjectFactory.js.html,FALSE,Test680
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Gamepad.js.html,FALSE,Test681
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\GamepadButton.js.html,FALSE,Test682
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\GearConstraint.js.html,FALSE,Test683
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\global.html,FALSE,Test684
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Graphics.js.html,FALSE,Test685
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Group.js.html,FALSE,Test686
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Image.js.html,FALSE,Test687
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\img,FALSE,Test688
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\index.html,FALSE,Test689
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Input.js.html,FALSE,Test690
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\InputHandler.js.html,FALSE,Test691
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\InversePointProxy.js.html,FALSE,Test692
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Key.js.html,FALSE,Test693
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Keyboard.js.html,FALSE,Test694
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Line.js.html,FALSE,Test695
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\LinkedList.js.html,FALSE,Test696
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Loader.js.html,FALSE,Test697
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\LoaderParser.js.html,FALSE,Test698
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\LockConstraint.js.html,FALSE,Test699
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Material.js.html,FALSE,Test700
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Math.js.html,FALSE,Test701
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Mouse.js.html,FALSE,Test702
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\MSPointer.js.html,FALSE,Test703
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\namespaces.list.html,FALSE,Test704
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Net.js.html,FALSE,Test705
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Particle.js.html,FALSE,Test706
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Particles.js.html,FALSE,Test707
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Animation.html,FALSE,Test708
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.AnimationManager.html,FALSE,Test709
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.AnimationParser.html,FALSE,Test710
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.ArrayList.html,FALSE,Test711
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.BitmapData.html,FALSE,Test712
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.BitmapText.html,FALSE,Test713
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Button.html,FALSE,Test714
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Cache.html,FALSE,Test715
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Camera.html,FALSE,Test716
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Canvas.html,FALSE,Test717
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Circle.html,FALSE,Test718
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Color.html,FALSE,Test719
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Device.html,FALSE,Test720
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Back.html,FALSE,Test721
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Bounce.html,FALSE,Test722
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Circular.html,FALSE,Test723
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Cubic.html,FALSE,Test724
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Elastic.html,FALSE,Test725
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Exponential.html,FALSE,Test726
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.html,FALSE,Test727
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Linear.html,FALSE,Test728
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Quadratic.html,FALSE,Test729
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Quartic.html,FALSE,Test730
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Quintic.html,FALSE,Test731
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Easing.Sinusoidal.html,FALSE,Test732
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Ellipse.html,FALSE,Test733
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Events.html,FALSE,Test734
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Filter.html,FALSE,Test735
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.FlexGrid.html,FALSE,Test736
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.FlexLayer.html,FALSE,Test737
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Frame.html,FALSE,Test738
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.FrameData.html,FALSE,Test739
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Game.html,FALSE,Test740
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.GameObjectCreator.html,FALSE,Test741
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.GameObjectFactory.html,FALSE,Test742
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Gamepad.html,FALSE,Test743
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.GamepadButton.html,FALSE,Test744
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Graphics.html,FALSE,Test745
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Group.html,FALSE,Test746
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.html,FALSE,Test747
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Image.html,FALSE,Test748
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Input.html,FALSE,Test749
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.InputHandler.html,FALSE,Test750
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.js.html,FALSE,Test751
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Key.html,FALSE,Test752
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Keyboard.html,FALSE,Test753
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Line.html,FALSE,Test754
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.LinkedList.html,FALSE,Test755
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Loader.html,FALSE,Test756
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.LoaderParser.html,FALSE,Test757
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Math.html,FALSE,Test758
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Mouse.html,FALSE,Test759
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.MSPointer.html,FALSE,Test760
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Net.html,FALSE,Test761
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Particle.html,FALSE,Test762
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Particles.Arcade.Emitter.html,FALSE,Test763
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Particles.html,FALSE,Test764
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Arcade.Body.html,FALSE,Test765
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Arcade.html,FALSE,Test766
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.html,FALSE,Test767
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Ninja.AABB.html,FALSE,Test768
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Ninja.Body.html,FALSE,Test769
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Ninja.Circle.html,FALSE,Test770
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Ninja.html,FALSE,Test771
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.Ninja.Tile.html,FALSE,Test772
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.Body.html,FALSE,Test773
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.BodyDebug.html,FALSE,Test774
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.CollisionGroup.html,FALSE,Test775
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.ContactMaterial.html,FALSE,Test776
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.DistanceConstraint.html,FALSE,Test777
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.FixtureList.html,FALSE,Test778
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.GearConstraint.html,FALSE,Test779
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.html,FALSE,Test780
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.InversePointProxy.html,FALSE,Test781
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.LockConstraint.html,FALSE,Test782
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.Material.html,FALSE,Test783
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.PointProxy.html,FALSE,Test784
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.PrismaticConstraint.html,FALSE,Test785
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.RevoluteConstraint.html,FALSE,Test786
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.RotationalSpring.html,FALSE,Test787
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Physics.P2.Spring.html,FALSE,Test788
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Plugin.html,FALSE,Test789
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.PluginManager.html,FALSE,Test790
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Point.html,FALSE,Test791
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Pointer.html,FALSE,Test792
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Polygon.html,FALSE,Test793
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.QuadTree.html,FALSE,Test794
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.RandomDataGenerator.html,FALSE,Test795
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Rectangle.html,FALSE,Test796
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.RenderTexture.html,FALSE,Test797
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.RequestAnimationFrame.html,FALSE,Test798
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.RetroFont.html,FALSE,Test799
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Rope.html,FALSE,Test800
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.ScaleManager.html,FALSE,Test801
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Signal.html,FALSE,Test802
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.SignalBinding.html,FALSE,Test803
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.SinglePad.html,FALSE,Test804
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Sound.html,FALSE,Test805
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.SoundManager.html,FALSE,Test806
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Sprite.html,FALSE,Test807
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.SpriteBatch.html,FALSE,Test808
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Stage.html,FALSE,Test809
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.State.html,FALSE,Test810
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.StateManager.html,FALSE,Test811
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Text.html,FALSE,Test812
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Tile.html,FALSE,Test813
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Tilemap.html,FALSE,Test814
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.TilemapLayer.html,FALSE,Test815
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.TilemapParser.html,FALSE,Test816
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Tileset.html,FALSE,Test817
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.TileSprite.html,FALSE,Test818
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Time.html,FALSE,Test819
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Timer.html,FALSE,Test820
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.TimerEvent.html,FALSE,Test821
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Touch.html,FALSE,Test822
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Tween.html,FALSE,Test823
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.TweenManager.html,FALSE,Test824
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Utils.Debug.html,FALSE,Test825
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.Utils.html,FALSE,Test826
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Phaser.World.html,FALSE,Test827
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Physics.js.html,FALSE,Test828
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Plugin.js.html,FALSE,Test829
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\PluginManager.js.html,FALSE,Test830
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Point.js.html,FALSE,Test831
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Pointer.js.html,FALSE,Test832
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\PointProxy.js.html,FALSE,Test833
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Polygon.js.html,FALSE,Test834
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\PrismaticConstraint.js.html,FALSE,Test835
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\QuadTree.js.html,FALSE,Test836
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RandomDataGenerator.js.html,FALSE,Test837
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Rectangle.js.html,FALSE,Test838
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RenderTexture.js.html,FALSE,Test839
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RequestAnimationFrame.js.html,FALSE,Test840
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RetroFont.js.html,FALSE,Test841
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RevoluteConstraint.js.html,FALSE,Test842
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Rope.js.html,FALSE,Test843
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\RotationalSpring.js.html,FALSE,Test844
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\ScaleManager.js.html,FALSE,Test845
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts,FALSE,Test846
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Signal.js.html,FALSE,Test847
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\SignalBinding.js.html,FALSE,Test848
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\SinglePad.js.html,FALSE,Test849
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Sound.js.html,FALSE,Test850
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\SoundManager.js.html,FALSE,Test851
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Spring.js.html,FALSE,Test852
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Sprite.js.html,FALSE,Test853
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\SpriteBatch.js.html,FALSE,Test854
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Stage.js.html,FALSE,Test855
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\State.js.html,FALSE,Test856
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\StateManager.js.html,FALSE,Test857
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles,FALSE,Test858
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Text.js.html,FALSE,Test859
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Tile.js.html,FALSE,Test860
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Tile.js_.html,FALSE,Test861
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Tilemap.js.html,FALSE,Test862
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\TilemapLayer.js.html,FALSE,Test863
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\TilemapParser.js.html,FALSE,Test864
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Tileset.js.html,FALSE,Test865
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\TileSprite.js.html,FALSE,Test866
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Time.js.html,FALSE,Test867
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Timer.js.html,FALSE,Test868
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\TimerEvent.js.html,FALSE,Test869
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Touch.js.html,FALSE,Test870
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Tween.js.html,FALSE,Test871
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\TweenManager.js.html,FALSE,Test872
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\Utils.js.html,FALSE,Test873
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\World.js.html,FALSE,Test874
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\World.js_.html,FALSE,Test875
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\World.js__.html,FALSE,Test876
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\World.js___.html,FALSE,Test877
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\build master.bat,FALSE,Test878
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\conf.json,FALSE,Test879
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master,FALSE,Test880
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\styles,FALSE,Test881
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template,FALSE,Test882
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\styles\bootswatch.less,FALSE,Test883
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\styles\main.less,FALSE,Test884
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\styles\variables.less,FALSE,Test885
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\jsdoc.conf.json,FALSE,Test886
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\publish.js,FALSE,Test887
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static,FALSE,Test888
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl,FALSE,Test889
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\img,FALSE,Test890
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts,FALSE,Test891
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles,FALSE,Test892
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\img\glyphicons-halflings-white.png,FALSE,Test893
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\img\glyphicons-halflings.png,FALSE,Test894
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\bootstrap-dropdown.js,FALSE,Test895
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\bootstrap-tab.js,FALSE,Test896
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\jquery.localScroll.js,FALSE,Test897
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\jquery.min.js,FALSE,Test898
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\jquery.scrollTo.js,FALSE,Test899
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\jquery.sunlight.js,FALSE,Test900
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\prettify,FALSE,Test901
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\sunlight-plugin.doclinks.js,FALSE,Test902
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\sunlight-plugin.linenumbers.js,FALSE,Test903
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\sunlight-plugin.menu.js,FALSE,Test904
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\sunlight.javascript.js,FALSE,Test905
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\sunlight.js,FALSE,Test906
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\toc.js,FALSE,Test907
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\URI.js,FALSE,Test908
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\prettify\Apache-License-2.0.txt,FALSE,Test909
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\prettify\jquery.min.js,FALSE,Test910
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\prettify\lang-css.js,FALSE,Test911
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\scripts\prettify\prettify.js,FALSE,Test912
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles\darkstrap.css,FALSE,Test913
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles\prettify-tomorrow.css,FALSE,Test914
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles\site.cerulean.css,FALSE,Test915
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles\sunlight.dark.css,FALSE,Test916
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\static\styles\sunlight.default.css,FALSE,Test917
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\container.tmpl,FALSE,Test918
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\details.tmpl,FALSE,Test919
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\example.tmpl,FALSE,Test920
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\examples.tmpl,FALSE,Test921
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\exceptions.tmpl,FALSE,Test922
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\fires.tmpl,FALSE,Test923
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\layout.tmpl,FALSE,Test924
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\mainpage.tmpl,FALSE,Test925
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\members.tmpl,FALSE,Test926
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\method.tmpl,FALSE,Test927
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\params.tmpl,FALSE,Test928
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\properties.tmpl,FALSE,Test929
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\returns.tmpl,FALSE,Test930
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\sections.tmpl,FALSE,Test931
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\source.tmpl,FALSE,Test932
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\tutorial.tmpl,FALSE,Test933
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\build\docstrap-master\template\tmpl\type.tmpl,FALSE,Test934
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\img\glyphicons-halflings-white.png,FALSE,Test935
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\img\glyphicons-halflings.png,FALSE,Test936
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\bootstrap-dropdown.js,FALSE,Test937
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\bootstrap-tab.js,FALSE,Test938
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\jquery.localScroll.js,FALSE,Test939
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\jquery.min.js,FALSE,Test940
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\jquery.scrollTo.js,FALSE,Test941
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\jquery.sunlight.js,FALSE,Test942
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\prettify,FALSE,Test943
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\sunlight-plugin.doclinks.js,FALSE,Test944
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\sunlight-plugin.linenumbers.js,FALSE,Test945
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\sunlight-plugin.menu.js,FALSE,Test946
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\sunlight.javascript.js,FALSE,Test947
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\sunlight.js,FALSE,Test948
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\toc.js,FALSE,Test949
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\URI.js,FALSE,Test950
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\prettify\Apache-License-2.0.txt,FALSE,Test951
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\prettify\jquery.min.js,FALSE,Test952
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\prettify\lang-css.js,FALSE,Test953
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\scripts\prettify\prettify.js,FALSE,Test954
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles\darkstrap.css,FALSE,Test955
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles\prettify-tomorrow.css,FALSE,Test956
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles\site.cerulean.css,FALSE,Test957
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles\sunlight.dark.css,FALSE,Test958
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\docs\styles\sunlight.default.css,FALSE,Test959
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\examples\where have they gone.txt,FALSE,Test960
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\.jshintrc,FALSE,Test961
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\BinarySerpents.js,FALSE,Test962
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\BlurX.js,FALSE,Test963
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\BlurY.js,FALSE,Test964
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\CausticLight.js,FALSE,Test965
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\CheckerWave.js,FALSE,Test966
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\ColorBars.js,FALSE,Test967
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Fire.js,FALSE,Test968
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Gray.js,FALSE,Test969
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\HueRotate.js,FALSE,Test970
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\LightBeam.js,FALSE,Test971
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Marble.js,FALSE,Test972
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Pixelate.js,FALSE,Test973
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Plasma.js,FALSE,Test974
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\SampleFilter.js,FALSE,Test975
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\filters\Tunnel.js,FALSE,Test976
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Asset Pack JSON Format,FALSE,Test977
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Flash to Phaser JSFL,FALSE,Test978
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\IE9 Polyfill,FALSE,Test979
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Migration Guide.md,FALSE,Test980
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles,FALSE,Test981
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo,FALSE,Test982
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\PhysicsEditor Exporter,FALSE,Test983
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates,FALSE,Test984
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\release-names.txt,FALSE,Test985
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots,FALSE,Test986
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials,FALSE,Test987
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\zwoptex-phaser.template,FALSE,Test988
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Asset Pack JSON Format\assetPack.json,FALSE,Test989
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Flash to Phaser JSFL\Flash to Phaser Guide.docx,FALSE,Test990
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Flash to Phaser JSFL\Flash to Phaser Guide.pdf,FALSE,Test991
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Flash to Phaser JSFL\Flash to Phaser.jsfl,FALSE,Test992
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\IE9 Polyfill\dataview-polyfill.js,FALSE,Test993
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\IE9 Polyfill\readme.txt,FALSE,Test994
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px,FALSE,Test995
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px,FALSE,Test996
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px,FALSE,Test997
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named,FALSE,Test998
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\0.png,FALSE,Test999
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\1.png,FALSE,Test1000
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\10.png,FALSE,Test1001
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\11.png,FALSE,Test1002
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\12.png,FALSE,Test1003
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\13.png,FALSE,Test1004
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\14.png,FALSE,Test1005
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\15.png,FALSE,Test1006
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\16.png,FALSE,Test1007
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\17.png,FALSE,Test1008
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\18.png,FALSE,Test1009
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\19.png,FALSE,Test1010
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\2.png,FALSE,Test1011
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\20.png,FALSE,Test1012
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\21.png,FALSE,Test1013
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\22.png,FALSE,Test1014
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\23.png,FALSE,Test1015
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\24.png,FALSE,Test1016
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\25.png,FALSE,Test1017
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\26.png,FALSE,Test1018
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\27.png,FALSE,Test1019
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\28.png,FALSE,Test1020
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\29.png,FALSE,Test1021
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\3.png,FALSE,Test1022
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\30.png,FALSE,Test1023
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\31.png,FALSE,Test1024
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\32.png,FALSE,Test1025
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\33.png,FALSE,Test1026
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\4.png,FALSE,Test1027
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\5.png,FALSE,Test1028
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\6.png,FALSE,Test1029
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\7.png,FALSE,Test1030
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\8.png,FALSE,Test1031
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\9.png,FALSE,Test1032
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\128px\ninja-tiles128.png,FALSE,Test1033
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\0.png,FALSE,Test1034
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\1.png,FALSE,Test1035
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\10.png,FALSE,Test1036
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\11.png,FALSE,Test1037
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\12.png,FALSE,Test1038
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\13.png,FALSE,Test1039
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\14.png,FALSE,Test1040
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\15.png,FALSE,Test1041
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\16.png,FALSE,Test1042
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\17.png,FALSE,Test1043
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\18.png,FALSE,Test1044
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\19.png,FALSE,Test1045
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\2.png,FALSE,Test1046
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\20.png,FALSE,Test1047
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\21.png,FALSE,Test1048
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\22.png,FALSE,Test1049
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\23.png,FALSE,Test1050
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\24.png,FALSE,Test1051
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\25.png,FALSE,Test1052
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\26.png,FALSE,Test1053
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\27.png,FALSE,Test1054
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\28.png,FALSE,Test1055
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\29.png,FALSE,Test1056
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\3.png,FALSE,Test1057
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\30.png,FALSE,Test1058
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\31.png,FALSE,Test1059
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\32.png,FALSE,Test1060
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\33.png,FALSE,Test1061
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\4.png,FALSE,Test1062
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\5.png,FALSE,Test1063
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\6.png,FALSE,Test1064
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\7.png,FALSE,Test1065
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\8.png,FALSE,Test1066
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\9.png,FALSE,Test1067
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\32px\ninja-tiles32.png,FALSE,Test1068
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\0.png,FALSE,Test1069
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\1.png,FALSE,Test1070
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\10.png,FALSE,Test1071
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\11.png,FALSE,Test1072
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\12.png,FALSE,Test1073
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\13.png,FALSE,Test1074
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\14.png,FALSE,Test1075
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\15.png,FALSE,Test1076
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\16.png,FALSE,Test1077
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\17.png,FALSE,Test1078
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\18.png,FALSE,Test1079
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\19.png,FALSE,Test1080
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\2.png,FALSE,Test1081
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\20.png,FALSE,Test1082
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\21.png,FALSE,Test1083
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\22.png,FALSE,Test1084
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\23.png,FALSE,Test1085
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\24.png,FALSE,Test1086
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\25.png,FALSE,Test1087
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\26.png,FALSE,Test1088
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\27.png,FALSE,Test1089
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\28.png,FALSE,Test1090
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\29.png,FALSE,Test1091
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\3.png,FALSE,Test1092
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\30.png,FALSE,Test1093
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\31.png,FALSE,Test1094
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\32.png,FALSE,Test1095
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\33.png,FALSE,Test1096
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\4.png,FALSE,Test1097
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\5.png,FALSE,Test1098
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\6.png,FALSE,Test1099
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\7.png,FALSE,Test1100
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\8.png,FALSE,Test1101
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\9.png,FALSE,Test1102
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\64px\ninja-tiles64.png,FALSE,Test1103
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg nn B.png,FALSE,Test1104
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg nn S.png,FALSE,Test1105
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg np B.png,FALSE,Test1106
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg np S.png,FALSE,Test1107
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg pn B.png,FALSE,Test1108
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg pn S.png,FALSE,Test1109
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg pp B.png,FALSE,Test1110
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\22 deg pp S.png,FALSE,Test1111
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\45 deg nn.png,FALSE,Test1112
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\45 deg np.png,FALSE,Test1113
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\45 deg pn.png,FALSE,Test1114
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\45 deg pp.png,FALSE,Test1115
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg nn B.png,FALSE,Test1116
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg nn S.png,FALSE,Test1117
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg np B.png,FALSE,Test1118
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg np S.png,FALSE,Test1119
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg pn B.png,FALSE,Test1120
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg pn S.png,FALSE,Test1121
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg pp B.png,FALSE,Test1122
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\67 deg pp S.png,FALSE,Test1123
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\concave nn.png,FALSE,Test1124
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\concave np.png,FALSE,Test1125
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\concave pn.png,FALSE,Test1126
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\concave pp.png,FALSE,Test1127
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\convex nn.png,FALSE,Test1128
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\convex np.png,FALSE,Test1129
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\convex pn.png,FALSE,Test1130
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\convex pp.png,FALSE,Test1131
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\full list.png,FALSE,Test1132
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\full.png,FALSE,Test1133
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\half d.png,FALSE,Test1134
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\half l.png,FALSE,Test1135
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\half r.png,FALSE,Test1136
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Ninja Physics Debug Tiles\named\half u.png,FALSE,Test1137
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text,FALSE,Test1138
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art,FALSE,Test1139
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\PNG,FALSE,Test1140
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Vector,FALSE,Test1141
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text\Phaser 2D Glow.png,FALSE,Test1142
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text\Phaser 2D Glow.psd,FALSE,Test1143
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text\Phaser 2D No Glow.png,FALSE,Test1144
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text\Phaser 2D No Glow.psd,FALSE,Test1145
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\2D Text\Phaser Logo 2D Vector Outline.fla,FALSE,Test1146
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art\Phaser-Logo-Sizes.png,FALSE,Test1147
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art\phaser_pixel_large_shaded.png,FALSE,Test1148
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art\phaser_pixel_medium_flat.png,FALSE,Test1149
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art\phaser_pixel_medium_shaded.png,FALSE,Test1150
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Pixel Art\phaser_pixel_small_flat.png,FALSE,Test1151
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\PNG\Phaser Logo iPad Resolution.png,FALSE,Test1152
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\PNG\Phaser Logo Print Quality.png,FALSE,Test1153
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\PNG\Phaser Logo Web Quality.png,FALSE,Test1154
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\PNG\Phaser-Logo-Small.png,FALSE,Test1155
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Vector\Phaser Logo.eps,FALSE,Test1156
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Phaser Logo\Vector\Phaser Logo.fla,FALSE,Test1157
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\PhysicsEditor Exporter\exporter.xml,FALSE,Test1158
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\PhysicsEditor Exporter\phaser.json,FALSE,Test1159
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic,FALSE,Test1160
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile,FALSE,Test1161
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS,FALSE,Test1162
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive,FALSE,Test1163
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic\Boot.js,FALSE,Test1164
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic\Game.js,FALSE,Test1165
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic\index.html,FALSE,Test1166
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic\MainMenu.js,FALSE,Test1167
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Basic\Preloader.js,FALSE,Test1168
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\apple-touch-icon.png,FALSE,Test1169
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\css,FALSE,Test1170
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons,FALSE,Test1171
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\images,FALSE,Test1172
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\index.html,FALSE,Test1173
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\src,FALSE,Test1174
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\css\stylesheet.css,FALSE,Test1175
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_1024x1024.png,FALSE,Test1176
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_114x114.png,FALSE,Test1177
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_120x120.png,FALSE,Test1178
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_144x144.png,FALSE,Test1179
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_152x152.png,FALSE,Test1180
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_256x256.png,FALSE,Test1181
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_512x512.png,FALSE,Test1182
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_57x57.png,FALSE,Test1183
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_60x60.png,FALSE,Test1184
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_72x72.png,FALSE,Test1185
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\icons\app_icon_76x76.png,FALSE,Test1186
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\images\orientation.jpg,FALSE,Test1187
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\src\Boot.js,FALSE,Test1188
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\src\Game.js,FALSE,Test1189
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\src\MainMenu.js,FALSE,Test1190
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Full Screen Mobile\src\Preloader.js,FALSE,Test1191
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\.bowerrc,FALSE,Test1192
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\assets,FALSE,Test1193
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\bower.json,FALSE,Test1194
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\index.html,FALSE,Test1195
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\README.md,FALSE,Test1196
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\src,FALSE,Test1197
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\assets\phaser.png,FALSE,Test1198
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\src\game.js,FALSE,Test1199
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\RequireJS\src\main.js,FALSE,Test1200
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive\Boot.js,FALSE,Test1201
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive\Game.js,FALSE,Test1202
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive\index.html,FALSE,Test1203
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive\MainMenu.js,FALSE,Test1204
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Project Templates\Responsive\Preloader.js,FALSE,Test1205
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-cybernoid.png,FALSE,Test1206
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-demoscene.png,FALSE,Test1207
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-fireball.png,FALSE,Test1208
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-flood-fill.png,FALSE,Test1209
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-p2-cannon.png,FALSE,Test1210
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-protracker.png,FALSE,Test1211
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser-waves.png,FALSE,Test1212
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_balls.png,FALSE,Test1213
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_bitmapdata.png,FALSE,Test1214
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_blaster.png,FALSE,Test1215
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_cams.png,FALSE,Test1216
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_checkerwave.png,FALSE,Test1217
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_desert.png,FALSE,Test1218
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_fixed_camera.png,FALSE,Test1219
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_fruit.png,FALSE,Test1220
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_fruit_particles.png,FALSE,Test1221
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_mapdraw.png,FALSE,Test1222
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_marble.png,FALSE,Test1223
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_mario_combo.png,FALSE,Test1224
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_multiple_anims.png,FALSE,Test1225
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_particles.png,FALSE,Test1226
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_particle_trails.png,FALSE,Test1227
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_platformer.png,FALSE,Test1228
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_polygons.png,FALSE,Test1229
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_quadtree.png,FALSE,Test1230
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_rotate4.png,FALSE,Test1231
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_scrollfactor.png,FALSE,Test1232
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_sprite_bounds.png,FALSE,Test1233
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_tanks.png,FALSE,Test1234
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_tilemap.png,FALSE,Test1235
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_tilemap_collision.png,FALSE,Test1236
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_tilemap_debug.png,FALSE,Test1237
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\Screen Shots\phaser_tunnel.png,FALSE,Test1238
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started,FALSE,Test1239
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game,FALSE,Test1240
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript,FALSE,Test1241
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects,FALSE,Test1242
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish,FALSE,Test1243
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\hellophaser,FALSE,Test1244
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\hellophaser.zip,FALSE,Test1245
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\images,FALSE,Test1246
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\index.html,FALSE,Test1247
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part2.html,FALSE,Test1248
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part3.html,FALSE,Test1249
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part4.html,FALSE,Test1250
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part5.html,FALSE,Test1251
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part6.html,FALSE,Test1252
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part7.html,FALSE,Test1253
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\part8.html,FALSE,Test1254
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\hellophaser\index.html,FALSE,Test1255
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\hellophaser\phaser.min.js,FALSE,Test1256
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\hellophaser\phaser.png,FALSE,Test1257
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\images\cloneFrom.jpg,FALSE,Test1258
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\images\dashboard.jpg,FALSE,Test1259
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\images\editor.jpg,FALSE,Test1260
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\01 Getting Started\images\start.jpg,FALSE,Test1261
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets,FALSE,Test1262
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\js,FALSE,Test1263
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part1.html,FALSE,Test1264
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part2.html,FALSE,Test1265
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part3.html,FALSE,Test1266
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part4.html,FALSE,Test1267
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part5.html,FALSE,Test1268
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part6.html,FALSE,Test1269
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part7.html,FALSE,Test1270
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part8.html,FALSE,Test1271
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\part9.html,FALSE,Test1272
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\phaser_1x_tutorial_02.zip,FALSE,Test1273
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\phaser_tutorial_02.zip,FALSE,Test1274
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots,FALSE,Test1275
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\tutorial.html,FALSE,Test1276
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\baddie.png,FALSE,Test1277
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\diamond.png,FALSE,Test1278
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\dude.png,FALSE,Test1279
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\firstaid.png,FALSE,Test1280
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\platform.png,FALSE,Test1281
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\sky.png,FALSE,Test1282
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\assets\star.png,FALSE,Test1283
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\js\phaser.min.js,FALSE,Test1284
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part3.png,FALSE,Test1285
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part4.png,FALSE,Test1286
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part5.png,FALSE,Test1287
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part6.png,FALSE,Test1288
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part7.png,FALSE,Test1289
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part8.png,FALSE,Test1290
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\part9.png,FALSE,Test1291
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\02 Making your first game\screen shots\tutorial_header.png,FALSE,Test1292
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots,FALSE,Test1293
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part1.png,FALSE,Test1294
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part2.png,FALSE,Test1295
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part3.png,FALSE,Test1296
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part4.png,FALSE,Test1297
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part5.png,FALSE,Test1298
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part6.png,FALSE,Test1299
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part7.png,FALSE,Test1300
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part8.png,FALSE,Test1301
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\03 Using Phaser with TypeScript\screen shots\part9.png,FALSE,Test1302
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets,FALSE,Test1303
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets.zip,FALSE,Test1304
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\index.html,FALSE,Test1305
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots,FALSE,Test1306
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\visualstudio_project.zip,FALSE,Test1307
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\level1.png,FALSE,Test1308
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\loader.png,FALSE,Test1309
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\logo.png,FALSE,Test1310
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\simon.png,FALSE,Test1311
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\title.mp3,FALSE,Test1312
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\assets\titlepage.jpg,FALSE,Test1313
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part1.png,FALSE,Test1314
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part2.png,FALSE,Test1315
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part3.jpg,FALSE,Test1316
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part3.png,FALSE,Test1317
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part4.png,FALSE,Test1318
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\04 Advanced TypeScript Projects\screen shots\part5.png,FALSE,Test1319
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando,FALSE,Test1320
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego,FALSE,Test1321
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\images,FALSE,Test1322
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\index.html,FALSE,Test1323
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part2.html,FALSE,Test1324
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part3.html,FALSE,Test1325
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part4.html,FALSE,Test1326
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part5.html,FALSE,Test1327
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part6.html,FALSE,Test1328
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part7.html,FALSE,Test1329
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\part8.html,FALSE,Test1330
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\images\cloneFrom.jpg,FALSE,Test1331
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\images\dashboard.jpg,FALSE,Test1332
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\images\editor.jpg,FALSE,Test1333
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\01 Comenzando\images\start.jpg,FALSE,Test1334
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets,FALSE,Test1335
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\js,FALSE,Test1336
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part1.html,FALSE,Test1337
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part2.html,FALSE,Test1338
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part3.html,FALSE,Test1339
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part4.html,FALSE,Test1340
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part5.html,FALSE,Test1341
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part6.html,FALSE,Test1342
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part7.html,FALSE,Test1343
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part8.html,FALSE,Test1344
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\part9.html,FALSE,Test1345
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\phaser_tutorial_02.zip,FALSE,Test1346
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots,FALSE,Test1347
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\tutorial.html,FALSE,Test1348
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\baddie.png,FALSE,Test1349
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\diamond.png,FALSE,Test1350
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\dude.png,FALSE,Test1351
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\firstaid.png,FALSE,Test1352
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\platform.png,FALSE,Test1353
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\sky.png,FALSE,Test1354
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\assets\star.png,FALSE,Test1355
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\js\phaser.min.js,FALSE,Test1356
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part3.png,FALSE,Test1357
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part4.png,FALSE,Test1358
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part5.png,FALSE,Test1359
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part6.png,FALSE,Test1360
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part7.png,FALSE,Test1361
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part8.png,FALSE,Test1362
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\part9.png,FALSE,Test1363
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\resources\tutorials\Spanish\02 Creando tu primer juego\screen shots\tutorial_header.png,FALSE,Test1364
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation,FALSE,Test1365
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core,FALSE,Test1366
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects,FALSE,Test1367
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom,FALSE,Test1368
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input,FALSE,Test1369
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\Intro.js,FALSE,Test1370
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\loader,FALSE,Test1371
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\math,FALSE,Test1372
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\net,FALSE,Test1373
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\Outro.js,FALSE,Test1374
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\particles,FALSE,Test1375
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\Phaser.js,FALSE,Test1376
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics,FALSE,Test1377
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi,FALSE,Test1378
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\sound,FALSE,Test1379
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\system,FALSE,Test1380
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap,FALSE,Test1381
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\time,FALSE,Test1382
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tween,FALSE,Test1383
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\utils,FALSE,Test1384
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation\Animation.js,FALSE,Test1385
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation\AnimationManager.js,FALSE,Test1386
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation\AnimationParser.js,FALSE,Test1387
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation\Frame.js,FALSE,Test1388
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\animation\FrameData.js,FALSE,Test1389
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\ArrayList.js,FALSE,Test1390
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Camera.js,FALSE,Test1391
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Filter.js,FALSE,Test1392
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\FlexGrid.js,FALSE,Test1393
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\FlexLayer.js,FALSE,Test1394
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Game.js,FALSE,Test1395
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Group.js,FALSE,Test1396
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\LinkedList.js,FALSE,Test1397
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Plugin.js,FALSE,Test1398
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\PluginManager.js,FALSE,Test1399
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\ScaleManager.js,FALSE,Test1400
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Signal.js,FALSE,Test1401
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\SignalBinding.js,FALSE,Test1402
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\Stage.js,FALSE,Test1403
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\State.js,FALSE,Test1404
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\StateManager.js,FALSE,Test1405
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\core\World.js,FALSE,Test1406
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\BitmapData.js,FALSE,Test1407
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\BitmapText.js,FALSE,Test1408
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Button.js,FALSE,Test1409
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Events.js,FALSE,Test1410
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\GameObjectCreator.js,FALSE,Test1411
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\GameObjectFactory.js,FALSE,Test1412
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Graphics.js,FALSE,Test1413
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Image.js,FALSE,Test1414
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Particle.js,FALSE,Test1415
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\RenderTexture.js,FALSE,Test1416
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\RetroFont.js,FALSE,Test1417
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Rope.js,FALSE,Test1418
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Sprite.js,FALSE,Test1419
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\SpriteBatch.js,FALSE,Test1420
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\Text.js,FALSE,Test1421
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\gameobjects\TileSprite.js,FALSE,Test1422
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Circle.js,FALSE,Test1423
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Ellipse.js,FALSE,Test1424
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Line.js,FALSE,Test1425
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Point.js,FALSE,Test1426
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Polygon.js,FALSE,Test1427
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\geom\Rectangle.js,FALSE,Test1428
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Gamepad.js,FALSE,Test1429
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\GamepadButton.js,FALSE,Test1430
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Input.js,FALSE,Test1431
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\InputHandler.js,FALSE,Test1432
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Key.js,FALSE,Test1433
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Keyboard.js,FALSE,Test1434
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Mouse.js,FALSE,Test1435
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\MSPointer.js,FALSE,Test1436
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Pointer.js,FALSE,Test1437
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\SinglePad.js,FALSE,Test1438
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\input\Touch.js,FALSE,Test1439
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\loader\Cache.js,FALSE,Test1440
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\loader\Loader.js,FALSE,Test1441
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\loader\LoaderParser.js,FALSE,Test1442
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\math\Math.js,FALSE,Test1443
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\math\QuadTree.js,FALSE,Test1444
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\math\RandomDataGenerator.js,FALSE,Test1445
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\net\Net.js,FALSE,Test1446
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\particles\arcade,FALSE,Test1447
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\particles\Particles.js,FALSE,Test1448
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\particles\arcade\ArcadeParticles.js,FALSE,Test1449
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\particles\arcade\Emitter.js,FALSE,Test1450
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\arcade,FALSE,Test1451
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja,FALSE,Test1452
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2,FALSE,Test1453
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\Physics.js,FALSE,Test1454
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\arcade\Body.js,FALSE,Test1455
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\arcade\World.js,FALSE,Test1456
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja\AABB.js,FALSE,Test1457
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja\Body.js,FALSE,Test1458
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja\Circle.js,FALSE,Test1459
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja\Tile.js,FALSE,Test1460
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\ninja\World.js,FALSE,Test1461
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\Body.js,FALSE,Test1462
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\BodyDebug.js,FALSE,Test1463
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\CollisionGroup.js,FALSE,Test1464
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\ContactMaterial.js,FALSE,Test1465
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\DistanceConstraint.js,FALSE,Test1466
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\FixtureList.js,FALSE,Test1467
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\GearConstraint.js,FALSE,Test1468
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\InversePointProxy.js,FALSE,Test1469
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\LockConstraint.js,FALSE,Test1470
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\Material.js,FALSE,Test1471
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\p2.js,FALSE,Test1472
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\PointProxy.js,FALSE,Test1473
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\PrismaticConstraint.js,FALSE,Test1474
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\RevoluteConstraint.js,FALSE,Test1475
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\RotationalSpring.js,FALSE,Test1476
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\Spring.js,FALSE,Test1477
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\physics\p2\World.js,FALSE,Test1478
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core,FALSE,Test1479
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display,FALSE,Test1480
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras,FALSE,Test1481
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters,FALSE,Test1482
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\InteractionData.js,FALSE,Test1483
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\InteractionManager.js,FALSE,Test1484
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\Intro.js,FALSE,Test1485
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders,FALSE,Test1486
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\Outro.js,FALSE,Test1487
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\Pixi.js,FALSE,Test1488
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\primitives,FALSE,Test1489
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers,FALSE,Test1490
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\text,FALSE,Test1491
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\textures,FALSE,Test1492
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\utils,FALSE,Test1493
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Circle.js,FALSE,Test1494
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Ellipse.js,FALSE,Test1495
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Matrix.js,FALSE,Test1496
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Point.js,FALSE,Test1497
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Polygon.js,FALSE,Test1498
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\core\Rectangle.js,FALSE,Test1499
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\DisplayObject.js,FALSE,Test1500
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\DisplayObjectContainer.js,FALSE,Test1501
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\MovieClip.js,FALSE,Test1502
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\Sprite.js,FALSE,Test1503
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\SpriteBatch.js,FALSE,Test1504
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\display\Stage.js,FALSE,Test1505
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras\Rope.js,FALSE,Test1506
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras\SPINE-LICENSE,FALSE,Test1507
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras\Spine.js,FALSE,Test1508
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras\Strip.js,FALSE,Test1509
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\extras\TilingSprite.js,FALSE,Test1510
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\AbstractFilter.js,FALSE,Test1511
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\AlphaMaskFilter.js,FALSE,Test1512
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\BlurFilter.js,FALSE,Test1513
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\BlurXFilter.js,FALSE,Test1514
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\BlurYFilter.js,FALSE,Test1515
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\ColorMatrixFilter.js,FALSE,Test1516
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\ColorStepFilter.js,FALSE,Test1517
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\CrossHatchFilter.js,FALSE,Test1518
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\DisplacementFilter.js,FALSE,Test1519
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\DotScreenFilter.js,FALSE,Test1520
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\FilterBlock.js,FALSE,Test1521
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\GrayFilter.js,FALSE,Test1522
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\InvertFilter.js,FALSE,Test1523
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\NormalMapFilter.js,FALSE,Test1524
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\PixelateFilter.js,FALSE,Test1525
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\RGBSplitFilter.js,FALSE,Test1526
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\SepiaFilter.js,FALSE,Test1527
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\SmartBlurFilter.js,FALSE,Test1528
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\filters\TwistFilter.js,FALSE,Test1529
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\AssetLoader.js,FALSE,Test1530
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\AtlasLoader.js,FALSE,Test1531
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\BitmapFontLoader.js,FALSE,Test1532
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\ImageLoader.js,FALSE,Test1533
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\JsonLoader.js,FALSE,Test1534
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\SpineLoader.js,FALSE,Test1535
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\loaders\SpriteSheetLoader.js,FALSE,Test1536
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\primitives\Graphics.js,FALSE,Test1537
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas,FALSE,Test1538
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl,FALSE,Test1539
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas\CanvasGraphics.js,FALSE,Test1540
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas\CanvasRenderer.js,FALSE,Test1541
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas\utils,FALSE,Test1542
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas\utils\CanvasMaskManager.js,FALSE,Test1543
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\canvas\utils\CanvasTinter.js,FALSE,Test1544
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders,FALSE,Test1545
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils,FALSE,Test1546
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\WebGLRenderer.js,FALSE,Test1547
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders\ComplexPrimitiveShader.js,FALSE,Test1548
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders\PixiFastShader.js,FALSE,Test1549
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders\PixiShader.js,FALSE,Test1550
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders\PrimitiveShader.js,FALSE,Test1551
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\shaders\StripShader.js,FALSE,Test1552
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\FilterTexture.js,FALSE,Test1553
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLBlendModeManager.js,FALSE,Test1554
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLFastSpriteBatch.js,FALSE,Test1555
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLFilterManager.js,FALSE,Test1556
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLGraphics.js,FALSE,Test1557
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLMaskManager.js,FALSE,Test1558
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLShaderManager.js,FALSE,Test1559
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLShaderUtils.js,FALSE,Test1560
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLSpriteBatch.js,FALSE,Test1561
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\renderers\webgl\utils\WebGLStencilManager.js,FALSE,Test1562
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\text\BitmapText.js,FALSE,Test1563
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\text\Text.js,FALSE,Test1564
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\textures\BaseTexture.js,FALSE,Test1565
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\textures\RenderTexture.js,FALSE,Test1566
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\textures\Texture.js,FALSE,Test1567
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\utils\Detector.js,FALSE,Test1568
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\utils\EventTarget.js,FALSE,Test1569
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\utils\Polyk.js,FALSE,Test1570
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\pixi\utils\Utils.js,FALSE,Test1571
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\sound\Sound.js,FALSE,Test1572
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\sound\SoundManager.js,FALSE,Test1573
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\system\Canvas.js,FALSE,Test1574
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\system\Device.js,FALSE,Test1575
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\system\RequestAnimationFrame.js,FALSE,Test1576
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap\Tile.js,FALSE,Test1577
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap\Tilemap.js,FALSE,Test1578
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap\TilemapLayer.js,FALSE,Test1579
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap\TilemapParser.js,FALSE,Test1580
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tilemap\Tileset.js,FALSE,Test1581
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\time\Time.js,FALSE,Test1582
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\time\Timer.js,FALSE,Test1583
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\time\TimerEvent.js,FALSE,Test1584
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tween\Easing.js,FALSE,Test1585
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tween\Tween.js,FALSE,Test1586
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\tween\TweenManager.js,FALSE,Test1587
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\utils\Color.js,FALSE,Test1588
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\utils\Debug.js,FALSE,Test1589
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\src\utils\Utils.js,FALSE,Test1590
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\.jshintrc,FALSE,Test1591
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\banner.txt,FALSE,Test1592
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests,FALSE,Test1593
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options,FALSE,Test1594
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\arcade-physics.json,FALSE,Test1595
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\ninja.json,FALSE,Test1596
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\p2.json,FALSE,Test1597
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\phaser-nophysics.json,FALSE,Test1598
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\phaser.json,FALSE,Test1599
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\manifests\pixi.json,FALSE,Test1600
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\clean.js,FALSE,Test1601
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\concat.js,FALSE,Test1602
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\connect.js,FALSE,Test1603
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\copy.js,FALSE,Test1604
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\jshint.js,FALSE,Test1605
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\replace.js,FALSE,Test1606
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Phaser\tasks\options\uglify.js,FALSE,Test1607
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\Properties\AssemblyInfo.cs,TRUE,Test1608
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles,FALSE,Test1609
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Bd2CsvGenerate.xlsm,FALSE,Test1610
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\BDTestData.xlsx,FALSE,Test1611
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\data.xls,FALSE,Test1612
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Generated,FALSE,Test1613
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\ProjectileCalcs.xlsx,FALSE,Test1614
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\bdgl_2_0_235714_01_57_34_T100_0.xml,FALSE,Test1615
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\bdgl_2_0_235714_01_57_34_T200_0.xml,FALSE,Test1616
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\bdgl_2_0_235714_01_57_34_T300_0.xml,FALSE,Test1617
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\bdgl_2_0_235714_01_57_34_T313_9.xml,FALSE,Test1618
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\testbattle1_T100_10.xml,FALSE,Test1619
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Battles\testbattle1_T173_0.xml,FALSE,Test1620
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Generated\gen_Bd2AngleCalcData.csv,FALSE,Test1621
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Generated\gen_Bd2CollisionData.csv,FALSE,Test1622
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Generated\gen_Bd2HitTestData.csv,FALSE,Test1623
+D:\Files\Git2015\Boondoggle\BoondoggleMain\_Dependencies\TestData\Generated\gen_BotHeadToTarget.csv,FALSE,Test1624

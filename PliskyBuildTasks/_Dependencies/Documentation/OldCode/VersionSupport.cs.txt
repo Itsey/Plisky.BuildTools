@@ -1,0 +1,1119 @@
+namespace LBG.Insurance.Toolset.Build {
+    using System;
+    using System.Diagnostics;
+    using System.Diagnostics.CodeAnalysis;
+    using System.Globalization;
+    using System.IO;
+    using System.Resources;
+    using System.Text;
+    using System.Text.RegularExpressions;
+    using System.Windows.Forms;
+    using System.Xml;
+    using System.Xml.Linq;
+    using LBG.Insurance.Developer.Diagnostics;
+
+    /// <summary>
+    /// The names of the known supply centres, this will force a recompile each time a new supply centre is added however supply centres
+    /// are large parts of the organisations and should not be changed that frequently.  The underlying implementation uses strings entirely
+    /// and is therefore more flexible than the enum.
+    /// </summary>
+    public enum KnownSupplyCentre {
+        /// <summary>
+        /// Distributed Development Centre
+        /// </summary>
+        FSDDC,
+        /// <summary>
+        /// Mainframe Development Centre
+        /// </summary>
+        FSMDC,
+        /// <summary>
+        /// GI Mainframe development centre.
+        /// </summary>
+        GIPSD,
+        /// <summary>
+        /// GI Distributed Development Centre.
+        /// </summary>
+        GIDDC,
+        /// <summary>
+        /// No supply centre.  Used for Toolset work.
+        /// </summary>
+        Central,
+        /// <summary>
+        /// A supply centre used entirely for testing.
+        /// </summary>
+        Test,
+        /// <summary>
+        /// Used for cross supply centre developments
+        /// </summary>
+        XDC
+
+    }
+
+    /// <summary>
+    /// The possible attributes that can be written to the file, this is stored here so that updating it is simple and such that the strings
+    /// are written consistantly out to the files.
+    /// </summary>
+    public enum PossibleVersionAttributeElement {
+        /// <summary>
+        /// The versioning attribute which controls File version Number
+        /// </summary>
+        AssemblyFileVersion,
+        /// <summary>
+        /// The versioning attribute which controls Informational Version Number
+        /// </summary>
+        AssemblyInformationalVersion,
+        /// <summary>
+        /// The versioning attribute which controls Assembly Version Number
+        /// </summary>
+        AssemblyVersion
+    }
+
+    /// <summary>
+    /// A MSBuild task to add versioning support using the existing SDC mechanism as a basis.  This task will use separate versioning
+    /// information files to store verison number information and provides behaviour around incrememting these version numbers and 
+    /// writing the changes back out to CS file so that the version information can be stamped onto the Assemblies as they are compiled.  
+    /// </summary>
+    [DebuggerDisplay("Ver [{Debug_GetVersionAsString()}] Behaviour: {GetBehaviours}")]
+    public class VersionSupport : ICloneable {
+
+        private const int DEFAULT_AUTOCLOSE_TIMEOUT = 30;             // Default number of seconds prompt form is displayed for
+        private int m_autoCloseTimeout = DEFAULT_AUTOCLOSE_TIMEOUT;   // The actual number of seconds prompt form is displayed for.  
+
+        #region Debugger Support And Developer Methods
+
+        /// <summary>
+        /// Debugger method to display the behaviours.
+        /// </summary>        
+        [SuppressMessage("Microsoft.Globalization", "CA1305"), SuppressMessage("Microsoft.Performance", "CA1811")] // Debugger method               
+        private string GetBehaviours {
+            get {
+                string result = string.Empty;
+                for (int i = 0; i < 4; i++) {
+                    result += "( " + this.versionData[(DigitName)i].Behaviour.ToString() + " )";
+                }
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// Debugger method to display the version number as a string
+        /// </summary>
+        /// <returns>String representing the version number</returns>
+        [SuppressMessage("Microsoft.Globalization", "CA1305")] // Debugging method
+        private string Debug_GetVersionAsString() {
+            return string.Format("Ver {0}.{1}.{2}.{3}", this.versionData.Major.ToString(), this.versionData.Minor.ToString(), this.versionData.Build.ToString(), this.versionData.Revision.ToString());
+        }
+
+        /// <summary>
+        /// Returns the version number converted as a string
+        /// </summary>
+        /// <param name="one">first digit</param>
+        /// <param name="two">second digit</param>
+        /// <param name="three">third digit</param>
+        /// <param name="four">fourth digit</param>
+        /// <returns>the converted string</returns>
+        [SuppressMessage("Microsoft.Globalization", "CA1305")] // Debugging method
+        private static string Debug_ConvertVersionAsString(int one, int two, int three, int four) {
+            return string.Format("Ver {0}.{1}.{2}.{3}", one.ToString(), two.ToString(), three.ToString(), four.ToString());
+        }
+
+        #endregion
+
+        /// <summary>
+        /// Holds all of the versioning persistant state such that it can be passed around.
+        /// </summary>
+        private VersioningData versionData = new VersioningData();
+
+        /// <summary>
+        /// Holds the chosen storage mechanism.  
+        /// </summary>
+        private VersioningStorageBase m_vsb;
+
+        /// <summary>
+        /// Determines how long the prompt form waits before automatically closing. This is an integer value in seconds, which when positive
+        /// determines how long the form displays for, when negative indicates that the form should not display.  This value defaults
+        /// to 30 seconds.
+        /// </summary>
+        public int AutoCloseTimeout {
+            get { return m_autoCloseTimeout; }
+            set { m_autoCloseTimeout = value; }
+        }
+
+        /// <summary>
+        /// This determines whether the form should display and alters the value of the AutoClose timeout to reflect this.  Setting this
+        /// to true sets the autoclose to the default if it is currently negative.  Setting this to false sets the autoclose timeout to -1
+        /// </summary>
+        public bool AutoClosePromptForm {
+            get { return m_autoCloseTimeout > 0; }
+            set {
+                if (value) {
+                    if (m_autoCloseTimeout < 0) { m_autoCloseTimeout = DEFAULT_AUTOCLOSE_TIMEOUT; }
+                } else {
+                    if (m_autoCloseTimeout > 0) { m_autoCloseTimeout = -1; }
+                }
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets the date that the last build was run.  This is used so that some increments can happen each time that a build is rerun for 
+        /// a specific day.  This value defaults to Today.
+        /// </summary>
+        public DateTime LastBuildRunDate {
+            get { return this.versionData.LastBuildRunDate; }
+            set { this.versionData.LastBuildRunDate = value; }
+        }
+
+        /// <summary>
+        /// Gets or Sets the fixed date from which date offsets are taken, such as number of days since and number of weeks sice a specific point. This 
+        /// value defaults to Today.
+        /// </summary>
+        public DateTime BaseDate {
+            get { return this.versionData.BaseDate; }
+            set { this.versionData.BaseDate = value; }
+        }
+
+        /// <summary>
+        /// Gets or Sets the Major part of the current version held within the VersionSupport class.  For a set the value
+        /// must be a valid int value passed as a string.  If this is not the case an Argument / Overflow or Format exception
+        /// will be thrown.
+        /// </summary>
+        /// <value>The Major part of the version</value>
+        public string Major {
+            get { return this.versionData.Major.ToString(); }
+            set {
+                this.versionData.Major.SetFromString(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the minor part of the current version held within the VersionSupport Class.  For a set the value
+        /// must be a valid int value passed as a string.  If this is not the case an Argument / Overflow or Format exception
+        /// will be thrown.
+        /// </summary>
+        /// <value>The minor part of the Version.</value>
+        public string Minor {
+            get { return this.versionData.Minor.ToString(); }
+            set {
+                // let the cast explode if -ve or decimal values are tried.
+                this.versionData.Minor.SetFromString(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the build part of the current version held within the VersionSupport class.    For a set the value
+        /// must be a valid int value passed as a string.  If this is not the case an Argument / Overflow or Format exception
+        /// will be thrown.
+        /// </summary>
+        /// <value>The build part of the version.</value>
+        public string Build {
+            get { return this.versionData.Build.ToString(); }
+            set {
+                // let the cast explode if -ve or decimal values are tried.
+                this.versionData.Build.SetFromString(value);
+            }
+        }
+
+        /// <summary>
+        /// Gets or sets the revision part of the current version held within the VersionSupport class.    For a set the value
+        /// must be a valid int value passed as a string.  If this is not the case an Argument / Overflow or Format exception
+        /// will be thrown.
+        /// </summary>
+        /// <value>The revision part of the version.</value>
+        public string Revision {
+            get { return this.versionData.Revision.ToString(); }
+            set {
+                // let the cast explode if -ve or decimal values are tried.
+                this.versionData.Revision.SetFromString(value);
+            }
+        }
+
+        /// <summary>
+        /// This determines the behaviour experienced by the Major part of the version number when an increment is applied, defaults
+        /// to RevisionBehaviours.Fixed
+        /// </summary>
+        public DigitIncremementBehaviour MajorBehaviour {
+            get { return this.versionData.Major.Behaviour; }
+            set {
+                Tex.Assert(Enum.IsDefined(typeof(DigitIncremementBehaviour), value), "The argument passed to the MajorBehaviour property is not valid.  Use the enum values only");
+                this.versionData.Major.Behaviour = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets the behaviour experienced by the Minor part of the version number when an increment is applied, defaults
+        /// to RevisionBehaviours.Fixed
+        /// </summary>
+        public DigitIncremementBehaviour MinorBehaviour {
+            get { return this.versionData.Minor.Behaviour; }
+            set {
+                Tex.Assert(Enum.IsDefined(typeof(DigitIncremementBehaviour), value), "The argument passed to the MinorBehaviour property is not valid.  Use the enum values only");
+                if (value == DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                    throw new ArgumentOutOfRangeException("value", "MajorDeterminesVersionNumber is not supported for the Minor digit");
+                }
+                this.versionData.Minor.Behaviour = value;
+            }
+
+        }
+        
+        /// <summary>
+        /// Gets or Sets the behaviour experienced by the Build part of the version number when an increment is applied, defaults
+        /// to RevisionBehaviours.Days
+        /// </summary>
+        public DigitIncremementBehaviour BuildBehaviour {
+            get { return this.versionData.Build.Behaviour; }
+            set {
+                Tex.Assert(Enum.IsDefined(typeof(DigitIncremementBehaviour), value), "The argument passed to the MajorBehaviour property is not valid.  Use the enum values only");
+                if (value == DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                    throw new ArgumentOutOfRangeException("value", "MajorDeterminesVersionNumber is not supported for the Build digit");
+                }
+
+                this.versionData.Build.Behaviour = value;
+            }
+        }
+
+        /// <summary>
+        /// Gets or Sets the behaviour experienced by the Revision part of the version number when an incrememnt is applied, defaults
+        /// to RevisionBehaviours.AutoIncrement
+        /// </summary>
+        public DigitIncremementBehaviour RevisionBehaviour {
+            get { return this.versionData.Revision.Behaviour; }
+            set {
+                Tex.Assert(Enum.IsDefined(typeof(DigitIncremementBehaviour), value), "The argument passed to the RevisionBehaviour property is not valid.  Use the enum values only");
+                if (value == DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                    throw new ArgumentOutOfRangeException("value", "MajorDeterminesVersionNumber is not supported for the Revision digit");
+                }
+
+                this.versionData.Revision.Behaviour = value;
+            }
+
+        }
+
+        /// <summary>
+        /// This method will create a versioning alternative class with the default version of 0.0.0.0 and then persist it to 
+        /// a versioning fragment file specified by the fname parameter.
+        /// </summary>
+        /// <param name="fname">The name of the versioning fragment file to use.</param>
+        public static void CreateVersionStore(string fname) {
+            Tex.Log("VersionSupport, Creating empty fragment file to " + fname);
+            CreateVersionStore(fname, 0, 0, 0, 0);
+        }
+
+        /// <summary>
+        /// This method will create a versioning alternative class with the parameters passed in and then save it to the filename
+        /// specified.
+        /// </summary>
+        /// <remarks>If the specified version numbers are out of range (less than 0) they wil be set to 0 and no error will be raised</remarks>
+        /// <param name="fname">The filename to persist the class as, xml fragment file</param>
+        /// <param name="maj">The desired Major number ( integer > 0 ) </param>
+        /// <param name="min">The desired Minor number ( integer > 0 ) </param>
+        /// <param name="bui">The desired Build number ( integer > 0 ) </param>
+        /// <param name="rev">The desired Revision number ( integer > 0 ) </param>
+        public static void CreateVersionStore(string fname, int maj, int min, int bui, int rev) {
+            Tex.Log("VersionSupport, Creating fragment file with version details to " + fname, Debug_ConvertVersionAsString(maj, min, bui, rev));
+
+            VersionSupport va = new VersionSupport(maj, min, bui, rev);
+            va.SetVersionStore(fname);
+            va.SaveVersiondata();
+        }
+
+        /// <summary>
+        /// Creates a storage location for the versioning information using the supply centre, system name and tagname.  This override is required
+        /// if the versioning store is to be shared across multiple branches of code.
+        /// </summary>
+        /// <param name="ksc">The supply centre</param>
+        /// <param name="systemName">The system name</param>
+        /// <param name="tfsServer">The server to connect to</param>
+        /// <param name="tagName">An identifier to identify the specific version number</param>
+        public static void CreateVersionStore(KnownSupplyCentre ksc, string systemName, string tagName, string tfsServer) {
+            VersionSupport va = new VersionSupport();
+            va.SetVersionStore(ksc, systemName, tagName,tfsServer);
+            va.SaveVersiondata();
+        }
+
+        /// <summary>
+        /// Sets the version store to the web services implementation
+        /// </summary>
+        /// <param name="ksc">The supply centre</param>
+        /// <param name="systemName">The system name</param>
+        /// <param name="tagName">The tag name</param>  
+        /// <param name="tfsServer">The TFS Server to connect to</param>
+        private void SetVersionStore(KnownSupplyCentre ksc, string systemName, string tagName,string tfsServer) {
+            if (tfsServer == null) {
+                this.m_vsb = new TFSVersioningStoreImplementation();
+            } else {
+                this.m_vsb = new TFSVersioningStoreImplementation(tfsServer);
+            }
+            ((TFSVersioningStoreImplementation)this.m_vsb).InitialiseCorrectly(ksc,systemName, tagName);
+        }
+
+        /// <summary>
+        /// Sets the version store based on the parameter supplied
+        /// </summary>
+        /// <param name="filename">The filename of the file to save to.</param>
+        private void SetVersionStore(string filename) {            
+            this.m_vsb = new FileVersioningStoreImplementation(filename);
+        }
+
+        /// <summary>
+        /// persist the versioning information out to the chosen store.
+        /// </summary>
+        private void SaveVersiondata() {
+            if (this.m_vsb == null) {
+                throw new InvalidOperationException("The Save can not be performed if no store is selected");
+            }
+            m_vsb.SaveVersioningData(this.versionData,true);
+        }
+
+        /// <summary>
+        /// Sets the version to a specific new version provided.  This will not update the behaviour of the elements
+        /// just their current values.
+        /// </summary>
+        /// <remarks>Valid values are greater than zero, anything less than zero will be set to 0</remarks>
+        /// <param name="newMajor">The new value for the Major part of the version number</param>
+        /// <param name="newMinor">The new value for the Minor part of the version number</param>
+        /// <param name="newBuild">The new value for the Build part of the version number</param>
+        /// <param name="newRevision">The new value for the revision part of the version number</param>
+        public void SetVersion(int newMajor, int newMinor, int newBuild, int newRevision) {
+
+            this.versionData[DigitName.Major].DigitValue = newMajor;
+            this.versionData[DigitName.Minor].DigitValue = newMinor;
+            this.versionData[DigitName.Build].DigitValue = newBuild;
+            this.versionData[DigitName.Revision].DigitValue = newRevision;
+
+        }
+
+        /// <summary>
+        /// Sets the version to a specific new version provided.  THis will not update the behaviour of the elements, jsut their current
+        /// values.  This overload takes and parses strings to form the new version.  Exceptions will be thrown if they are not in the 
+        /// correct format.
+        /// </summary>
+        /// <param name="newMajor">The string representation of the new major part.</param>
+        /// <param name="newMinor">The string representation of the new minor part.</param>
+        /// <param name="newBuild">The string representation of the new build part.</param>
+        /// <param name="newRevision">The string representation of the new revision part.</param>
+        public void SetVersion(string newMajor, string newMinor, string newBuild, string newRevision) {
+            Tex.Log("VersionSupport, setting to new version from strings " + newMajor + "." + newMinor + "." + newBuild + "." + newRevision);
+
+            this.versionData[DigitName.Major].SetFromString(newMajor);
+            this.versionData[DigitName.Minor].SetFromString(newMinor);
+            this.versionData[DigitName.Build].SetFromString(newBuild);
+            this.versionData[DigitName.Revision].SetFromString(newRevision);
+
+        }
+
+        /// <summary>
+        /// This method allows you to update the major digit when its behaviour is set to MajorDeterminesVersionNumber, when this is called
+        /// it will increment the digit and reset the digits for this number.
+        /// </summary>
+        public void IncrementMajorLeadDigit() {
+            Tex.Assert(this.m_vsb != null, "The internal versioning store is null, this operation cant succeed");
+
+            Tex.Log("VersionSupport, Increment requested on a major lead value");
+            if (this.versionData[DigitName.Major].Behaviour != DigitIncremementBehaviour.MajorDeterminesVersionNumber) {
+                throw new InvalidOperationException("The IncrementMajorLeadDigit method can not be called when the Major behaviour is not DigitBehaviour.MajorDeterminesVersionNumber");
+            }
+
+            int val = this.m_vsb.GetHighestSupportedDigit();
+
+            this.versionData = this.m_vsb.LoadVersioningData(val);
+            
+            this.versionData.Major.DigitValue++;
+            this.versionData.Minor.DigitValue = 0;
+            this.versionData.Build.DigitValue = 0;
+            this.versionData.Revision.DigitValue = 0;
+
+            this.SaveVersiondata();
+
+        }
+
+        /// <summary>
+        /// This method allows you to set a fixed value to a new version during the increment phase of the versioning.  This will 
+        /// set the fixed value to the correct version and ensure that other digits which ripple based on this do update correctly.
+        /// </summary>        
+        /// <param name="affectedDigit">The digit which you wish to update</param>
+        /// <exception cref="System.ArgumentException">Thrown if the affectedDigit passed in does not have a Fixed behaviour.</exception>
+        public void IncrementFixedDigit(DigitName affectedDigit) {
+            Tex.Log("VersionSupport, Increment requested on a fixed increment digit.", affectedDigit.ToString());
+
+
+            Tex.Assert(this.versionData[affectedDigit].DigitPosition == affectedDigit, "There is a mismatch in the digit positions. INTERNAL ERROR");
+
+            if (this.versionData[affectedDigit].Behaviour != DigitIncremementBehaviour.Fixed) {
+                throw new ArgumentException("The " + affectedDigit.ToString() + " digit does not have a behaviour of fixed.", "affectedDigit");
+            }
+
+            // Store the desired increment behaviour so that during the increment this is applied.
+            this.versionData[affectedDigit].OverrideValueDuringIncrement = (this.versionData[affectedDigit].DigitValue + 1);
+        }
+
+        /// <summary>
+        /// This method allows you to set a fixed value to a new version during the increment phase of the versioning.  This will 
+        /// set the fixed value to the correct version and ensure that other digits which ripple based on this do update correctly.
+        /// </summary>
+        /// <remarks>This overload sets the digit to the new value.</remarks>
+        /// <param name="affectedDigit">The digit which you wish to update</param>
+        /// <param name="newValue">The value to which the digit should be set</param>
+        /// <exception cref="System.ArgumentException">Thrown if the affectedDigit passed in does not have a Fixed behaviour.</exception>
+        public void IncrementFixedDigit(DigitName affectedDigit, int newValue) {
+            Tex.Log("VersionSupport, Increment requested on a fixed increment digit.", affectedDigit.ToString() + " set to " + newValue.ToString());
+            if (newValue < 0) { throw new ArgumentOutOfRangeException("newValue", "The value of a versionable digit can not be <1"); }
+
+            Tex.Assert(this.versionData[affectedDigit].DigitPosition == affectedDigit, "There is a mismatch in the digit positions. INTERNAL ERROR");
+
+            if (this.versionData[affectedDigit].Behaviour != DigitIncremementBehaviour.Fixed) {
+                throw new ArgumentException("The " + affectedDigit.ToString() + " digit does not have a behaviour of fixed.", "affectedDigit");
+            }
+
+            // Store the desired increment behaviour so that during the increment this is applied.
+            this.versionData[affectedDigit].OverrideValueDuringIncrement = newValue;
+        }
+
+        /// <summary>
+        /// Sets an ovrride on the version numbers such that during the next increment they become the specified value.  Exactly the same
+        /// behaviour as IncrementFixedDigit but with no checking that the digits are fixed.
+        /// </summary>
+        /// <param name="affectedDigit">The name of the digit to set the value for</param>
+        /// <param name="newValue">The value it should take during the execute phase</param>
+        internal void SetDigitOverrideValue(DigitName affectedDigit, int newValue) {
+            this.versionData[affectedDigit].OverrideValueDuringIncrement = newValue;
+        }
+
+        /// <summary>
+        /// This constructor loads the versioning information from the service which requires the supply centre, system name and tag
+        /// identifier.  This is used to support the process toolset versioning model and depends on the versioning web service.
+        /// </summary>
+        /// <param name="ksc">The name of the known supply centre</param>
+        /// <param name="systemName">The name of the system</param>
+        /// <param name="versionIdentifierName">The specific version identifier</param>
+        /// <param name="tfsServer">The TFS server to connect to.</param>
+        public VersionSupport(KnownSupplyCentre ksc, string systemName, string versionIdentifierName,string tfsServer)
+            : this() {
+            Tex.Log("VersionSupport created, using supply centre, system name and tag name");
+            this.SetStoreToTFSAndLoadVersioningInformation(ksc,systemName,versionIdentifierName,tfsServer, -1);
+        }
+
+        /// <summary>
+        /// This constructor loads the versioning information from the service which requires the supply centre, system name, tag
+        /// identifier and major digit to use.  This is used to support the process toolset versioning model where the 
+        /// MajorDeterminesVersionNumber behaviour is used and depends on the versioning web service.
+        /// </summary>
+        /// <param name="ksc">The name of the known supply centre</param>
+        /// <param name="systemName">The name of the system</param>
+        /// <param name="versionIdentifierName">The specific version identifier</param>
+        /// <param name="tfsServer">The TFS server to connect to.</param>
+        /// <param name="majorDigitToUse">The major digit to use when behaviour is MajorDeterminesVersionNumber</param>
+        public VersionSupport(KnownSupplyCentre ksc, string systemName, string versionIdentifierName, string tfsServer, int majorDigitToUse)
+            : this() {
+            Tex.Log("VersionSupport created, using supply centre, system name and tag name");
+            this.SetStoreToTFSAndLoadVersioningInformation(ksc, systemName, versionIdentifierName, tfsServer, majorDigitToUse);
+        }
+
+        /// <summary>
+        /// The default constructor for the versioning alternative creates an empty versioning alternative where the values are
+        /// all set to 0 and the behaviour is Fixed,Fixed,Days,AutoIncrement with both the base date and the last build run date
+        /// set to todays date.
+        /// </summary>
+        public VersionSupport()
+            : this(0, 0, 0, 0) {
+            Tex.Log("VersionSupport created, default constructor called");
+        }
+
+        /// <summary>
+        /// This constructor for the versioning alternative creates a versioning alternative where the version numbers are specified
+        /// using integers.  The initial value of the versioning alternative class reflects the integers passed to this constructor.
+        /// </summary>
+        /// <param name="newMajor">The major value that this versioning class is to have</param>
+        /// <param name="newMinor">The minor value that this versioning class will have</param>
+        /// <param name="newBuild">The build value that this versioning class will have</param>
+        /// <param name="newRevision">The revision part that this versioning class will have</param>
+        public VersionSupport(int newMajor, int newMinor, int newBuild, int newRevision) {
+            this.versionData = new VersioningData();
+            this.versionData[DigitName.Major] = new VersionableDigit(DigitName.Major, DigitIncremementBehaviour.Fixed, newMajor);
+            this.versionData[DigitName.Minor] = new VersionableDigit(DigitName.Minor, DigitIncremementBehaviour.Fixed, newMinor);
+            this.versionData[DigitName.Build] = new VersionableDigit(DigitName.Build, DigitIncremementBehaviour.DaysSinceDate, newBuild);
+            this.versionData[DigitName.Revision] = new VersionableDigit(DigitName.Revision, DigitIncremementBehaviour.DailyAutoIncrement, newRevision);
+            Tex.Log("VersionSupport created, setting to specific version passed to constructor", "Version Set To" + Debug_GetVersionAsString());
+        }
+
+        /// <summary>
+        /// This constructor for the VersionSupport class creates a version class loading the settings directly from an existing fragment file.
+        /// The parameter is the filename of the fragment to load.
+        /// </summary>
+        /// <remarks>NB You can not call this constructor passing a version in.  VersionSupport("0.0.0.0") is NOT valid.</remarks>
+        /// <exception cref="FileNotFoundException">Thrown when the fragment file is not found at all.</exception>
+        /// <param name="fragmentFilenameToLoad">The name of the fragment file that is to be loaded</param>
+        public VersionSupport(string fragmentFilenameToLoad)
+            : this() {
+            Tex.Log("VersionSupport created, using filename " + fragmentFilenameToLoad);
+            if (!File.Exists(fragmentFilenameToLoad)) {
+                Tex.Log("The file to load was not found, throwing exception");
+
+                throw new FileNotFoundException(string.Format(CultureInfo.CurrentUICulture, VersionStrings.Ver004_ErrorFileNotFound, fragmentFilenameToLoad));
+
+            }
+
+
+            this.SetStoreToFileAndLoadVersioningInformation(fragmentFilenameToLoad,-1);
+        }
+
+        /// <summary>
+        /// Internal constructor used only by the tools helper to allow it to perform increments etc.
+        /// </summary>
+        /// <param name="vsb">The verisoning storage base to load</param>
+        /// <param name="majorDigitToUse">A digit to load from</param>
+        internal VersionSupport(VersioningStorageBase vsb, int majorDigitToUse) {
+            // Directly lods from a versioning storage base.  Internal only used directly by friends.
+            Tex.VerboseLog("Directly loading versioning storage");
+            this.m_vsb = vsb;
+            versionData = vsb.LoadVersioningData(majorDigitToUse);
+        }
+
+        /// <summary>
+        /// This constructor for the VersionSupport class creates a version class loading the settings directly from an existing fragment file.  The first
+        /// parameter is the filename to load, the second is the Major digit that will be used to determine which version number to load.
+        /// </summary>
+        /// <remarks>For this to be valid the Major digit behaviour in the file must be set to MajorDeterminesVersionNumber.</remarks>
+        /// <exception cref="FileNotFoundException">Thrown when the fragment file is not found at all.</exception>
+        /// <exception cref="InvalidOperationException">Thrown When the file fragment does not have MajorDeterminesVersionNumber as a versioning behaviour .</exception>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown the major digit passed does not exist in the file fragment.</exception>
+        /// <param name="fragmentFilenameToLoad">The name of a file fragment that exists on disk</param>
+        /// <param name="majorVersionNumberToLoadFrom">The Major number used to determine which version number to load</param>
+        public VersionSupport(string fragmentFilenameToLoad, int majorVersionNumberToLoadFrom):this() {
+            Tex.Log("VersionSupport created, using filename " + fragmentFilenameToLoad,"Using majorlead:"+majorVersionNumberToLoadFrom.ToString());
+            if (!File.Exists(fragmentFilenameToLoad)) {
+                Tex.Log("The file to load was not found, throwing exception");
+                throw new FileNotFoundException(string.Format(CultureInfo.CurrentUICulture, VersionStrings.Ver004_ErrorFileNotFound, fragmentFilenameToLoad));
+            }
+            this.SetStoreToFileAndLoadVersioningInformation(fragmentFilenameToLoad,majorVersionNumberToLoadFrom);
+        }
+
+        /// <summary>
+        /// This will load a defined versioning fragment file and use this to set the versioning details
+        /// of this class.
+        /// </summary>
+        /// <param name="fileName">The filename of the versioning fragment file.</param>    
+        /// <param name="majorDigitToUse">The value of the major digit to use to load the version number from the file, -1 if the default is to be loaded</param>
+        private void SetStoreToFileAndLoadVersioningInformation(string fileName, int majorDigitToUse) {
+            #region entry code
+            Tex.Assert(File.Exists(fileName), "The filename must exist by the time it reaches the internal loadversioningfragmentinformation method");
+            #endregion
+
+
+            Tex.VerboseLog("Loading new version information from versioning fragment file.  Version Before Load " + Debug_GetVersionAsString(), fileName);
+            Tex.FurtherInfo("major digit specified as " + majorDigitToUse.ToString());
+            m_vsb = new FileVersioningStoreImplementation(fileName);
+            if (!File.Exists(fileName)) {
+                Tex.VerboseLog("No versioning data found, creating new versioning structure.", fileName);
+                m_vsb.CreateNewDataStorage();
+            }
+            versionData = m_vsb.LoadVersioningData(majorDigitToUse);
+
+            Tex.VerboseLog("VersioningSupport, Loading Fragment completed successfully : Version after load " + Debug_GetVersionAsString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="ksc"></param>
+        /// <param name="sysName"></param>
+        /// <param name="identName"></param>
+        /// <param name="tfsServer"></param>
+        /// <param name="majorDigitToUse"></param>
+        private void SetStoreToTFSAndLoadVersioningInformation(KnownSupplyCentre ksc, string sysName, string identName, string tfsServer, int majorDigitToUse) {
+            Tex.VerboseLog("Loading information from TFS versioning store. Version Before Load " + Debug_GetVersionAsString());
+            this.SetVersionStore(ksc, sysName, identName,tfsServer);
+            versionData = m_vsb.LoadVersioningData(majorDigitToUse);
+            Tex.VerboseLog("VersioningSupport, Load of TFS Managed fragment completes: Version after load " + Debug_GetVersionAsString());
+        }
+
+        /// <summary>
+        /// Returns the current version identifier in the format Major.Minor.Build.Revision
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString() {
+            return string.Format(null, "{0}.{1}.{2}.{3}", this.versionData.Major.ToString(), this.versionData.Minor.ToString(), this.versionData.Build.ToString(), this.versionData.Revision.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        private void IncrementVersionByBehaviourInternal() {
+
+
+            if (Environment.UserInteractive) {
+                // Only process prompt elements if the environment is an interactive one, if it is not interactive - for example
+                // during a team build then the code does not alter "prompt" based version behaviours.
+
+                if ((MajorBehaviour == DigitIncremementBehaviour.Prompt) || (MinorBehaviour == DigitIncremementBehaviour.Prompt) ||
+                   (BuildBehaviour == DigitIncremementBehaviour.Prompt) || (RevisionBehaviour == DigitIncremementBehaviour.Prompt)) {
+                    // If any of the elements are set to prompt ensure that the user is only prompted once.
+                    using (frmPromptUser fpu = new frmPromptUser()) {
+                        Tex.VerboseLog("VersionSupport, found at least one prompt behaviour in the version.  Displaying form for user to input changed version", "AutoClose timeout is " + AutoCloseTimeout.ToString(CultureInfo.CurrentCulture));
+
+                        fpu.IntialiseFromVersioningSupport(this, this.m_autoCloseTimeout);
+
+                        if (fpu.ShowDialog() == DialogResult.OK) {
+                            VersionSupport vs = fpu.GetVersionSupportFromForm();
+                            // We trust the form not to update anything that is not set to prompt therefore we have not actually caused
+                            // any grief with this approach.  The difficult part is understanding whether there are any changes so that
+                            // we can get prompt to work with the auto reset capability.
+                            if (this.Major != vs.Major) { this.versionData[DigitName.Major].PromptValueDuringIncrement = vs.Major; }
+                            if (this.Minor != vs.Minor) { this.versionData[DigitName.Minor].PromptValueDuringIncrement = vs.Minor; }
+                            if (this.Build != vs.Build) { this.versionData[DigitName.Build].PromptValueDuringIncrement = vs.Build; }
+                            if (this.Revision != vs.Revision) { this.versionData[DigitName.Revision].PromptValueDuringIncrement = vs.Revision; }
+                        }
+                    }
+                }
+            }
+
+            bool anyChanged = false;
+            bool lastChanged = false;
+
+            for (int i = 0; i < VersioningData.NUM_DIGITS_MANAGED; i++) {
+
+                lastChanged = this.versionData[i].PerformIncrement(lastChanged, anyChanged, LastBuildRunDate, BaseDate);
+                if ((lastChanged) || (anyChanged)) { anyChanged = true; }
+
+            }
+
+            // Now we update the last RunDate.
+            LastBuildRunDate = DateTime.Today;
+
+        }
+
+        /// <summary>
+        /// Given how the behaviours and versions have been loaded apply the new versioning information to the internal
+        /// numbers so that the correct version is held in this instance of the class.
+        /// </summary>
+        public void IncrementVersionByBehaviour() {
+            Tex.Log("VersionSupport, Incrementing version, updating an old version number of " + this.ToString());
+
+            IncrementVersionByBehaviourInternal();
+
+            Tex.FurtherInfo("New version is " + this.ToString());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="valToWrite"></param>
+        /// <param name="updateDescription"></param>
+        internal static void WriteStringToWixVersionElement(string fileName, string valToWrite, bool updateDescription) {
+            // If it does exist we need to verify that it is not readonly.
+            if ((File.GetAttributes(fileName) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly) {
+                Tex.Log("The wix file is readonly, removing attribs so I can write on it", "fname [" + fileName + "]");
+                File.SetAttributes(fileName, (File.GetAttributes(fileName) ^ FileAttributes.ReadOnly));
+            }
+
+            Tex.VerboseLog("Attempting to retrieve the version element from the Wix file");
+            try {
+                XDocument xmlFile = XDocument.Load(fileName);
+                XNamespace xn = "http://schemas.microsoft.com/wix/2006/wi";
+
+                XElement prodel = xmlFile.Element(xn + "Wix");
+                if (prodel == null) {
+                    Tex.Warning("The XML file appears invalid, unable to locate Wix element");
+                    throw new InvalidOperationException("The XML file could not be parsed for the Wix element");
+                }
+
+                prodel = prodel.Element(xn + "Product");
+                if (prodel == null) {
+                    Tex.Warning("The XML file appears invalid, unable to locate product element");
+                    throw new InvalidOperationException("The XML file could not be parsed for the Product element");
+                }
+
+                XAttribute xa = prodel.Attribute("Version");
+                if (xa == null) {
+                    Tex.Warning("The XML file appears invalid, unable to locate Verison attribute in product element");
+                    throw new InvalidOperationException("The XML file could not be parsed for the Version attribute in the Product element");
+                }
+                Tex.VerboseLog("Updating " + xa.Value.ToString() + " in " + fileName);
+
+                prodel.SetAttributeValue("Version", valToWrite);
+                Tex.VerboseLog("Value set to : " + xa.Value.ToString());
+
+                if (updateDescription) {
+                    xa = prodel.Attribute("Name");
+                    if (xa == null) {
+                        Tex.Warning("The XML file appears invalid, unable to locate Name attribute in product element");
+                        throw new InvalidOperationException("The XML file could not be parsed for the Name attribute in the Product element");
+                    }
+                    string nameValue = xa.Value;
+                    nameValue = UpdateNameValueWithVersion(nameValue, valToWrite);
+                    xa.Value = nameValue;
+                }
+                xmlFile.Save(fileName);
+
+            } catch (Exception ex) {
+                Tex.Dump(ex, "Attempted update of the wix fragment caused an exception");
+                throw new InvalidOperationException("The VersioningTask was asked to update the version number in a Wix fragment file and was unable to perform this operation.", ex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="nameValue"></param>
+        /// <param name="valToWrite"></param>
+        /// <returns></returns>
+        private static string UpdateNameValueWithVersion(string nameValue, string valToWrite) {
+            int starterIndex = nameValue.IndexOf('[');
+            int enderIndex = nameValue.IndexOf(']');
+            if ((starterIndex < 0) || (enderIndex <= 0)) {
+                return nameValue + "    [" + valToWrite + "]";
+            } else {
+                string result = nameValue.Substring(0, starterIndex+1);
+                result += valToWrite;
+                result += nameValue.Substring(enderIndex);
+                return result;
+            }
+        }
+
+        /// <summary>
+        /// This will write out the current verison in the format of an XML Wix version number deisgned to put the versioning onto the 
+        /// fragment which updates the MSI with the verison info.
+        /// </summary>
+        /// <param name="fileName">The filename to update with the string.</param>
+        /// <param name="updateDescription">Determines whether the description should be updated</param>
+        /// <exception cref="System.ArgumentException">Thrown when the filename is invalid</exception>
+        /// <exception cref="System.IO.FileNotFoundException">Thrown when the file is not found</exception>
+        public void UpdateWixFileWithVersion(string fileName, bool updateDescription) {
+            if ((fileName == null) || (fileName.Length == 0)) {
+                Tex.Warning("Invalid filename, filename passed was either null or zero length");
+                throw new ArgumentException("The filename parameter can not be null or empty length");
+            }
+            
+            Tex.Log("Attempting to update the Wix file version : " + fileName);
+            if (!File.Exists(fileName)) {
+                Tex.Warning("Wix update asked to update a file that does not exist. Unable to proceed.");
+                throw new FileNotFoundException("The wix fragment file (" + fileName + ") can not be loaded");
+            }
+
+
+            WriteStringToWixVersionElement(fileName, this.ToString(), updateDescription);
+            
+
+          
+        }
+        
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="current"></param>
+        /// <returns></returns>
+        internal static string IncrementOnlyWixVersion(string current) {
+            string[] values = current.Split('.');
+            string result = string.Empty;
+            if (values.Length != 4) { throw new ArgumentException("The current verison must be in the format n.n.n.n where n is a digit.", "current"); }
+
+            int val;
+            if (int.TryParse(values[3], out val)) {
+                val++;
+                result = values[0] + "." + values[1] + "." + values[2] + "." + val.ToString();
+            } else {
+                throw new ArgumentException("The current value must have an integer part following the last period.","current");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns></returns>
+        internal static string GetVersionFromWixFragment(string fileName) {
+            try {
+                Tex.Log("Attempting to retrieve version no from wix file");
+                XElement wixDoc = XElement.Load(fileName);
+                XNamespace wixNS = "http://schemas.microsoft.com/wix/2006/wi";
+
+                if (wixDoc == null) { return null; }
+
+                XElement prod = wixDoc.Element(wixNS + "Product");
+
+                if (prod == null) {
+                    Tex.FurtherInfo("Product element not found");
+                    return null;
+                }
+
+
+                if (prod.Attribute("Version") == null) {
+                    Tex.FurtherInfo("Failed - Version Attribute Not Found");
+                    return null;
+                }
+
+                string s = prod.Attribute("Version").Value;
+
+                if (s != null) {
+                    Tex.FurtherInfo("Version element found with value of " + s);
+                    return s;
+                    
+                }
+                
+
+            } catch (XmlException xmlx) {
+                Tex.Dump(xmlx, "XML Exception occured while trying to read Wix Version");
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// This will write out a single completed assembly version file to the disk.
+        /// </summary>
+        /// <exception cref="System.ArgumentException">Thrown if Duplicate FileVersion attributes are found within the file that is to be updated.</exception>
+        /// <param name="fileName">The filename of the cs file that is to be updated</param>
+        public void UpdateFileWithFileVersion(string fileName) {
+            Tex.Log("VersionSupport, updating cs file with the File Version.");
+            string ASMFILE_VER_TAG = PossibleVersionAttributeElement.AssemblyFileVersion.ToString();
+            try {
+                UpdateCSFileWithAttribute(fileName, ASMFILE_VER_TAG);
+            } catch (ArgumentException aex) {
+
+
+                string ArgumentException_DetailedMessage;
+                ResourceManager resman = new ResourceManager(typeof(VersionStrings));
+                ArgumentException_DetailedMessage = resman.GetString("Ver006_ErrorInvalidCSFileSpecifically");
+                resman.ReleaseAllResources();
+
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, ArgumentException_DetailedMessage, ASMFILE_VER_TAG), aex);
+            }
+        }
+
+        /// <summary>
+        /// This will scan through a file looking for an assembly version attribute on a line of its own in the file.  If it is found then
+        /// this method will replace this line in the file with the new version number.
+        /// </summary>
+        /// <exception cref="ArgumentException">Thrown if Duplicate AssemblyVersion attributes are found within the file that is to be updated.</exception>
+        /// <param name="fileName">The filename of the cs file that is to be updated</param>
+        public void UpdateFileWithAssemblyVersion(string fileName) {
+            Tex.Log("VersionSupport, updating cs file with the Assembly Version");
+            string ASMFILE_VER_TAG = PossibleVersionAttributeElement.AssemblyVersion.ToString();
+            try {
+
+                UpdateCSFileWithAttribute(fileName, ASMFILE_VER_TAG);
+
+            } catch (ArgumentException aex) {
+
+                string ArgumentException_DetailedMessage;
+                ResourceManager resman = new ResourceManager(typeof(VersionStrings));
+                ArgumentException_DetailedMessage = resman.GetString("Ver006_ErrorInvalidCSFileSpecifically");
+                resman.ReleaseAllResources();
+
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, ArgumentException_DetailedMessage, ASMFILE_VER_TAG), aex);
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <param name="targetAttribute"></param>
+        private void UpdateCSFileWithAttribute(string fileName, string targetAttribute) {
+            #region entry code
+            Tex.Assert(fileName != null, "fileName is null");
+            Tex.Assert(fileName.Length > 0, "filename is zero lenght");
+            #endregion (entry code)
+
+            Tex.Log(string.Format("VersionSupport, Asked to update CS file with the {0} attribute", targetAttribute), "Full Filename:" + fileName);
+
+            StringBuilder outputFile = new StringBuilder();
+
+
+            if (!File.Exists(fileName)) {
+                // If the file does not exist then we want to create the simplest implementation possible therefore we just write out the minimum 
+                // required for the FileVersion to be applied..
+                outputFile.Append("using System.Reflection;\r\n");
+                outputFile.Append(String.Format(CultureInfo.CurrentCulture, "[assembly: " + targetAttribute + "(\"{0}.{1}.{2}.{3}\")]\r\n", Major, Minor, Build, Revision));
+            } else {
+                // If it does exist we need to verify that it is not readonly.
+                if ((File.GetAttributes(fileName) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly) {
+                    Tex.Warning("The file is readonly, removing attribs so I can write on it", "fname [" + fileName + "]");
+                    File.SetAttributes(fileName, (File.GetAttributes(fileName) ^ FileAttributes.ReadOnly));
+                }
+
+
+                // Put this in to identify if there were duplicate entries discovered in the file, this should not be valid but
+                // it does catch mistakes with the regex as well as with the target files.
+                bool replacementMade = false;
+
+                Regex r = new Regex("\\[\\s*assembly\\s*:\\s*" + targetAttribute + "\\s*\\(\\s*\\\"\\s*[0-9*]+.[0-9*]+.[0-9*]+.[0-9*]+\\s*\\\"\\s*\\)\\s*\\]", RegexOptions.IgnoreCase);
+
+                using (StreamReader sr = new StreamReader(fileName)) {
+                    string nextLine = null;
+                    while ((nextLine = sr.ReadLine()) != null) {
+                        if (r.IsMatch(nextLine)) {
+
+                            if (replacementMade) {
+                                // One would hope that this would not occur outside of testing, yet surprisingly enough this is not the case.
+
+                                string CSFileIsInvalidExceptionMessage;
+                                ResourceManager resman = new ResourceManager(typeof(VersionStrings));
+                                CSFileIsInvalidExceptionMessage = resman.GetString("Ver005_ErrorInvalidCSFile");
+                                resman.ReleaseAllResources();
+
+                                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, CSFileIsInvalidExceptionMessage, fileName));
+                            }
+
+                            //  its the line we are to replace
+                            outputFile.Append("[assembly: " + targetAttribute + "(\"");
+                            outputFile.Append(Major);
+                            outputFile.Append(".");
+                            outputFile.Append(Minor);
+                            outputFile.Append(".");
+                            outputFile.Append(Build);
+                            outputFile.Append(".");
+                            outputFile.Append(Revision);
+                            outputFile.Append("\")]\r\n");
+                            replacementMade = true;
+                        } else {
+                            // its a different line, skip it
+                            outputFile.Append(nextLine + "\r\n");
+                        }
+
+                    }// end while
+
+                    if (!replacementMade) {
+                        Tex.Warning("No " + targetAttribute + " found in file, appending new one.");
+                        outputFile.Append(String.Format(CultureInfo.CurrentCulture, "\r\n[assembly: " + targetAttribute + "(\"{0}.{1}.{2}.{3}\")]\r\n", Major, Minor, Build, Revision));
+                    }
+
+                }// end using
+
+
+            } // End check for whether the file exists or not
+
+
+            using (StreamWriter sw = new StreamWriter(fileName, false, Encoding.UTF8)) {
+                sw.Write(outputFile.ToString());
+                //CA2202 grrrr sw.Close();        
+            }
+
+            Tex.Log("The attribute " + targetAttribute + " was applied to the file " + fileName + " Successfully.");
+        }
+
+        /// <summary>
+        /// This will scan through a file looking for an assembly informational version attribute on a line of its own in the file.  If it is found then
+        /// this method will replace this line in the file with the new version number.
+        /// </summary>
+        /// <exception cref="ArgumentException">Thrown if Duplicate AssemblyVersion attributes are found within the file that is to be updated.</exception>
+        /// <param name="fileName">The filename of the cs file that is to be updated</param>
+        public void UpdateFileWithAssemblyInformationalVersion(string fileName) {
+            Tex.Log("VersionSupport, updating cs file with the Informational Version");
+            string ASMFILE_INFVER_TAG = PossibleVersionAttributeElement.AssemblyInformationalVersion.ToString();
+            try {
+
+                UpdateCSFileWithAttribute(fileName, ASMFILE_INFVER_TAG);
+
+            } catch (ArgumentException aex) {
+
+                string ArgumentException_DetailedMessage;
+                ResourceManager resman = new ResourceManager(typeof(VersionStrings));
+                ArgumentException_DetailedMessage = resman.GetString("Ver006_ErrorInvalidCSFileSpecifically");
+                resman.ReleaseAllResources();
+
+                throw new ArgumentException(string.Format(CultureInfo.CurrentCulture, ArgumentException_DetailedMessage, ASMFILE_INFVER_TAG), aex);
+            }
+        }
+
+        /// <summary>
+        /// This will create an XML fragment file with the current setitngs and version.  If this is run
+        /// after the applynewversion command then the fragment will be available for use next time.
+        /// </summary>
+        /// <exception cref="System.IO.IOException">Thrown when there is an error writing the file to the disk</exception>
+        /// <param name="fileName">The filename to use to save to.</param>        
+        public void SaveVersioningData(string fileName) {
+            this.SetVersionStore(fileName);
+            this.SaveVersioningData();
+        }
+
+        /// <summary>
+        /// This will save the versioning data to the current default location, if no location is specified then an invalid operation exception
+        /// is thrown.
+        /// </summary>        
+        public void SaveVersioningData() {
+            if (this.m_vsb == null) {
+                throw new InvalidOperationException("There is no store defined.  Use an override of SaveVersioningData which specifies the storage medium");
+            }
+            this.m_vsb.SaveVersioningData(this.versionData,true);
+        }
+
+        /// <summary>
+        /// Saves the current versioning data to a server based storage using the provided supply centre, system name and identifier name to reference
+        /// the version control data.  This data is stored centrally and shared by all accessors who provide the same combination of supply centre
+        /// system and identifier.
+        /// </summary>
+        /// <param name="knownSupplyCentre">One of the known and supported supply centres.</param>
+        /// <param name="systemName">The system which is to be worked on</param>
+        /// <param name="identifier">An identifier used to specify which version number to use.</param>
+        /// <exception cref="System.ArgumentException">Thrown when the supplyCentre or systemName or identifier is invalid.</exception>
+        /// <param name="tfsServer">The tfs server to connect to.</param>
+        public void SaveVersioningData(KnownSupplyCentre knownSupplyCentre, string systemName, string identifier,string tfsServer) {
+            #region entry code
+            if (!Enum.IsDefined(typeof(KnownSupplyCentre), knownSupplyCentre)) {
+                throw new ArgumentException("The Supply Centre passed must be one of the known supply centres.", "knownSupplyCentre");
+            }
+            if ((systemName == null) || (systemName.Length == 0)) {
+                throw new ArgumentException("The systemName must be not null and not zero length. Enter the name of the system being used.", "systemName");
+            }
+            if ((identifier == null) || (identifier.Length == 0)) {
+                throw new ArgumentException("The identifier must not be null and must not be zero length.  Enter the name of the version number being used.", "identifier");
+            }
+            #endregion
+            
+            this.SetVersionStore(knownSupplyCentre, systemName, identifier,tfsServer);
+            this.SaveVersioningData();
+        }
+
+        #region ICloneable Members
+
+        /// <summary>
+        /// Copies the VersionSupport class into a new instance of VersionSupport copying the behaviour and the version and the dates so that
+        /// the two classes behave identically.
+        /// </summary>
+        /// <returns>a duplicate of the VersionSupport class</returns>
+        public object Clone() {
+            Tex.Log("VersionSupport Clone Request Called, duplicating this instance of VersionSupport");
+            VersionSupport result = new VersionSupport(this.versionData.Major.DigitValue, this.versionData.Minor.DigitValue, this.versionData.Build.DigitValue, this.versionData.Revision.DigitValue);
+            result.BaseDate = this.BaseDate;
+            result.LastBuildRunDate = this.LastBuildRunDate;
+            result.MajorBehaviour = this.MajorBehaviour;
+            result.MinorBehaviour = this.MinorBehaviour;
+            result.BuildBehaviour = this.BuildBehaviour;
+            result.RevisionBehaviour = this.RevisionBehaviour;
+            return result;
+        }
+
+        #endregion
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="knownSupplyCentre"></param>
+        /// <param name="systemName"></param>
+        /// <param name="tagName"></param>
+        /// <param name="tfsServer"></param>
+        public static void CreateSystemVersionIdentifier(KnownSupplyCentre knownSupplyCentre, string systemName, string tagName,string tfsServer) {
+            
+            TFSVersioningStoreImplementation tfsvsi = new TFSVersioningStoreImplementation(tfsServer);
+            tfsvsi.InitialiseCorrectly(knownSupplyCentre, systemName, tagName);
+            tfsvsi.CreateNewDataStorage();            
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="knownSupplyCentre"></param>
+        /// <param name="systemName"></param>
+        /// <param name="tagName"></param>
+        /// <param name="tfsServer"></param>
+        public static void DeleteSystemVersionIdentifier(KnownSupplyCentre knownSupplyCentre, string systemName, string tagName, string tfsServer) {
+            TFSVersioningStoreImplementation tfsvsi = new TFSVersioningStoreImplementation(tfsServer);
+            tfsvsi.InitialiseCorrectly(knownSupplyCentre, systemName, tagName);
+            tfsvsi.DeleteDataStorage();
+
+        }
+    }
+}
+
+
