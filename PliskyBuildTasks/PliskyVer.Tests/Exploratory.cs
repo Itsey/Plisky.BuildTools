@@ -52,7 +52,7 @@ namespace Plisky.Build.Tests {
             string directory = Path.GetDirectoryName(tfn1);
             sut.BaseSearchDir = directory;
             sut.PersistanceValue = tfn2;
-            sut.AddUpdateType(tfn1, FileUpdateType.Assembly);
+            sut.AddUpdateType(tfn1, FileUpdateType.Assembly4);
             sut.AddUpdateType(tfn1, FileUpdateType.AssemblyFile);
             sut.AddUpdateType(tfn1, FileUpdateType.AssemblyInformational);
             sut.IncrementAndUpdateAll();
@@ -164,7 +164,7 @@ namespace Plisky.Build.Tests {
                 new VersionUnit("1", ".", VersionIncrementBehaviour.ContinualIncrement),
                 new VersionUnit("1", ".", VersionIncrementBehaviour.ContinualIncrement));
             // None of the defaults are no display, therefore this should set all to a new value
-            cv.SetDisplayTypeForVersion(FileUpdateType.Assembly, DisplayType.NoDisplay);
+            cv.SetDisplayTypeForVersion(FileUpdateType.Assembly4, DisplayType.NoDisplay);
             cv.SetDisplayTypeForVersion(FileUpdateType.AssemblyFile, DisplayType.NoDisplay);
             cv.SetDisplayTypeForVersion(FileUpdateType.AssemblyInformational, DisplayType.NoDisplay);
             cv.SetDisplayTypeForVersion(FileUpdateType.Wix, DisplayType.NoDisplay);
@@ -173,7 +173,7 @@ namespace Plisky.Build.Tests {
             sut.Persist(cv);
             var cv2 = sut.GetVersion();
 
-            Assert.AreEqual(DisplayType.NoDisplay, cv2.GetDisplayType(FileUpdateType.Assembly),"The file update type assembly was not returned correctly");
+            Assert.AreEqual(DisplayType.NoDisplay, cv2.GetDisplayType(FileUpdateType.Assembly4),"The file update type assembly was not returned correctly");
             Assert.AreEqual(DisplayType.NoDisplay, cv2.GetDisplayType(FileUpdateType.AssemblyFile), "The file update type AssemblyFile was not returned correctly");
             Assert.AreEqual(DisplayType.NoDisplay, cv2.GetDisplayType(FileUpdateType.AssemblyInformational), "The file update type AssemblyInformational was not returned correctly");
             Assert.AreEqual(DisplayType.NoDisplay, cv2.GetDisplayType(FileUpdateType.Wix), "The file update type assembly was not returned correctly");

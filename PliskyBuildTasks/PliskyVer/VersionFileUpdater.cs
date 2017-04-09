@@ -32,7 +32,7 @@ namespace Plisky.Build {
             
             string versonToWrite = cv.GetVersionString(cv.GetDisplayType(fut));
             switch (fut) {
-                case FileUpdateType.Assembly:
+                case FileUpdateType.Assembly4:
                     UpdateCSFileWithAttribute(fl, ASMFILE_VER_TAG, versonToWrite);
                 break;
                 case FileUpdateType.AssemblyInformational:

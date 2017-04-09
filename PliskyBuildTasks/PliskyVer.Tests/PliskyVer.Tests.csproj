@@ -75,6 +75,24 @@
       <Name>PliskyVer</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\_Dependencies\TestData\TestFileStructure\DoesNotChange\AssemblyInfo.txt">
+      <Link>TestDataFiles\AssemblyInfo.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\_Dependencies\TestData\TestFileStructure\JustAssemblyVersion.txt">
+      <Link>TestDataFiles\JustAssemblyVersion.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\_Dependencies\TestData\TestFileStructure\JustFileVersion.txt">
+      <Link>TestDataFiles\JustFileVersion.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\_Dependencies\TestData\TestFileStructure\JustInformationalVersion.txt">
+      <Link>TestDataFiles\JustInformationalVersion.txt</Link>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
   <Import Project="$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets" Condition="Exists('$(VSToolsPath)\TeamTest\Microsoft.TestTools.targets')" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

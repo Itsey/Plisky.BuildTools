@@ -5,13 +5,14 @@ namespace Plisky.Build {
     public class CompleteVersion {
         public VersionUnit[] units;
         public DisplayType[] displayTypes;
-
+        
         public CompleteVersion() {
-            displayTypes = new DisplayType[4];
-            displayTypes[(int)FileUpdateType.Assembly] = DisplayType.Short;
+            displayTypes = new DisplayType[5];
+            displayTypes[(int)FileUpdateType.Assembly4] = DisplayType.Full;
             displayTypes[(int)FileUpdateType.AssemblyFile] = DisplayType.Full;
             displayTypes[(int)FileUpdateType.AssemblyInformational] = DisplayType.Full;
             displayTypes[(int)FileUpdateType.Wix] = DisplayType.Full;
+            displayTypes[(int)FileUpdateType.Assembly2] = DisplayType.Short;
         }
 
         public void SetDisplayTypeForVersion(FileUpdateType fut, DisplayType dt) {
