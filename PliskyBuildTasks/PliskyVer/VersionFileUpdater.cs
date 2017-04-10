@@ -11,14 +11,8 @@ namespace Plisky.Build {
         private const string ASMFILE_FILEVER_TAG = "AssemblyFileVersion";
         private const string ASMFILE_VER_TAG = "AssemblyVersion";
         private const string ASMFILE_INFVER_TAG = "AssemblyInformationalVersion";
-
-        private Minimatcher AssemblyMM;
-        private Minimatcher InfoMM;
-        private Minimatcher WixMM;
-        private IHookVersioningChanges hook;
-        
         private CompleteVersion cv;
-        private string RootPath;
+     
 
         public VersionFileUpdater() {
         }
@@ -50,57 +44,10 @@ namespace Plisky.Build {
             
         }
 
-        private bool CheckForAssemblyVersion(string fl) {
-            if (AssemblyMM == null) { return false; }
-            string assemblyVerString = cv.GetVersionString(DisplayType.Short);
-            return CheckAndUpdate(fl, AssemblyMM, assemblyVerString, (theFile, theVn) => {
-                UpdateCSFileWithAttribute(fl, ASMFILE_VER_TAG, theVn);
-            });
-        }
+    
 
-        private bool CheckForInformationalVersion(string fl) {
+    
 
-            if (InfoMM == null) { return false; }
-            string assemblyVerString = cv.GetVersionString(DisplayType.Short);
-
-            return CheckAndUpdate(fl, InfoMM, assemblyVerString, (theFile, theVn) => {
-                UpdateCSFileWithAttribute(fl, ASMFILE_INFVER_TAG, theVn);
-            });
-
-        }
-
-        private bool CheckForWix(string fl) {
-
-            if (WixMM == null) { return false; }
-            string assemblyVerString = cv.GetVersionString(DisplayType.Short);
-
-            return CheckAndUpdate(fl, WixMM, assemblyVerString, (theFile, theVn) => {
-                // TODO : UpdateWixFileWithVersion(fl, theVn);
-            });
-        }
-
-
-
-        private bool CheckAndUpdate(string fl, Minimatcher assemblyMM, string versionValue, Action<string, string> p) {
-            Bilge.Assert(p != null, "The action used cant be null");
-
-            Bilge.VerboseLog("Checking file :" + fl);
-
-            bool result = assemblyMM.IsMatch(fl);
-            if ((result) && (File.Exists(fl))) {
-                Bilge.Log($"Updating VersioningFile File ({fl}) to ({versionValue})");
-
-                hook?.PreUpdateFileAction(fl); // PreUpdateAllAction?.Invoke(fl);
-                //PreUpdateAction?.Invoke(fl);
-
-                p(fl, versionValue);
-
-                hook?.PostUpdateFileAction(fl);
-
-
-            }
-            return result;
-        }
 
         /// <summary>
         /// Either updates an existing version number in a file or creates a new (very basic) assembly info file and adds the verison number to it.  The

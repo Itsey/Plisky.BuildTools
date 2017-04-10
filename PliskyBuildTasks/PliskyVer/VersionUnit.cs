@@ -119,7 +119,7 @@ namespace Plisky.Build {
         }
 
         private void ValidateForBehaviour() {
-            int i;
+            
             if (Behaviour != VersionIncrementBehaviour.Fixed) {
                 try {
                     int.Parse(Value);
