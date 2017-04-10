@@ -33,6 +33,7 @@ namespace Plisky.Build {
             string versonToWrite = cv.GetVersionString(cv.GetDisplayType(fut));
             switch (fut) {
                 case FileUpdateType.Assembly4:
+                case FileUpdateType.Assembly2:
                     UpdateCSFileWithAttribute(fl, ASMFILE_VER_TAG, versonToWrite);
                 break;
                 case FileUpdateType.AssemblyInformational:
@@ -44,31 +45,10 @@ namespace Plisky.Build {
                 case FileUpdateType.Wix:
                     break;
                 default:
-                    break;
+                    throw new Exception("The FileUpdateType has not been mapped to a display type. Developer Fault");
             }
             
         }
-
-      /*  private void RecurseRootDirectoryAndUpdateFiles() {
-            Bilge.Log("Starting to look for files to replace...");
-            int filesChecked = 0;
-            if (hook != null) {
-                hook.PreUpdateAllAction(RootPath);
-            }
-
-            foreach (var fl in Directory.EnumerateFiles(RootPath, "*.*", SearchOption.AllDirectories)) {
-                filesChecked++;
-                PerformUpdate(fl);
-            }
-
-            if (hook != null) {
-                hook.PostUpdateAllAction(RootPath);
-            }
-
-            Bilge.Log("File update has completed - " + filesChecked.ToString());
-        }
-
-        */
 
         private bool CheckForAssemblyVersion(string fl) {
             if (AssemblyMM == null) { return false; }

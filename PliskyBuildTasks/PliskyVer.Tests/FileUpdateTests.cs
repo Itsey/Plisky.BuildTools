@@ -3,6 +3,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plisky.Helpers;
 using System.IO;
 using Plisky.Build;
+using Plisky.Plumbing;
 
 namespace Plisky.Build.Tests {
     [TestClass]
@@ -13,6 +14,7 @@ namespace Plisky.Build.Tests {
         public FileUpdateTests() {
             uth = new UnitTestHelper();
             ts = new TestSupport(uth);
+            Bilge.QueueMessages = false;
         }
         
 
@@ -24,15 +26,17 @@ namespace Plisky.Build.Tests {
 
         [TestMethod]
         [DeploymentItem(".\\TestDataFiles\\")]
+        [DeploymentItem("Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll")]
         [TestCategory("regression")]
         public void Update_AsmVersion_Works() {
+            Bilge.Log(nameof(Update_AsmFileVer_Works));
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1","."), new VersionUnit("1","."), new VersionUnit("1","."));
             string srcFile = @"JustAssemblyVersion.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
-           
             VersionFileUpdater sut = new VersionFileUpdater(cv);
+           
             
-            sut.PerformUpdate(fn,FileUpdateType.Assembly4);
+            sut.PerformUpdate(fn,FileUpdateType.Assembly2);
 
             Assert.IsFalse(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
             Assert.IsTrue(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
@@ -52,6 +56,8 @@ namespace Plisky.Build.Tests {
 
 
         [TestMethod]
+        // This is a workaround for an MSTest Error: https://developercommunity.visualstudio.com/content/problem/24219/mstests-do-not-start-to-execute-an-exception-occur.html
+        [DeploymentItem("Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll")]
         [DeploymentItem(".\\TestDataFiles\\")]
         public void Update_AssemblyTwoDigit_Works() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("9"), new VersionUnit("9", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
