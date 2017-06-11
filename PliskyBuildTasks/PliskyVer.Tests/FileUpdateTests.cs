@@ -1,129 +1,146 @@
 ﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Plisky.Helpers;
 using System.IO;
 using Plisky.Build;
-using Plisky.Plumbing;
+using System.Text.RegularExpressions;
+using Xunit;
 
 namespace Plisky.Build.Tests {
-    [TestClass]
-    public class FileUpdateTests{
+    
+    public class FileUpdateTests : IDisposable {
         UnitTestHelper uth;
         TestSupport ts;
 
         public FileUpdateTests() {
             uth = new UnitTestHelper();
             ts = new TestSupport(uth);
-            Bilge.QueueMessages = false;
         }
         
 
-        
-        [TestCleanup]
-        public void Cleanup () {
-            uth.ClearUpTestFiles();
+        [Fact][Trait("xunit","regression")]
+        public void Regex_MatchesForAssembly() {
+
+            VersionFileUpdater sut = new VersionFileUpdater();
+            //var rxstr = "\\s*\\[\\s*assembly\\s*:\\s*AssemblyVersion\\s*\\(\\s*\\\"\\s*[0-9A-z\\-.*]*\\s*\\\"\\s*\\)\\s*\\]";
+            //var rx = new Regex(rxstr, RegexOptions.IgnoreCase);
+            var rx = sut.GetRegex("AssemblyVersion");
+            Assert.True(rx.IsMatch("[assembly: AssemblyVersion(\"0.0.0.0\")]"), "1 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyVersion(\"0.0.0\")]"), "2 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyVersion(\"0.0\")]"), "3 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyVersion(\"0\")]"), "4 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyVersion(\"\")]"), "5 Invalid match for an assembly version");           
+            Assert.True(rx.IsMatch("[assembly:      AssemblyVersion     (\"0.0.0.0\"   )     ]"), "7 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly     :AssemblyVersion(\"0.0.0.0\")]"), "8 Invalid match for an assembly version");
+
+            // Assert.False(rx.IsMatch("//[assembly: AssemblyVersion(\"0.0.0.0\")]"), "6 Invalid match for an assembly version");
+            // Assert.False(rx.IsMatch("   //    [assembly: AssemblyVersion(\"0.0.0.0\")]"), "9 Invalid match for an assembly version");
         }
 
-        [TestMethod]
-        [DeploymentItem(".\\TestDataFiles\\")]
-        [DeploymentItem("Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll")]
-        [TestCategory("regression")]
+
+
+        [Fact]
+        [Trait("xunit","regression")]
+        public void Regex_MatchesForInformational() {
+
+            VersionFileUpdater sut = new VersionFileUpdater();
+            var rx = sut.GetRegex("AssemblyFileVersion");
+            Assert.True(rx.IsMatch("[assembly: AssemblyFileVersion(\"0.0.0.0\")]"), "1 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyFileVersion(\"0.0.0\")]"), "2 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyFileVersion(\"0.0\")]"), "3 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyFileVersion(\"0\")]"), "4 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyFileVersion(\"\")]"), "5 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly:      AssemblyFileVersion     (\"0.0.0.0\"   )     ]"), "7 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly     :AssemblyFileVersion(\"0.0.0.0\")]"), "8 Invalid match for an assembly version");
+        }
+
+
+
+        [Fact]
+        [Trait("xunit","regression")]
+        public void Regex_MatchesForFile() {
+
+            VersionFileUpdater sut = new VersionFileUpdater();
+            var rx = sut.GetRegex("AssemblyInformationalVersion");
+
+            Assert.True(rx.IsMatch("[assembly: AssemblyInformationalVersion(\"0.0.0.0\")]"), "1 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyInformationalVersion(\"0.0.0\")]"), "2 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyInformationalVersion(\"0.0\")]"), "3 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyInformationalVersion(\"0\")]"), "4 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly: AssemblyInformationalVersion(\"\")]"), "5 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly:      AssemblyInformationalVersion     (\"0.0.0.0\"   )     ]"), "7 Invalid match for an assembly version");
+            Assert.True(rx.IsMatch("[assembly     :AssemblyInformationalVersion(\"0.0.0.0\")]"), "8 Invalid match for an assembly version");
+        }
+
+        [Fact]
+        [Trait("xunit","regression")]
         public void Update_AsmVersion_Works() {
-            Bilge.Log(nameof(Update_AsmFileVer_Works));
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1","."), new VersionUnit("1","."), new VersionUnit("1","."));
-            string srcFile = @"JustAssemblyVersion.txt";
+            string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\TestFileStructure\JustAssemblyVersion.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
-            VersionFileUpdater sut = new VersionFileUpdater(cv);
            
-            
-            sut.PerformUpdate(fn,FileUpdateType.Assembly2);
-
-            Assert.IsFalse(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "AssemblyVersion(\"1.1\")"), "The file does not have the full version in it");
-        }
-
-        [TestMethod]
-        public void CompleteVersionHasAllDisplayTypesCovered() {
-            // Complete verison has in it hard coded array of display type to name mappings
-            // This method blows when the enum changes and the display types have not been nupdated
-            CompleteVersion cv = new CompleteVersion();
-            foreach (int i in Enum.GetValues(typeof(FileUpdateType))) {
-                var val = cv.displayTypes[i];
-                Assert.IsTrue(Enum.IsDefined(typeof(DisplayType), val), "The enum mapping in the CompleteVersion constructor is out of date");
-            }
-        }
-
-
-        [TestMethod]
-        // This is a workaround for an MSTest Error: https://developercommunity.visualstudio.com/content/problem/24219/mstests-do-not-start-to-execute-an-exception-occur.html
-        [DeploymentItem("Microsoft.VisualStudio.TestPlatform.TestFramework.Extensions.dll")]
-        [DeploymentItem(".\\TestDataFiles\\")]
-        public void Update_AssemblyTwoDigit_Works() {
-            Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("9"), new VersionUnit("9", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
-            string srcFile = @"JustAssemblyVersion.txt";
-            string fn = ts.GetFileAsTemporary(srcFile);
-            Assert.IsFalse(ts.DoesFileContainThisText(fn, "AssemblyVersion(\"9.9\")"), "Invalikd test the test cant start wtih the value written");
-
             VersionFileUpdater sut = new VersionFileUpdater(cv);
-            sut.PerformUpdate(fn, FileUpdateType.Assembly2);
+            
+            sut.PerformUpdate(fn,FileUpdateType.Assembly4);
 
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "AssemblyVersion(\"9.9\")"), "The two digit update was not written");
+            Assert.False(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
+            Assert.True(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
+            Assert.True(ts.DoesFileContainThisText(fn, "AssemblyVersion(\"1.1\")"), "The file does not have the full version in it");
         }
 
 
-        [TestMethod]
-        [DeploymentItem(".\\TestDataFiles\\")]
-        [TestCategory("regression")]
+        [Fact]
+        [Trait("xunit","regression")]
         public void Update_DoesNotAlterOtherAttributes() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
-            string srcFile = @"assemblyinfo.txt";
+            string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\TestFileStructure\DoesNotChange\assemblyinfo.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
 
             VersionFileUpdater sut = new VersionFileUpdater(cv);
+
             sut.PerformUpdate(fn, FileUpdateType.Assembly4);
             
-            Assert.IsFalse(ts.DoesFileContainThisText(fn, " AssemblyVersion(\"1.0.0.0\")"), "No update was made to the file at all");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "[assembly: AssemblyFileVersion(\"1.0.0.0\")]"), "The file does not appear to have been updated correctly.");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "[assembly: AssemblyCompany(\"\")]"), "Collatoral Damage - Another element in the file was updated - Company");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "[assembly: Guid(\"557cc26f-fcb2-4d0e-a34e-447295115fc3\")]"), "Collatoral Damage - Another element in the file was updated - Guid");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "// [assembly: AssemblyVersion(\"1.0.*\")]"), "Collatoral Damage - Another element in the file was updated - Comment");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "using System.Reflection;"), "Collatoral Damage - Another element in the file was updated - Reflection First Line");
+            Assert.False(ts.DoesFileContainThisText(fn, " AssemblyVersion(\"1.0.0.0\")"), "No update was made to the file at all");
+            Assert.True(ts.DoesFileContainThisText(fn, "[assembly: AssemblyFileVersion(\"1.0.0.0\")]"), "The file does not appear to have been updated correctly.");
+            Assert.True(ts.DoesFileContainThisText(fn, "[assembly: AssemblyCompany(\"\")]"), "Collatoral Damage - Another element in the file was updated - Company");
+            Assert.True(ts.DoesFileContainThisText(fn, "[assembly: Guid(\"557cc26f-fcb2-4d0e-a34e-447295115fc3\")]"), "Collatoral Damage - Another element in the file was updated - Guid");
+            Assert.True(ts.DoesFileContainThisText(fn, "// [assembly: AssemblyVersion(\"1.0.*\")]"), "Collatoral Damage - Another element in the file was updated - Comment");
+            Assert.True(ts.DoesFileContainThisText(fn, "using System.Reflection;"), "Collatoral Damage - Another element in the file was updated - Reflection First Line");
         }
 
-        [TestMethod]
-        [DeploymentItem(".\\TestDataFiles\\")]
-        [TestCategory("regression")]
+        [Fact]
+        [Trait("xunit","regression")]
         public void Update_AsmInfVer_Works() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
-            string srcFile = @"JustInformationalVersion.txt";
+            string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\TestFileStructure\JustInformationalVersion.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
 
             VersionFileUpdater sut = new VersionFileUpdater(cv);
 
             sut.PerformUpdate(fn, FileUpdateType.AssemblyInformational);
 
-            Assert.IsFalse(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "AssemblyInformationalVersion(\"1.1.1.1\")"), "The file does not have the full version in it");
+            Assert.False(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
+            Assert.True(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
+            Assert.True(ts.DoesFileContainThisText(fn, "AssemblyInformationalVersion(\"1.1.1.1\")"), "The file does not have the full version in it");
         }
 
-        [DeploymentItem(".\\TestDataFiles\\")]
-        [TestMethod][TestCategory("regression")]
+
+        [Fact][Trait("xunit","regression")]
         public void Update_AsmFileVer_Works() {
-            System.Console.WriteLine(System.Environment.CurrentDirectory‌);
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
-            string srcFile = @"JustFileVersion.txt";
+            string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\TestFileStructure\JustFileVersion.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
 
             VersionFileUpdater sut = new VersionFileUpdater(cv);
 
             sut.PerformUpdate(fn, FileUpdateType.AssemblyFile);
 
-            Assert.IsFalse(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
-            Assert.IsTrue(ts.DoesFileContainThisText(fn, "AssemblyFileVersion(\"1.1.1.1\")"), "The file does not have the full version in it");
+            Assert.False(ts.DoesFileContainThisText(fn, "0.0.0.0"), "No update was made to the file at all");
+            Assert.True(ts.DoesFileContainThisText(fn, "1.1"), "The file does not appear to have been updated correctly.");
+            Assert.True(ts.DoesFileContainThisText(fn, "AssemblyFileVersion(\"1.1.1.1\")"), "The file does not have the full version in it");
         }
 
+        public void Dispose() {
+            uth.ClearUpTestFiles();
+        }
     }
 }

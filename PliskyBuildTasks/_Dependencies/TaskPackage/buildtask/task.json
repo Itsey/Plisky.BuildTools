@@ -1,0 +1,63 @@
+﻿{
+  "id": "a2eb873d-10ed-43a4-8b2e-36e77626a68f",
+  "name": "PliskyVersioning",
+  "friendlyName": "Plisky Versioner",
+  "description": "Build Step to perform versioning and update project files with updated verison inforamtion.",
+  "helpMarkDown": "[link](http://go.microsoft.com/fwlink/?LinkID=613733)",
+  "category": "Utility",
+  "visibility": [
+    "Build",
+    "Release"
+  ],  
+  "author": "Jim",
+  "version": {
+    "Major": 0,
+    "Minor": 0,
+    "Patch": 17
+  },
+  "demands": [
+    "Cmd"
+  ],
+  "minimumAgentVersion": "1.83.0",
+  "groups": [
+    {
+      "name": "advanced",
+      "displayName": "Advanced",
+      "isExpanded": false
+    }
+  ],
+  "instanceNameFormat": "Plisky SemVer",
+  "inputs": [
+    {
+      "name": "VersionRuleSource",
+      "type": "string",
+      "label": "Version Rules Source",
+      "defaultValue": "$(build.sourcesdirectory)\\_dependencies\\versioningrules.json",
+      "required": true,
+      "helpMarkDown": "The rules initialisation string (url or file) to control versioning."
+    },
+    {
+      "name": "VersionsToApply",
+      "type": "multiLine",
+      "label": "Versioning Activities",
+      "defaultValue": "**\\properties\\assemblyinfo.cs;ASSEMBLY\r\n**\\properties\\assemblyinfo.cs;FILE;",
+      "helpMarkDown": "A list of all of the changes to make, in the format Minimatch;TYPE, separated by new lines.",
+      "required": true
+    },
+    {
+      "name": "SourceRootDirectory",
+      "type": "string",
+      "label": "Source Root Directory",
+      "defaultValue": "$(build.sourcesdirectory)",
+      "helpMarkDown": "The root directory to search for minmatches to update with the version items.",
+      "required": true
+    }
+  ],
+  "execution": {
+    "PowerShell": {
+      "target": "$(currentDirectory)\\versioner.ps1",
+      "argumentFormat": "",
+      "workingDirectory": "$(currentDirectory)"
+    }
+  }
+}

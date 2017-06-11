@@ -1,5 +1,4 @@
 ﻿using Plisky.Helpers;
-using Plisky.Plumbing;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -15,17 +14,13 @@ namespace Plisky.Build.Tests {
             uth = newuth;
         }
         public string GetFileAsTemporary(string srcFile) {
-
             string fn = uth.NewTemporaryFileName(true);
-            Bilge.VerboseLog($"Copying {srcFile} as {fn}",Environment.CurrentDirectory);
             File.Copy(srcFile, fn);
             return fn;
         }
 
         public  bool DoesFileContainThisText(string fn, string v) {
-            string s = File.ReadAllText(fn);
-            Bilge.VerboseLog("Checking file " + fn, s);
-            return s.Contains(v);
+            return File.ReadAllText(fn).Contains(v);
         }
     }
 }

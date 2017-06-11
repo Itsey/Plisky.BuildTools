@@ -1,0 +1,36 @@
+﻿{
+  "manifestVersion": 1,
+  "id": "plisky-semanticversioner",
+  "name": "Plisky SemVer",
+  "version": "0.0.1",
+  "publisher": "pliskynet",
+  "targets": [
+    {
+      "id": "Microsoft.VisualStudio.Services"
+    }
+  ],
+  "description": "Plisky Semantic Versioning Build Task.",
+  "categories": [
+    "Build and release"
+  ],
+  "icons": {
+    "default": "images/icon.png"
+  },
+  "files": [
+    {
+      "path": "buildtask"
+    }
+  ],
+  "contributions": [
+    {
+      "id": "plisky-semanticversioner",
+      "type": "ms.vss-distributed-task.task",
+      "targets": [
+        "ms.vss-distributed-task.tasks"
+      ],
+      "properties": {
+        "name": "PliskyVersioning"
+      }
+    }
+  ]
+}
