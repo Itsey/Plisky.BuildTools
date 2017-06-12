@@ -5,34 +5,40 @@ using System.Collections.Generic;
 using System.IO;
 
 namespace Plisky.Build {
+
     public class VersioningTask {
         protected Dictionary<string, List<FileUpdateType>> pendingUpdates = new Dictionary<string, List<FileUpdateType>>();
         protected CompleteVersion ver;
         protected List<string> messageLog = new List<string>();
 
         public delegate void LogEventHandler(object sender, LogEventArgs e);
-        public event LogEventHandler Logger=null;
+
+        public event LogEventHandler Logger = null;
+
         public string[] LogMessages {
             get {
                 return messageLog.ToArray();
-            } }
+            }
+        }
+
         private string Test(string thisone) {
             int idx = thisone.IndexOf("]}#");
             string write = thisone.Substring(idx + 7);
-            if (Logger!=null) {
+            if (Logger != null) {
                 //Console.WriteLine("Calling logger 3");
                 Logger(this, new LogEventArgs() {
                     Severity = "INFO",
-                    Text = "LOGGER"+write
+                    Text = "LOGGER" + write
                 });
             }
-            Console.WriteLine("CW "+write);
+            Console.WriteLine("CW " + write);
             //messageLog.Add("LG " + write);
             return thisone;
         }
+
         public VersioningTask() {
             Bilge.CurrentTraceLevel = System.Diagnostics.TraceLevel.Verbose;
-            Bilge.Log("PliskyVersioning Online.");            
+            Bilge.Log("PliskyVersioning Online.");
             Bilge.QueueMessages = false;
             Bilge.EnableEnhancements = true;
             Bilge.CustomTagReplacementHandler = Test;
@@ -50,8 +56,6 @@ namespace Plisky.Build {
             pendingUpdates[minmatchPattern].Add(updateToPerform);
         }
 
-      
-
         public void SetAllVersioningItems(string verItemsSimple) {
             Bilge.Log("SetAllVersioningITems");
             if (verItemsSimple.Contains(Environment.NewLine)) {
@@ -59,13 +63,13 @@ namespace Plisky.Build {
                 // so replacing them with \n to make the two consistant.
                 verItemsSimple = verItemsSimple.Replace(Environment.NewLine, "\n");
             }
-            string[] allLines = verItemsSimple.Split(new string[] { "\n" },StringSplitOptions.RemoveEmptyEntries);
-            foreach(var ln in allLines) {
+            string[] allLines = verItemsSimple.Split(new string[] { "\n" }, StringSplitOptions.RemoveEmptyEntries);
+            foreach (var ln in allLines) {
                 string[] parts = ln.Split('!');
-                if (parts.Length!=2) {
+                if (parts.Length != 2) {
                     throw new InvalidOperationException($"The versioning item string was in the wrong format [{ln}] ");
                 }
-                FileUpdateType ft =  GetFileTypeFromString(parts[1]);
+                FileUpdateType ft = GetFileTypeFromString(parts[1]);
                 AddUpdateType(parts[0], ft);
             }
         }
@@ -78,7 +82,7 @@ namespace Plisky.Build {
                 case "INFO": return FileUpdateType.AssemblyInformational;
                 case "FILE": return FileUpdateType.AssemblyFile;
                 case "WIX": return FileUpdateType.Wix;
-                default: throw new InvalidOperationException($"The verisoning string {v} is not valid.");                    
+                default: throw new InvalidOperationException($"The verisoning string {v} is not valid.");
             }
         }
 
@@ -104,7 +108,6 @@ namespace Plisky.Build {
                             Bilge.VerboseLog($"Perform update {v}");
                             sut.PerformUpdate(v, updateType);
                         }
-
                     }
                 }
             }
@@ -117,7 +120,7 @@ namespace Plisky.Build {
         }
 
         private void ValidateForUpdate() {
-            if ((String.IsNullOrEmpty(BaseSearchDir))||(!Directory.Exists(BaseSearchDir))) {
+            if ((String.IsNullOrEmpty(BaseSearchDir)) || (!Directory.Exists(BaseSearchDir))) {
                 throw new DirectoryNotFoundException("The BaseSearchDirectory has to be specified");
             }
         }

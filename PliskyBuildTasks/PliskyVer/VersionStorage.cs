@@ -1,9 +1,10 @@
-﻿using System;
+﻿namespace Plisky.Build {
 
-namespace Plisky.Build {
     public abstract class VersionStorage {
         protected string InitValue = null;
+
         protected abstract void ActualPersist(CompleteVersion cv);
+
         protected abstract CompleteVersion ActualLoad();
 
         public VersionStorage(string initialisationValue) {

@@ -74,38 +74,189 @@ namespace Plisky.Build.Tests {
         }
 
         [Fact]
-        [Trait("xunit", "exploratory")]
+        [Trait("xunit", "usecase")]
         public void UseCase_Plisky_Works() {
-            var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("Unicorn", "-"), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
-            var verString = sut.GetVersionString();
-            Assert.Equal("2.0-Unicorn.0", verString); //,"The initial string is not correct");
+            var sut = new CompleteVersion(
+                new VersionUnit("2"),
+                new VersionUnit("0", "."),
+                new VersionUnit("Unicorn", "-"),
+                new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
+
+            var verString = sut.GetVersionString(DisplayType.FullIncludeText);
+            Assert.Equal("2.0-Unicorn.0", verString);
+
             sut.PerformIncrement();
-            verString = sut.GetVersionString();
-            Assert.Equal("2.0-Unicorn.1", verString); //, "The first increment string is not correct");
+            verString = sut.GetVersionString(DisplayType.FullIncludeText);
+            Assert.Equal("2.0-Unicorn.1", verString);
+
             sut.PerformIncrement();
-            verString = sut.GetVersionString(DisplayType.Full);
-            Assert.Equal("2.0-Unicorn.2", verString); //, "The second increment string is not correct");
+            verString = sut.GetVersionString(DisplayType.FullIncludeText);
+            Assert.Equal("2.0-Unicorn.2", verString);
+        }
+
+
+        [Fact]
+        [Trait("XUnit", "true")]
+        [Trait("XUnit", "regression")]
+        public void Display_Assem4_AllDigits_Correct() {
+            var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("0", "."), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
+            var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
+            var verStringFor4 = sut.GetVersionString(fut4);
+            Assert.Equal("2.0.0.0", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("2.0.0.1", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("2.0.0.2", verStringFor4);
         }
 
         [Fact]
+        [Trait("XUnit", "true")]
+        [Trait("XUnit", "regression")]
+        public void Display_Assem4_AllDigitsMultiIncrement_Correct() {
+            var sut = new CompleteVersion(new VersionUnit("2", "", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement)
+                                          );
+
+            var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
+            var verStringFor4 = sut.GetVersionString(fut4);
+            Assert.Equal("2.0.0.0", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("3.1.1.1", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("4.2.2.2", verStringFor4);
+        }
+
+
+        [Fact]
+        [Trait("XUnit", "true")]
+        [Trait("XUnit", "regression")]
+        public void Display_Assem4_TextComponent_Correct() {
+            var sut = new CompleteVersion(new VersionUnit("2"),
+                                          new VersionUnit("0", "."),
+                                          new VersionUnit("Unicorn", "-"),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement)
+                                          );
+
+            var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
+            var verStringFor4 = sut.GetVersionString(fut4);
+            Assert.Equal("2.0.0.0", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("2.0.0.1", verStringFor4);
+
+            sut.PerformIncrement();
+            verStringFor4 = sut.GetVersionString(fut4);
+
+            Assert.Equal("2.0.0.2", verStringFor4);
+        }
+
+
+        [Fact]
+        [Trait("XUnit", "true")]
+        [Trait("XUnit", "regression")]
+        public void Display_Assem2_AllDigits_Correct() {
+            var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("0", "."), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
+            var fut2 = sut.GetDisplayType(FileUpdateType.Assembly2);
+            var verStringFor2 = sut.GetVersionString(fut2);
+            Assert.Equal("2.0", verStringFor2);
+
+            sut.PerformIncrement();
+            verStringFor2 = sut.GetVersionString(fut2);
+
+            Assert.Equal("2.0", verStringFor2);
+
+            sut.PerformIncrement();
+            verStringFor2 = sut.GetVersionString(fut2);
+
+            Assert.Equal("2.0", verStringFor2);
+        }
+
+        [Fact]
+        [Trait("XUnit", "true")]
+        [Trait("XUnit", "regression")]
+        public void Display_Assem2_AllDigitsMultiIncrement_Correct() {
+            var sut = new CompleteVersion(new VersionUnit("2", "", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
+                                          new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement)
+                                          );
+
+            var fut2 = sut.GetDisplayType(FileUpdateType.Assembly2);
+            var verStringFor2 = sut.GetVersionString(fut2);
+            Assert.Equal("2.0", verStringFor2);
+
+            sut.PerformIncrement();
+            verStringFor2 = sut.GetVersionString(fut2);
+
+            Assert.Equal("3.1", verStringFor2);
+
+            sut.PerformIncrement();
+            verStringFor2 = sut.GetVersionString(fut2);
+
+            Assert.Equal("4.2", verStringFor2);
+        }
+
+
+        [Fact]
+        [Trait("xunit", "usecase")]
         public void UseCase_PliskyFileTypes_Works() {
-            // MRC
+
             var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("Unicorn", "-"), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
             var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
-            var verString = sut.GetVersionString(fut4);
-            Assert.Equal("2.0-Unicorn.0", verString); //, "The initial string is not correct");
+            var fut2 = sut.GetDisplayType(FileUpdateType.Assembly2);
+            var futInfo = sut.GetDisplayType(FileUpdateType.AssemblyInformational);
+
+            var verStringFor4 = sut.GetVersionString(fut4);
+            var verStringFor2 = sut.GetVersionString(fut2);
+            var verStringForInfo = sut.GetVersionString(futInfo);
+
+            // Initial values not incremented
+            Assert.Equal("2.0.0.0", verStringFor4);
+            Assert.Equal("2.0", verStringFor2);
+            Assert.Equal("2.0-Unicorn.0", verStringForInfo);
+
             sut.PerformIncrement();
-            verString = sut.GetVersionString();
-            Assert.Equal("2.0-Unicorn.1", verString); //, "The first increment string is not correct");
+            verStringFor4 = sut.GetVersionString(fut4);
+            verStringFor2 = sut.GetVersionString(fut2);
+            verStringForInfo = sut.GetVersionString(futInfo);
+
+            // Values Following Single Increment
+            Assert.Equal("2.0.0.1", verStringFor4);
+            Assert.Equal("2.0", verStringFor2);
+            Assert.Equal("2.0-Unicorn.1", verStringForInfo);
+
             sut.PerformIncrement();
-            verString = sut.GetVersionString(DisplayType.Full);
-            Assert.Equal("2.0-Unicorn.2", verString); //, "The second increment string is not correct");
+            verStringFor4 = sut.GetVersionString(fut4);
+            verStringFor2 = sut.GetVersionString(fut2);
+            verStringForInfo = sut.GetVersionString(futInfo);
+
+            // Values Following Second Increment
+            Assert.Equal("2.0.0.2", verStringFor4);
+            Assert.Equal("2.0", verStringFor2);
+            Assert.Equal("2.0-Unicorn.2", verStringForInfo);
+
 
         }
 
         [Fact]
         public void IncrementAndUpdateThrowsIfNoDirectory() {
-            VersioningTask sut = new VersioningTask();            
+            VersioningTask sut = new VersioningTask();
             Assert.Throws<DirectoryNotFoundException>(() => { sut.IncrementAndUpdateAll(); });
         }
 

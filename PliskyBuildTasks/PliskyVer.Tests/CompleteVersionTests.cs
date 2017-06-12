@@ -17,7 +17,7 @@ namespace PliskyVer.Tests {
         public void PartiallyFixed_DoesIncrement() {
             var sut = new CompleteVersion(new VersionUnit("1", "", VersionIncrementBehaviour.ContinualIncrement), new VersionUnit("Monkey", "."));
             sut.PerformIncrement();
-            Assert.Equal("2.Monkey", sut.GetVersionString(DisplayType.Full)); // The increment for the first digit did not work in a mixed verison number
+            Assert.Equal("2.Monkey", sut.GetVersionString(DisplayType.FullIncludeText)); // The increment for the first digit did not work in a mixed verison number
         }
 
         [Fact]
@@ -65,14 +65,14 @@ namespace PliskyVer.Tests {
             vu.IncrementOverride = "9";
             var sut = new CompleteVersion(vu);
             sut.PerformIncrement();
-            Assert.Equal("9", sut.GetVersionString(DisplayType.Full)); //, "The overide on a word value did not work");
+            Assert.Equal("9", sut.GetVersionString(DisplayType.Full));
         }
 
         [Fact]
         public void SimpleIncrement_Fixed_DoesNothing() {
             var sut = new CompleteVersion(new VersionUnit("1"), new VersionUnit("2", "."));
             sut.PerformIncrement();
-            Assert.Equal("1.2", sut.ToString()); //, "The verison increment should do nothing for fixed");
+            Assert.Equal("1.2", sut.ToString());
         }
 
         [Fact]
@@ -81,7 +81,7 @@ namespace PliskyVer.Tests {
             vu.SetBehaviour(VersionIncrementBehaviour.AutoIncrementWithReset);
             var sut = new CompleteVersion(new VersionUnit("1"), vu);
             sut.PerformIncrement();
-            Assert.Equal("1.3", sut.ToString()); //, "The verison increment should do nothing for fixed");
+            Assert.Equal("1.3", sut.ToString());
         }
 
         [Fact]
@@ -91,7 +91,7 @@ namespace PliskyVer.Tests {
             vu.IncrementOverride = "Fish";
             var sut = new CompleteVersion(vu);
 
-            Assert.Equal("Monkey", sut.GetVersionString(DisplayType.Full)); //, "The overide should not change when no increment has been performed.");
+            Assert.Equal("Monkey", sut.GetVersionString(DisplayType.FullIncludeText));
         }
 
         [Fact]
@@ -102,7 +102,7 @@ namespace PliskyVer.Tests {
             var sut = new CompleteVersion(vu);
             sut.PerformIncrement();
 
-            Assert.Equal("5", sut.GetVersionString(DisplayType.Full)); //, "The overide on a word value did not work");
+            Assert.Equal("5", sut.GetVersionString(DisplayType.Full));
         }
 
         [Fact]
@@ -113,7 +113,7 @@ namespace PliskyVer.Tests {
             var sut = new CompleteVersion(vu);
             sut.PerformIncrement();
 
-            Assert.Equal("Fish", sut.GetVersionString(DisplayType.Full)); //, "The overide on a word value did not work");
+            Assert.Equal("Fish", sut.GetVersionString(DisplayType.FullIncludeText)); //, "The overide on a word value did not work");
         }
 
         [Fact]

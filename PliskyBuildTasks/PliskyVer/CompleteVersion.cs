@@ -1,17 +1,18 @@
-﻿using Plisky.Plumbing;
-using System;
+﻿using System;
 
 namespace Plisky.Build {
+
     public class CompleteVersion {
+        private const int NUMBERDIGITS_FORSHORT = 2;
         public VersionUnit[] units;
         public DisplayType[] displayTypes;
-        
+
         public CompleteVersion() {
             displayTypes = new DisplayType[5];
             displayTypes[(int)FileUpdateType.Assembly4] = DisplayType.Full;
             displayTypes[(int)FileUpdateType.AssemblyFile] = DisplayType.Full;
-            displayTypes[(int)FileUpdateType.AssemblyInformational] = DisplayType.Full;
-            displayTypes[(int)FileUpdateType.Wix] = DisplayType.Full;
+            displayTypes[(int)FileUpdateType.AssemblyInformational] = DisplayType.FullIncludeText;
+            displayTypes[(int)FileUpdateType.Wix] = DisplayType.FullIncludeText;
             displayTypes[(int)FileUpdateType.Assembly2] = DisplayType.Short;
         }
 
@@ -23,26 +24,25 @@ namespace Plisky.Build {
             return displayTypes[(int)fut];
         }
 
-        public CompleteVersion(params VersionUnit[] versionUnits): this() {
+        public CompleteVersion(params VersionUnit[] versionUnits) : this() {
             units = versionUnits;
         }
 
-        public string GetVersionString(DisplayType dt= DisplayType.Full) {
+        public string GetVersionString(DisplayType dt = DisplayType.Full) {
             string result = string.Empty;
             int stopPoint = units.Length;
-            if ((dt == DisplayType.Short) && (units.Length > 2)) {
-                stopPoint = 2;
+            if ((dt == DisplayType.Short) && (units.Length > NUMBERDIGITS_FORSHORT)) {
+                stopPoint = NUMBERDIGITS_FORSHORT;
             }
+
             for (int i = 0; i < stopPoint; i++) {
-
-                result += units[i].ToString();
-
+                result += units[i].GetStringValue(dt);
             }
             return result;
         }
 
         public override string ToString() {
-            return GetVersionString(DisplayType.Full);
+            return GetVersionString(DisplayType.FullIncludeText);
         }
 
         public void PerformIncrement() {
@@ -55,8 +55,5 @@ namespace Plisky.Build {
                 if (lastChanged) { anyChanged = true; }
             }
         }
-
-
-
     }
 }
