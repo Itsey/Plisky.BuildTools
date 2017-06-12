@@ -72,7 +72,9 @@ namespace Plisky.Build {
 
         private FileUpdateType GetFileTypeFromString(string v) {
             switch (v) {
-                case "ASSEMBLY": return FileUpdateType.Assembly4;
+                case "ASSEMBLY":
+                case "ASSEMBLY2":
+                case "ASSEMBLY4": return FileUpdateType.Assembly;
                 case "INFO": return FileUpdateType.AssemblyInformational;
                 case "FILE": return FileUpdateType.AssemblyFile;
                 case "WIX": return FileUpdateType.Wix;
