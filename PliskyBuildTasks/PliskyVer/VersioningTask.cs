@@ -74,7 +74,7 @@ namespace Plisky.Build {
             switch (v) {
                 case "ASSEMBLY":
                 case "ASSEMBLY2":
-                case "ASSEMBLY4": return FileUpdateType.Assembly;
+                case "ASSEMBLY4": return FileUpdateType.Assembly4;
                 case "INFO": return FileUpdateType.AssemblyInformational;
                 case "FILE": return FileUpdateType.AssemblyFile;
                 case "WIX": return FileUpdateType.Wix;

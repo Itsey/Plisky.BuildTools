@@ -71,7 +71,7 @@ namespace Plisky.Build.Tests {
             Assert.True(rx.IsMatch("[assembly     :AssemblyInformationalVersion(\"0.0.0.0\")]"), "8 Invalid match for an assembly version");
         }
 
-        [Fact]
+        [Fact(Skip ="Hardcoded path")]
         [Trait("xunit","regression")]
         public void Update_AsmVersion_Works() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1","."), new VersionUnit("1","."), new VersionUnit("1","."));
@@ -88,7 +88,7 @@ namespace Plisky.Build.Tests {
         }
 
 
-        [Fact]
+        [Fact(Skip = "Hardcoded path")]
         [Trait("xunit","regression")]
         public void Update_DoesNotAlterOtherAttributes() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
@@ -107,7 +107,7 @@ namespace Plisky.Build.Tests {
             Assert.True(ts.DoesFileContainThisText(fn, "using System.Reflection;"), "Collatoral Damage - Another element in the file was updated - Reflection First Line");
         }
 
-        [Fact]
+        [Fact(Skip = "Hardcoded path")]
         [Trait("xunit","regression")]
         public void Update_AsmInfVer_Works() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
@@ -124,7 +124,8 @@ namespace Plisky.Build.Tests {
         }
 
 
-        [Fact][Trait("xunit","regression")]
+        [Fact(Skip = "Hardcoded path")]
+        [Trait("xunit","regression")]
         public void Update_AsmFileVer_Works() {
             Plisky.Build.CompleteVersion cv = new Plisky.Build.CompleteVersion(new VersionUnit("1"), new VersionUnit("1", "."), new VersionUnit("1", "."), new VersionUnit("1", "."));
             string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\TestFileStructure\JustFileVersion.txt";
