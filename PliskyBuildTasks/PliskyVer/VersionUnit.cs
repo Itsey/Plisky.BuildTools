@@ -28,13 +28,15 @@ namespace Plisky.Build {
         internal bool PerformIncrement(bool higherDigitChanged, bool anyHigherDigitChanged, DateTime lastBuildDate, DateTime baseDate) {
 
             #region entry code
-            if (higherDigitChanged) { Bilge.Assert(anyHigherDigitChanged, "Logic error on changed digits"); }
+            if (higherDigitChanged) { 
+                //Bilge.Assert(anyHigherDigitChanged, "Logic error on changed digits"); 
+            }
             #endregion
 
-            Bilge.VerboseLog($"VersioningSupport, Applying version change to {Value} using {Behaviour.ToString()}");
+            //Bilge.VerboseLog($"VersioningSupport, Applying version change to {Value} using {Behaviour.ToString()}");
 
             if (!string.IsNullOrEmpty(IncrementOverride)) {
-                Bilge.VerboseLog($"Override Value Present {IncrementOverride} - All Other considerations ignored.");
+                //Bilge.VerboseLog($"Override Value Present {IncrementOverride} - All Other considerations ignored.");
                 // An override overrules anything else - even fixed.
                 if (IncrementOverride != actualValue) {
                     actualValue = IncrementOverride;
@@ -45,13 +47,13 @@ namespace Plisky.Build {
             }
 
             if (Behaviour == VersionIncrementBehaviour.Fixed) {
-                Bilge.VerboseLog("Behaviour Set to Fixed, not doing anything.");
+                //Bilge.VerboseLog("Behaviour Set to Fixed, not doing anything.");
                 return false;
             }
 
             TimeSpan ts;
             int versionPriorToIncrement = int.Parse(Value);
-            Bilge.VerboseLog("No override, moving to perform increment");
+            //Bilge.VerboseLog("No override, moving to perform increment");
 
             //unchecked to make it explicit that an overflow wraps around.  
             unchecked {
@@ -113,7 +115,7 @@ namespace Plisky.Build {
         }
 
         public void SetBehaviour(VersionIncrementBehaviour newBehaviour) {
-            Bilge.VerboseLog($"New behaviour being set {newBehaviour}");
+            //Bilge.VerboseLog($"New behaviour being set {newBehaviour}");
             Behaviour = newBehaviour;
             ValidateForBehaviour();
         }

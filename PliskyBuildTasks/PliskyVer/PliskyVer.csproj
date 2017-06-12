@@ -55,6 +55,7 @@
     <Compile Include="FileUpdateType.cs" />
     <Compile Include="IHookVersioningChanges.cs" />
     <Compile Include="JsonVersionPersister.cs" />
+    <Compile Include="LogEventArgs.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="VersionFileUpdater.cs" />
     <Compile Include="VersioningTask.cs" />

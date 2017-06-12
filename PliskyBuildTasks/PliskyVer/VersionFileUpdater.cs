@@ -58,12 +58,12 @@ namespace Plisky.Build {
         /// <param name="vn">The verison number to apply to the code</param>
         private static void UpdateCSFileWithAttribute(string fileName, string targetAttribute, string versionValue) {
             #region entry code
-            Bilge.Assert(!string.IsNullOrEmpty(fileName), "fileName is null, internal consistancy error.");
-            Bilge.Assert(!string.IsNullOrEmpty(targetAttribute), "target attribute cant be null, internal consistancy error");
-            Bilge.Assert(versionValue != null, "vn cant be null, internal consistancy error");
+            //Bilge.Assert(!string.IsNullOrEmpty(fileName), "fileName is null, internal consistancy error.");
+            //Bilge.Assert(!string.IsNullOrEmpty(targetAttribute), "target attribute cant be null, internal consistancy error");
+            //Bilge.Assert(versionValue != null, "vn cant be null, internal consistancy error");
             #endregion (entry code)
 
-            Bilge.Log(string.Format("VersionSupport, Asked to update CS file with the {0} attribute", targetAttribute), "Full Filename:" + fileName);
+            //Bilge.Log(string.Format("VersionSupport, Asked to update CS file with the {0} attribute", targetAttribute), "Full Filename:" + fileName);
 
             var outputFile = new StringBuilder();
 
@@ -75,7 +75,7 @@ namespace Plisky.Build {
 
                 // If it does exist we need to verify that it is not readonly.
                 if ((File.GetAttributes(fileName) & FileAttributes.ReadOnly) == FileAttributes.ReadOnly) {
-                    Bilge.Warning("The file is readonly, removing attribs so I can write on it", "fname [" + fileName + "]");
+                    //Bilge.Warning("The file is readonly, removing attribs so I can write on it", "fname [" + fileName + "]");
                     File.SetAttributes(fileName, (File.GetAttributes(fileName) ^ FileAttributes.ReadOnly));
                 }
 
@@ -109,7 +109,7 @@ namespace Plisky.Build {
                     }
 
                     if (!replacementMade) {
-                        Bilge.Warning("No " + targetAttribute + " found in file, appending new one.");
+                        //Bilge.Warning("No " + targetAttribute + " found in file, appending new one.");
                         outputFile.Append($"\r\n[assembly: {targetAttribute}(\"{versionValue}\")]\r\n");
                     }
                 }
@@ -117,7 +117,7 @@ namespace Plisky.Build {
 
             File.WriteAllText(fileName, outputFile.ToString(), Encoding.UTF8);
 
-            Bilge.Log("The attribute " + targetAttribute + " was applied to the file " + fileName + " Successfully.");
+            //Bilge.Log("The attribute " + targetAttribute + " was applied to the file " + fileName + " Successfully.");
         }
     }
 }

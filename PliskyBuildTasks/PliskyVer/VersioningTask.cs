@@ -30,11 +30,11 @@ namespace Plisky.Build {
             return thisone;
         }
         public VersioningTask() {
-            Bilge.CurrentTraceLevel = System.Diagnostics.TraceLevel.Verbose;
-            Bilge.Log("PliskyVersioning Online.");            
-            Bilge.QueueMessages = false;
-            Bilge.EnableEnhancements = true;
-            Bilge.CustomTagReplacementHandler = Test;
+            //Bilge.CurrentTraceLevel = System.Diagnostics.TraceLevel.Verbose;
+            //Bilge.Log("PliskyVersioning Online.");            
+            //Bilge.QueueMessages = false;
+            //Bilge.EnableEnhancements = true;
+            //Bilge.CustomTagReplacementHandler = Test;
         }
 
         public string PersistanceValue { get; set; }
@@ -42,7 +42,7 @@ namespace Plisky.Build {
         public string BaseSearchDir { get; set; }
 
         public void AddUpdateType(string minmatchPattern, FileUpdateType updateToPerform) {
-            Bilge.VerboseLog("Adding Update Type " + minmatchPattern);
+            //Bilge.VerboseLog("Adding Update Type " + minmatchPattern);
             if (!pendingUpdates.ContainsKey(minmatchPattern)) {
                 pendingUpdates.Add(minmatchPattern, new List<FileUpdateType>());
             }
@@ -52,7 +52,7 @@ namespace Plisky.Build {
       
 
         public void SetAllVersioningItems(string verItemsSimple) {
-            Bilge.Log("SetAllVersioningITems");
+            //Bilge.Log("SetAllVersioningITems");
             if (verItemsSimple.Contains(Environment.NewLine)) {
                 // The TFS build agent uses \n not Environment.Newline for its line separator, however unit tests use Environment.Newline
                 // so replacing them with \n to make the two consistant.
@@ -71,9 +71,9 @@ namespace Plisky.Build {
 
         private FileUpdateType GetFileTypeFromString(string v) {
             switch (v) {
+                case "ASSEMBLY2": return FileUpdateType.Assembly2;
                 case "ASSEMBLY":
-                case "ASSEMBLY2":
-                case "ASSEMBLY4": return FileUpdateType.Assembly;
+                case "ASSEMBLY4": return FileUpdateType.Assembly4;
                 case "INFO": return FileUpdateType.AssemblyInformational;
                 case "FILE": return FileUpdateType.AssemblyFile;
                 case "WIX": return FileUpdateType.Wix;
@@ -82,25 +82,25 @@ namespace Plisky.Build {
         }
 
         public void IncrementAndUpdateAll() {
-            Bilge.VerboseLog("IncrementAndUpdateAll called");
+            //Bilge.VerboseLog("IncrementAndUpdateAll called");
             ValidateForUpdate();
             LoadVersioningComponent();
-            Bilge.VerboseLog("Versioning Loaded ");
+            //Bilge.VerboseLog("Versioning Loaded ");
             ver.PerformIncrement();
-            Bilge.VerboseLog("Saving");
+            //Bilge.VerboseLog("Saving");
             SaveVersioningComponent();
-            Bilge.VerboseLog($"Searching {BaseSearchDir} there are {pendingUpdates.Count} pends.");
+            //Bilge.VerboseLog($"Searching {BaseSearchDir} there are {pendingUpdates.Count} pends.");
             foreach (var v in Directory.EnumerateFiles(BaseSearchDir, "*.*", SearchOption.AllDirectories)) {
                 // Check every file that we have returned.
                 foreach (var chk in pendingUpdates.Keys) {
                     var mm = new Minimatcher(chk, new Options { AllowWindowsPaths = true, IgnoreCase = true });
-                    Bilge.VerboseLog($"Checking {chk} against {v}");
+                    //Bilge.VerboseLog($"Checking {chk} against {v}");
                     if (mm.IsMatch(v)) {
-                        Bilge.Log("Match...");
+                        //Bilge.Log("Match...");
                         // TODO Cache this and make it less loopey
                         VersionFileUpdater sut = new VersionFileUpdater(ver);
                         foreach (var updateType in pendingUpdates[chk]) {
-                            Bilge.VerboseLog($"Perform update {v}");
+                            //Bilge.VerboseLog($"Perform update {v}");
                             sut.PerformUpdate(v, updateType);
                         }
 
