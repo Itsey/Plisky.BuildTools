@@ -162,7 +162,9 @@ namespace Plisky.Build {
                 // introduced a compile error into the code.                
                 bool replacementMade = false;
 
-                Regex r = new Regex("\\[\\s*assembly\\s*:\\s*" + targetAttribute + "\\s*\\(\\s*\\\"\\s*[0-9*]+.[0-9*]+.[0-9*]+.[0-9*]+\\s*\\\"\\s*\\)\\s*\\]", RegexOptions.IgnoreCase);
+                /*
+                 Regex r = new Regex("\\[\\s*assembly\\s*:\\s*" + targetAttribute + "\\s*\\(\\s*\\\"\\s*[0-9*]+.[0-9*]+.[0-9*]+.[0-9*]+\\s*\\\"\\s*\\)\\s*\\]", RegexOptions.IgnoreCase);
+                 */
 
                 Regex r = GetRegex(targetAttribute);
                 using (StreamReader sr = new StreamReader(fileName)) {
