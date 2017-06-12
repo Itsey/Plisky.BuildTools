@@ -87,6 +87,23 @@ namespace Plisky.Build.Tests {
             Assert.Equal("2.0-Unicorn.2", verString); //, "The second increment string is not correct");
         }
 
+        [TestMethod]
+        [TestCategory("exploratory")]
+        public void UseCase_PliskyFileTypes_Works() {
+            // MRC
+            var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("Unicorn", "-"), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
+            var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
+            var verString = sut.GetVersionString(fut4);
+            Assert.AreEqual("2.0-Unicorn.0", verString, "The initial string is not correct");
+            sut.PerformIncrement();
+            verString = sut.GetVersionString();
+            Assert.AreEqual("2.0-Unicorn.1", verString, "The first increment string is not correct");
+            sut.PerformIncrement();
+            verString = sut.GetVersionString(DisplayType.Full);
+            Assert.AreEqual("2.0-Unicorn.2", verString, "The second increment string is not correct");
+
+        }
+
         [Fact]
         public void IncrementAndUpdateThrowsIfNoDirectory() {
             VersioningTask sut = new VersioningTask();            

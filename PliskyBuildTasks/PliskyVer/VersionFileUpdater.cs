@@ -140,7 +140,7 @@ namespace Plisky.Build {
             Bilge.Assert(versionValue != null, "vn cant be null, internal consistancy error");
             #endregion (entry code)
 
-            Bilge.Log($"VersionSupport, Asked to update CS file with the {targetAttribute} attribute", "Full Filename:" + fileName);
+            Bilge.Log(string.Format("VersionSupport, Asked to update CS file with the {0} attribute", targetAttribute), "Full Filename:" + fileName);
 
             var outputFile = new StringBuilder();
 
@@ -162,6 +162,7 @@ namespace Plisky.Build {
                 // introduced a compile error into the code.                
                 bool replacementMade = false;
 
+                Regex r = new Regex("\\[\\s*assembly\\s*:\\s*" + targetAttribute + "\\s*\\(\\s*\\\"\\s*[0-9*]+.[0-9*]+.[0-9*]+.[0-9*]+\\s*\\\"\\s*\\)\\s*\\]", RegexOptions.IgnoreCase);
 
                 Regex r = GetRegex(targetAttribute);
                 using (StreamReader sr = new StreamReader(fileName)) {
