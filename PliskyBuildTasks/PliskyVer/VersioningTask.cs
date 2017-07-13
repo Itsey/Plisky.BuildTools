@@ -21,18 +21,18 @@ namespace Plisky.Build {
             }
         }
 
-        private string Test(string thisone) {
+        private string LogMessageIntercept(string thisone) {
             int idx = thisone.IndexOf("]}#");
             string write = thisone.Substring(idx + 7);
             if (Logger != null) {
-                //Console.WriteLine("Calling logger 3");
+                
                 Logger(this, new LogEventArgs() {
                     Severity = "INFO",
                     Text = "LOGGER" + write
                 });
             }
-            Console.WriteLine("CW " + write);
-            //messageLog.Add("LG " + write);
+            Console.WriteLine(write);
+            
             return thisone;
         }
 
@@ -41,7 +41,7 @@ namespace Plisky.Build {
             Bilge.Log("PliskyVersioning Online.");
             Bilge.QueueMessages = false;
             Bilge.EnableEnhancements = true;
-            Bilge.CustomTagReplacementHandler = Test;
+            Bilge.CustomTagReplacementHandler = LogMessageIntercept;
         }
 
         public string PersistanceValue { get; set; }
@@ -90,9 +90,10 @@ namespace Plisky.Build {
             Bilge.VerboseLog("IncrementAndUpdateAll called");
             ValidateForUpdate();
             LoadVersioningComponent();
-            Bilge.VerboseLog("Versioning Loaded ");
+
+            Bilge.VerboseLog("Versioning Loaded Ver at " + ver.ToString());
             ver.PerformIncrement();
-            Bilge.VerboseLog("Saving");
+            Bilge.VerboseLog("Saving Ver At "+ver.ToString());
             SaveVersioningComponent();
             Bilge.VerboseLog($"Searching {BaseSearchDir} there are {pendingUpdates.Count} pends.");
             foreach (var v in Directory.EnumerateFiles(BaseSearchDir, "*.*", SearchOption.AllDirectories)) {

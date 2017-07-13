@@ -56,26 +56,7 @@ namespace Plisky.Build {
             }
         }
 
-        /*  private void RecurseRootDirectoryAndUpdateFiles() {
-              Bilge.Log("Starting to look for files to replace...");
-              int filesChecked = 0;
-              if (hook != null) {
-                  hook.PreUpdateAllAction(RootPath);
-              }
 
-              foreach (var fl in Directory.EnumerateFiles(RootPath, "*.*", SearchOption.AllDirectories)) {
-                  filesChecked++;
-                  PerformUpdate(fl);
-              }
-
-              if (hook != null) {
-                  hook.PostUpdateAllAction(RootPath);
-              }
-
-              Bilge.Log("File update has completed - " + filesChecked.ToString());
-          }
-
-          */
 
         private bool CheckForAssemblyVersion(string fl) {
             if (AssemblyMM == null) { return false; }

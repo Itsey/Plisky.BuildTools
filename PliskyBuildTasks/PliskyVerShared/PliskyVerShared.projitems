@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>02a00487-c3bc-4f63-bfb5-6d9a482225b1</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>PliskyVerShared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)CompleteVersion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DigitIncremementBehaviour.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DisplayType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)FileUpdateType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VersionStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)VersionUnit.cs" />
+  </ItemGroup>
+</Project>

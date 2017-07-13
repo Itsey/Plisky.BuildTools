@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26228.4
+VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Dependencies", "_Dependencies\_Dependencies.csproj", "{DB121786-9FDC-4DA8-AA41-937F014C6BE5}"
 EndProject
@@ -11,7 +11,16 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVer.Tests", "PliskyVe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVer", "PliskyVer\PliskyVer.csproj", "{AB9D6874-6CB7-46DA-84CA-1733B5090F19}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PliskyVerShared", "PliskyVerShared\PliskyVerShared.shproj", "{02A00487-C3BC-4F63-BFB5-6D9A482225B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVerSupport", "PliskyVerSupport\PliskyVerSupport.csproj", "{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		PliskyVerShared\PliskyVerShared.projitems*{02a00487-c3bc-4f63-bfb5-6d9a482225b1}*SharedItemsImports = 13
+		PliskyVerShared\PliskyVerShared.projitems*{ab9d6874-6cb7-46da-84ca-1733b5090f19}*SharedItemsImports = 4
+		PliskyVerShared\PliskyVerShared.projitems*{f3f6b6df-a6d3-44e1-8c7b-ef747ad34399}*SharedItemsImports = 4
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
@@ -31,6 +40,10 @@ Global
 		{AB9D6874-6CB7-46DA-84CA-1733B5090F19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB9D6874-6CB7-46DA-84CA-1733B5090F19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB9D6874-6CB7-46DA-84CA-1733B5090F19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
