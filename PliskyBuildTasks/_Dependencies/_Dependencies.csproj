@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />
+    <Folder Include="TaskPackage\buildtask\scripts\" />
     <Folder Include="TestData\TestScripts\" />
   </ItemGroup>
   <ItemGroup>
@@ -48,7 +49,12 @@
     <None Include="BuildTask\task.json" />
     <None Include="BuildTask\versioner.ps1" />
     <None Include="Documentation\OfflineGrunt.md" />
-    <None Include="SupportingFiles\releaseversioner.cmd" />
+    <None Include="SupportingFiles\diags_release.cmd" />
+    <None Include="SupportingFiles\versioner_release.cmd" />
+    <None Include="TaskPackage\buildtask\task.json" />
+    <None Include="TaskPackage\buildtask\versioner.ps1" />
+    <None Include="TaskPackage\diagstask\diagsscript.ps1" />
+    <None Include="TaskPackage\buildtask\vss-extension.json" />
     <None Include="TestData\Generated\gen_FileTests.csv" />
     <None Include="TestData\Generated\gen_VersioningParseTests.csv" />
     <None Include="TestData\Generated\gen_VerToStringTests.csv" />
@@ -77,6 +83,7 @@
     <Content Include="Documentation\OldCode\VersioningData.cs.txt" />
     <Content Include="Documentation\OldCode\VersioningStorageBase.cs.txt" />
     <Content Include="Documentation\OldCode\VersionSupport.cs.txt" />
+    <Content Include="TaskPackage\buildtask\images\icon.png" />
     <Content Include="TestData\TestFileStructure\JustAssemblyVersion.txt" />
     <Content Include="TestData\TestFileStructure\JustInformationalVersion.txt" />
     <Content Include="TestData\TestFileStructure\JustFileVersion.txt" />

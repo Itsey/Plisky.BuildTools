@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Dependencies", "_Dependencies\_Dependencies.csproj", "{DB121786-9FDC-4DA8-AA41-937F014C6BE5}"
 EndProject
@@ -14,6 +14,8 @@ EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "PliskyVerShared", "PliskyVerShared\PliskyVerShared.shproj", "{02A00487-C3BC-4F63-BFB5-6D9A482225B1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVerSupport", "PliskyVerSupport\PliskyVerSupport.csproj", "{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyQuickWebStore", "PliskyQuickWebStore\PliskyQuickWebStore.csproj", "{4758A0BE-2DE7-4D8F-81D3-2A6FA4E86E0C}"
 EndProject
 Global
 	GlobalSection(SharedMSBuildProjectFiles) = preSolution
@@ -44,8 +46,15 @@ Global
 		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F3F6B6DF-A6D3-44E1-8C7B-EF747AD34399}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4758A0BE-2DE7-4D8F-81D3-2A6FA4E86E0C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4758A0BE-2DE7-4D8F-81D3-2A6FA4E86E0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4758A0BE-2DE7-4D8F-81D3-2A6FA4E86E0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4758A0BE-2DE7-4D8F-81D3-2A6FA4E86E0C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1845F237-5271-48B9-AF63-1EB2A5EEB386}
 	EndGlobalSection
 EndGlobal

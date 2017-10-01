@@ -7,6 +7,7 @@ using System.IO;
 namespace Plisky.Build {
 
     public class VersioningTask {
+        protected VersionStorage store;
         protected Dictionary<string, List<FileUpdateType>> pendingUpdates = new Dictionary<string, List<FileUpdateType>>();
         protected CompleteVersion ver;
         protected List<string> messageLog = new List<string>();
@@ -42,11 +43,41 @@ namespace Plisky.Build {
             Bilge.QueueMessages = false;
             Bilge.EnableEnhancements = true;
             Bilge.CustomTagReplacementHandler = LogMessageIntercept;
+            
         }
 
-        public string PersistanceValue { get; set; }
-        public string VersionString { get; set; }
         public string BaseSearchDir { get; set; }
+        public string PersistanceValue { get; set; }
+
+        /// <summary>
+        /// Returns the version string including any textual elements in the full display mode.
+        /// </summary>
+        public string VersionString {
+            get {
+                return ver.GetVersionString(DisplayType.FullIncludeText);
+            }
+        }
+
+        /// <summary>
+        /// Returns the version string truncated to two digits
+        /// </summary>
+        public string Version2 {
+            get {
+                return ver.GetVersionString(DisplayType.Short);
+            }
+        }
+
+        /// <summary>
+        /// Returns the full four digit version string, but without any textual elements
+        /// </summary>
+        public string Version4 {
+            get {
+                return ver.GetVersionString(DisplayType.Full);
+            }
+        }
+
+
+
 
         public void AddUpdateType(string minmatchPattern, FileUpdateType updateToPerform) {
             Bilge.VerboseLog("Adding Update Type " + minmatchPattern);
@@ -100,24 +131,26 @@ namespace Plisky.Build {
                 // Check every file that we have returned.
                 foreach (var chk in pendingUpdates.Keys) {
                     var mm = new Minimatcher(chk, new Options { AllowWindowsPaths = true, IgnoreCase = true });
-                    Bilge.VerboseLog($"Checking {chk} against {v}");
+
+                    // Dump out every file considered. Bilge.VerboseLog($"Checking {chk} against {v}");
+
                     if (mm.IsMatch(v)) {
-                        Bilge.Log("Match...");
+                        Bilge.Log($"Match...{chk}",v);
                         // TODO Cache this and make it less loopey
-                        VersionFileUpdater sut = new VersionFileUpdater(ver);
+                        VersionFileUpdater vfu = new VersionFileUpdater(ver);
                         foreach (var updateType in pendingUpdates[chk]) {
-                            Bilge.VerboseLog($"Perform update {v}");
-                            sut.PerformUpdate(v, updateType);
+                            Bilge.VerboseLog($"Perform update {v} using {updateType.ToString()} as {(int)updateType}");
+                            vfu.PerformUpdate(v, updateType);
                         }
                     }
                 }
             }
-            VersionString = ver.GetVersionString();
+            
         }
 
         private void SaveVersioningComponent() {
-            var jvg = new JsonVersionPersister(PersistanceValue);
-            jvg.Persist(ver);
+            ValidateStore();
+            store.Persist(ver);
         }
 
         private void ValidateForUpdate() {
@@ -127,8 +160,19 @@ namespace Plisky.Build {
         }
 
         private void LoadVersioningComponent() {
-            var jvg = new JsonVersionPersister(PersistanceValue);
-            ver = jvg.GetVersion();
+            ValidateStore();
+            ver = store.GetVersion();
+            
+        }
+
+        private void ValidateStore() {
+            if (store == null) {
+                new JsonVersionPersister(PersistanceValue);
+            }
+        }
+
+        public void InjectStore(VersionStorage vs) {
+            store = vs;
         }
     }
 }

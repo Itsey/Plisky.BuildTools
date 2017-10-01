@@ -32,11 +32,14 @@ namespace Plisky.Build {
         }
 
         public void PerformUpdate(string fl, FileUpdateType fut) {
-            Bilge.VerboseLog("Perform update requested " + fut.ToString(), fl);
+             
+
             string versonToWrite = cv.GetVersionString(cv.GetDisplayType(fut));
+            Bilge.VerboseLog($"Perform update requested {versonToWrite} using {fut.ToString()}", fl);
+
             switch (fut) {
                 case FileUpdateType.Assembly4:
-                case FileUpdateType.Assembly2:
+                case FileUpdateType.Assembly2:                    
                     UpdateCSFileWithAttribute(fl, ASMFILE_VER_TAG, versonToWrite);
                     break;
 
@@ -49,6 +52,7 @@ namespace Plisky.Build {
                     break;
 
                 case FileUpdateType.Wix:
+                    Bilge.Log("Wix Updates NOT SUPPORTED");
                     break;
 
                 default:

@@ -28,9 +28,8 @@ function Log ([string]$Severity, [string]$Text) {
 }
 
 
+Write-Host "Versioner Starts Execution 1.X"
 
-
-Write-Host "Versioner Starts Execution"
 
 $scriptpath = Split-Path $MyInvocation.MyCommand.Path
 [System.Reflection.Assembly]::LoadFrom( ($scriptpath + "\pliskyver.dll"))
@@ -65,14 +64,19 @@ Write-Host ($scriptName + "SourceRootDirectory = $SourceRootDirectory")
 
 Write-Verbose ($scriptName + "Script Completes")
 
-
 $versioner.BaseSearchDir = $SourceRootDirectory
 $versioner.PersistanceValue = $VersionRuleSource
 $versioner.SetAllVersioningItems($VersionsToApply)
 
 $versioner.IncrementAndUpdateAll()
 
-
+$tmp = $versioner.Version4
+Write-Host "##vso[task.setvariable variable=Plisky_Version4]$tmp"
+$tmp = $versioner.Version2
+Write-Host "##vso[task.setvariable variable=Plisky_Version2]$tmp"
+$tmp = $versioner.VersiVersionFullon4
+Write-Host "##vso[task.setvariable variable=Plisky_VersionNumber]$tmp"
+Write-Host "Versioning completed, Plisky_Version4, Plisky_Version2, Plisky_VersionNumber Are Set"
 
 function RegisterEventLogger {
    
