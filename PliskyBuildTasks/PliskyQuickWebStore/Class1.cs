@@ -59,6 +59,7 @@ namespace PliskyDirtyWebStorage {
 
         }
         protected override CompleteVersion ActualLoad() {
+
             string result = HTTPCombined(base.InitValue, "GET", "");
             return JsonConvert.DeserializeObject<CompleteVersion>(result);
 

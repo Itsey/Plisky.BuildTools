@@ -84,6 +84,7 @@
     <Content Include="Documentation\OldCode\VersioningStorageBase.cs.txt" />
     <Content Include="Documentation\OldCode\VersionSupport.cs.txt" />
     <Content Include="TaskPackage\buildtask\images\icon.png" />
+    <Content Include="TestData\BugData\B464_AsmInfo_Source.txt" />
     <Content Include="TestData\TestFileStructure\JustAssemblyVersion.txt" />
     <Content Include="TestData\TestFileStructure\JustInformationalVersion.txt" />
     <Content Include="TestData\TestFileStructure\JustFileVersion.txt" />

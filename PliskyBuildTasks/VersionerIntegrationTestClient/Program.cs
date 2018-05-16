@@ -12,7 +12,7 @@ namespace VersionerIntegrationTestClient {
         private static void Main() {
             Bilge.Log("Test Console app online");
 
-            VersionStorage mvs = new PDirtyStorage("http://localhost/PSDirty/home/getversioninfo");
+            VersionStorage mvs = new PDirtyStorage("http://localhost/PSDirty/home/getversioninfo?id=ddb172c4-f37e-49d3-9841-586cb0ace48d");
             
             var sut = new VersioningTask();
             sut.InjectStore(mvs);

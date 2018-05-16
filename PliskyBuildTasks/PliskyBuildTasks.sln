@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_Dependencies", "_Dependencies\_Dependencies.csproj", "{DB121786-9FDC-4DA8-AA41-937F014C6BE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VersionerIntegrationTestClient", "VersionerIntegrationTestClient\VersionerIntegrationTestClient.csproj", "{16CEC0E5-0EC8-4ACA-BE1D-84B364935B61}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVersionConsole", "VersionerIntegrationTestClient\PliskyVersionConsole.csproj", "{16CEC0E5-0EC8-4ACA-BE1D-84B364935B61}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PliskyVer.Tests", "PliskyVer.Tests\PliskyVer.Tests.csproj", "{2CBE59DA-47A4-46E7-B8AC-3884F5D1993F}"
 EndProject

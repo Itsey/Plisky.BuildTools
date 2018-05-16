@@ -19,7 +19,7 @@ namespace Plisky.Build.Tests {
         [Fact]
         [Trait("xunit", "UserBug")]
         public void Bug464_BuildVersionsNotUpdatedDuringBuild() {
-            string srcFile = @"D:\Files\Code\git\Scratchpad\PliskyVersioning\_Dependencies\TestData\BugData\B464_AsmInfo_Source.txt";
+            string srcFile = @"D:\Files\Code\git\PliskyBuild\PliskyBuildTasks\_Dependencies\TestData\BugData\B464_AsmInfo_Source.txt";
             string fn = ts.GetFileAsTemporary(srcFile);
             var cv = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("Unicorn", "-"), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
             VersionFileUpdater sut = new VersionFileUpdater(cv);
@@ -96,8 +96,7 @@ namespace Plisky.Build.Tests {
 
 
         [Fact]
-        [Trait("XUnit", "true")]
-        [Trait("XUnit", "regression")]
+        [Trait("xunit", "regression")]
         public void Display_Assem4_AllDigits_Correct() {
             var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("0", "."), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
             var fut4 = sut.GetDisplayType(FileUpdateType.Assembly4);
@@ -116,8 +115,7 @@ namespace Plisky.Build.Tests {
         }
 
         [Fact]
-        [Trait("XUnit", "true")]
-        [Trait("XUnit", "regression")]
+        [Trait("xunit", "regression")]
         public void Display_Assem4_AllDigitsMultiIncrement_Correct() {
             var sut = new CompleteVersion(new VersionUnit("2", "", VersionIncrementBehaviour.ContinualIncrement),
                                           new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
@@ -142,8 +140,7 @@ namespace Plisky.Build.Tests {
 
 
         [Fact]
-        [Trait("XUnit", "true")]
-        [Trait("XUnit", "regression")]
+        [Trait("xunit", "regression")]
         public void Display_Assem4_TextComponent_Correct() {
             var sut = new CompleteVersion(new VersionUnit("2"),
                                           new VersionUnit("0", "."),
@@ -167,9 +164,8 @@ namespace Plisky.Build.Tests {
         }
 
 
-        [Fact]
-        [Trait("XUnit", "true")]
-        [Trait("XUnit", "regression")]
+        [Fact]        
+        [Trait("xunit", "regression")]
         public void Display_Assem2_AllDigits_Correct() {
             var sut = new CompleteVersion(new VersionUnit("2"), new VersionUnit("0", "."), new VersionUnit("0", "."), new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement));
             var fut2 = sut.GetDisplayType(FileUpdateType.Assembly2);
@@ -187,9 +183,8 @@ namespace Plisky.Build.Tests {
             Assert.Equal("2.0", verStringFor2);
         }
 
-        [Fact]
-        [Trait("XUnit", "true")]
-        [Trait("XUnit", "regression")]
+        [Fact]        
+        [Trait("xunit", "regression")]
         public void Display_Assem2_AllDigitsMultiIncrement_Correct() {
             var sut = new CompleteVersion(new VersionUnit("2", "", VersionIncrementBehaviour.ContinualIncrement),
                                           new VersionUnit("0", ".", VersionIncrementBehaviour.ContinualIncrement),
